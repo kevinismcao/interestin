@@ -1,6 +1,8 @@
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
+import { MdClose } from 'react-icons/md'
+import logo from '../assets/image/logo2.png';
 
 const ModalContext = React.createContext();
 
@@ -31,8 +33,14 @@ export function Modal({ onClose, children }) {
             <div id="modal-background" onClick={onClose} />
             <div id="modal-content">
                 <div id="modal-window">
-                    <div id="close-button" onClick={onClose}>X</div>
-                    <div>{children}</div>
+                    <div id="m-close-button" onClick={onClose}><MdClose id="close-icon"/></div>
+                    <div className="logo-container">
+                        <img className="mlogo" src={logo} />
+                    </div>
+                    <div className="header-container">
+                        <h1 id="welcome-text">Welcome to interestIn</h1>
+                    </div>
+                    <div id="modal-children">{children}</div>
                 </div>
             </div>
         </div>,

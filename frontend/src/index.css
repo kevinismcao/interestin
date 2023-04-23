@@ -4,16 +4,50 @@
     --lightGray: #efefef;
     --hoveRed: #ad081b;
     --hovelightGray: #e2e2e2;
-    
+    --transparentGray: rgb(0 0 0/0.1)
     --textDefault: #111;
+    --grayContainer: #cdcdcd;
+    --backgrounGray: #fff;
 }
 
 div {
     display: block;
 }
 
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
 h2{
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
+}
+
+a,
+div {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 100%;
+    vertical-align: middle;
+    margin: 0px;
+}
+
+button,
+input {
+    overflow: visible;
+    line-height: normal;
 }

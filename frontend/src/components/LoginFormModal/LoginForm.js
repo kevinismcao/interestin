@@ -29,28 +29,33 @@ function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit}>
+            
+            <label className = "input-label" for="user-credential">Username or Email </label>
+            <div className = "inputbox-container"><input id= "user-credential"
+                type="text"
+                value={credential}
+                placeholder="Username or Email"
+                onChange={(e) => setCredential(e.target.value)}
+                required
+            /></div>
+            
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
+            <label className="input-label" for="password">Password</label>
+            <div className="inputbox-container">
+            <input id= "password"
+                type="password"
+                value={password}
+                placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            /></div>
+        
+            
+            <button className="modal-button" type="submit">Log in</button>
+            <h2 id="modal-or">OR</h2>
+            <button className="modal-demo-button" onClick={()=>{setCredential("Demouser");setPassword("password")}}>Continue as Demo User</button>
         </form>
     );
 }

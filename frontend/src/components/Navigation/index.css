@@ -31,7 +31,7 @@
 
 .right-nav {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 12px;
     height: 50px;
     flex: 0 0 auto;
     flex-direction: row;
@@ -43,6 +43,7 @@
 } 
 
 .login-button {
+    font-weight: 600;
     cursor: pointer;
     border: 0;
     min-width: 60px;
@@ -58,6 +59,7 @@
 }
 
 .signup-button {
+    font-weight: 600;
     cursor: pointer;
     border: 0;
     min-width: 60px;
