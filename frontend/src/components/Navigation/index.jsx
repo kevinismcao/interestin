@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import "./index.css";
-import logo from '../../assets/image/logo.jpg';
+import logo from '../../assets/image/logo2.png';
+import SignupFormModal from '../SignupFormModal';
 
 function Navigation() {
    
@@ -21,7 +22,8 @@ function Navigation() {
         sessionLinks = (
             <>
                 <LoginFormModal/>
-                <NavLink to = "/signup">Sign Up</NavLink>
+                <SignupFormModal/>
+              
             </>
         );
         }
@@ -32,7 +34,7 @@ function Navigation() {
                         <NavLink className='nav-logo-container'to="/">
                             <img className="logo" src={logo} />
                             <div className="logo-name">
-                                <h1 className="name">InterestIn</h1>
+                                <h2 className="logo-name">interestIn</h2>
                             </div>
                         </NavLink>
                     </div>

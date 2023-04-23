@@ -1,27 +1,26 @@
-
-
-div {
-    display: block;
-}
-
 .nav-bar{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     height: 48px;
-    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    /* width: 100%; */
     padding: 16px;
     /* padding-left: 16px;
     padding-right: 16px; */
 }
 
 .logo{
-    height:48px;
+    height:32px;
 }
 
+.logo-name{
+    color: var(--red);
+}
 .nav-logo-container{
+    cursor: pointer;
     height: 48px;
-    
+    text-decoration: none;
     display: flex;
     padding-left: 12px;
     padding-right: 12px;
@@ -31,5 +30,55 @@ div {
 
 
 .right-nav {
+    font-weight: 600;
+    font-size: 16px;
     height: 50px;
+    flex: 0 0 auto;
+    flex-direction: row;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+  
+    
 } 
+
+.login-button {
+    cursor: pointer;
+    border: 0;
+    min-width: 60px;
+    height: 32px;
+    margin-right: 5px;
+    margin-left: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 24px;
+    padding: 0;
+    color: white;
+    background-color: var(--red);
+}
+
+.signup-button {
+    cursor: pointer;
+    border: 0;
+    min-width: 60px;
+    height: 32px;
+    margin-right: 5px;
+        margin-left: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 24px;
+    padding: 0;
+    
+    color: var(--textDefault);
+    background-color: var(--lightGray);
+}
+
+.login-button:hover {
+    background-color: var(--hoveRed);
+    
+}
+
+.signup-button:hover {
+    background-color: var(--hovelightGray);
+
+}

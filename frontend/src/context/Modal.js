@@ -30,7 +30,10 @@ export function Modal({ onClose, children }) {
         <div id="modal">
             <div id="modal-background" onClick={onClose} />
             <div id="modal-content">
-                {children}
+                <div id="modal-window">
+                    <div id="close-button" onClick={onClose}>X</div>
+                    <div>{children}</div>
+                </div>
             </div>
         </div>,
         modalNode
