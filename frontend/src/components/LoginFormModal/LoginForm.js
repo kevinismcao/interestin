@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
+import { NavLink } from "react-router-dom";
+import { IoIosWarning } from 'react-icons/io';
+
 
 function LoginForm() {
     const dispatch = useDispatch();
@@ -31,31 +34,38 @@ function LoginForm() {
         <form onSubmit={handleSubmit}>
             
             <label className = "input-label" for="user-credential">Username or Email </label>
-            <div className = "inputbox-container"><input id= "user-credential"
+            <div className = "inputbox-container">
+                <input className ="inputbox" id= "user-credential"
                 type="text"
                 value={credential}
                 placeholder="Username or Email"
                 onChange={(e) => setCredential(e.target.value)}
                 required
-            /></div>
-            
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
+                />
+            </div>
+            <ul >
+                {errors.map(error => <li className="modal-error-text" key={error}><IoIosWarning id="io-warning"/>{error}</li>)}
             </ul>
             <label className="input-label" for="password">Password</label>
             <div className="inputbox-container">
-            <input id= "password"
+                <input className="inputbox" id= "password"
                 type="password"
                 value={password}
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
-            /></div>
+                />
+            </div>
         
             
-            <button className="modal-button" type="submit">Log in</button>
+            <button className="modal-button" id="modal-button-login" type="submit">Log in</button>
             <h2 id="modal-or">OR</h2>
-            <button className="modal-demo-button" onClick={()=>{setCredential("Demouser");setPassword("password")}}>Continue as Demo User</button>
+            <button className="modal-button" id="modal-button-demo" onClick={()=>{setCredential("Demouser");setPassword("password")}}>Continue as Demo User</button>
+            <div className="warning-text">
+                <p>This clone is for educational purposes only.</p>
+                <p>Please do not put any sensitive information.</p>
+            </div>
+            <div className="divide-line"></div>
         </form>
     );
 }

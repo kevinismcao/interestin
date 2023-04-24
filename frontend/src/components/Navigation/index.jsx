@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
 import "./index.css";
-import logo from '../../assets/image/logo2.png';
-import SignupFormModal from '../SignupFormModal';
+import logo from '../../assets/image/logo3.png';
+import LoginSignupModal from '../LoginSignupModal';
+import { RxMagnifyingGlass } from 'react-icons/rx';
+import { SiGithub } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 function Navigation() {
    
     const sessionUser = useSelector(state => state.session.user) ;
     let sessionLinks;
+    const [homeClassName, setHomeClassName] = useState('nav-button-on')
+    const [createClassName, setCreateClassName] = useState('nav-button-off')
     if (sessionUser) { 
-        console.log("hello")
-        console.log(sessionUser,"sessionUser")
-        sessionLinks = (
         
-            <ProfileButton user = {sessionUser} />
+        return (
+            <ul className='nav-bar'>
+                <div className='left-nav'>
+                    <div className='nav-logo'>
+                        <NavLink className='nav-logo-container' to="/">
+                            <img className="logo" src={logo} />
+                        </NavLink>
+                    </div>
+                    <div className={homeClassName} onClick={(e) => { setHomeClassName('nav-button-on'); setCreateClassName('nav-button-off')}}>
+                        <a to="/" className='nav-container'><span className="nav-title">Home</span></a>
+                    </div>
+                    <div className={createClassName} onClick={(e) => { setHomeClassName('nav-button-off'); setCreateClassName('nav-button-on') }}>
+                        <a to="/" className='nav-container'><span className="nav-title">Create</span></a>
+                    </div>
+                </div>
+                <div className='nav-search-bar-container'>
+                    <div className='search-bar'>
+                        <div className='search-bar-background'>
+                            <div className='magnifying-glass'><RxMagnifyingGlass id="mag-glass"/></div>
+                            <div className='search-input-box'><input id='search-input' type="text" placeholder='Search'/></div>
+                        </div>
+                    </div>
+                </div>
+                <div className='right-nav'>
+                    <div className='icon-container'><a className='link-icon' href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>
+                    <div className='icon-container'><a className='link-icon' href='https://www.linkedin.com/in/ningxiao-cao/'><FaLinkedinIn id='linkedin-icon'/></a></div>
+                    <div className='icon-container'><a className='link-icon' ><FaUserCircle id='user-icon' /></a></div>
+                    <ProfileButton user={sessionUser} />
+                </div>
+            </ul>
         );
     } else {
-        sessionLinks = (
-            <>
-                <LoginFormModal/>
-                <SignupFormModal/>
-              
-            </>
-        );
-        }
         return (
             <ul className='nav-bar'>
                 <div className='left-nav'>
@@ -34,16 +57,19 @@ function Navigation() {
                         <NavLink className='nav-logo-container'to="/">
                             <img className="logo" src={logo} />
                             <div className="logo-name">
-                                <h2 className="logo-name">interestIn</h2>
+                                <h2 id="logo-name">interestIn</h2>
                             </div>
                         </NavLink>
                     </div>
                 </div>
                 <div className='right-nav'>
-                     {sessionLinks}
+                    <a className='text-link' href='https://github.com/kevinismcao'>Github</a>
+                    <a className='text-link' href='https://www.linkedin.com/in/ningxiao-cao/'>LinkedIn</a>
+                    <LoginSignupModal/>
                 </div>
             </ul>
         );
+    }
     
 }
 

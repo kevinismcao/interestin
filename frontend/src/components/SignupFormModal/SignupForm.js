@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./SignupForm.css";
+import { IoIosWarning } from 'react-icons/io';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -38,46 +39,56 @@ function SignupFormPage() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-                <input
+            <label className="input-label" for="email-input">Email</label>
+            <div className = "inputbox-container">
+                <input className="inputbox"
                     type="text"
                     value={email}
+                    placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Username
-                <input
+            </div>
+            <label className="input-label" for="username-input">Username</label>
+            <div className="inputbox-container">
+                <input className="inputbox"
                     type="text"
                     value={username}
+                    placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Password
-                <input
+            </div>
+            <ul >
+                {errors.map(error => <li className="modal-error-text" key={error}><IoIosWarning id="io-warning" />{error}</li>)}
+            </ul>
+            <label className="input-label" for="password">Password</label>
+            <div className="inputbox-container">
+                <input className="inputbox" id="password"
                     type="password"
                     value={password}
+                    placeholder="Create a assword"
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Confirm Password
-                <input
+            </div>
+            <label className="input-label" for="confirm-password">Confirm Password</label>
+            <div className="inputbox-container">
+                <input className="inputbox" id="confirm-password"
                     type="password"
                     value={confirmPassword}
+                    placeholder="Confirm password"
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 />
-            </label>
-            <button type="submit">Sign Up</button>
+            </div>
+        
+            <button className="modal-button" id="modal-button-login" type="submit">Sign up</button>
+            <div className="warning-text">
+                <p>This clone is for educational purposes only.</p>
+                <p>Please do not put any sensitive information.</p>
+            </div>
+            <div className="divide-line"></div>
         </form>
     );
 }

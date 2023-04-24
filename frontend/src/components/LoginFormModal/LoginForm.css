@@ -12,15 +12,16 @@
 
 .inputbox-container{
     position: relative;
-    margin-bottom: 7px;
+    margin: 8px 0px;
 }
 
-#user-credential{
+.inputbox{
     border-color: var(--grayContainer);
-    min-height: 24px;
-    padding:8px;
-    width: 250px;
-    max-width: 250px;
+    min-height: 48px;
+    padding:8px 16px;
+    box-sizing: border-box;
+    width: 268px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -36,27 +37,6 @@
 
 } 
 
-#password {
-    border-color: var(--grayContainer);
-    min-height: 24px;
-    padding: 8px;
-    width: 250px;
-    max-width: 250px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    appearance: none;
-    border-radius: 16px;
-    border-style: solid;
-    border-width: 2px;
-    color: var(--textDefault);
-    background-color: var(--backgrounGray);
-
-}
-
 .modal-button{
         border: 0px;
         height: 40px;
@@ -67,41 +47,59 @@
         font-size: 15px;
         font-weight: bold;
         cursor: pointer;
-        margin-top: 24px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         vertical-align: middle;
         text-align: center;
-        background-color: rgb(230, 0, 35);
         color: rgb(255, 255, 255);
         width: 100%;
 }
-
-.modal-button:hover{
+#modal-button-login{
+   background-color: rgb(230, 0, 35); 
+}
+#modal-button-login:hover{
     background-color: var(--hoveRed);
+}
+#modal-button-demo{
+    background-color: #0074e8;
+}
+#modal-button-demo:hover {
+    background-color: #023d79;
 }
 
 #modal-or{
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-size: 15px;
-}
-
-.modal-demo-button {
-    border: 0px;
-    height: 40px;
-    display: inline-block;
-    border-radius: 20px;
-    -webkit-font-smoothing: antialiased;
-    padding: 0px 18px;
-    font-size: 15px;
     font-weight: bold;
-    cursor: pointer;
-    vertical-align: middle;
-    text-align: center;
-    background-color: #0074e8;
-    color: rgb(255, 255, 255);
-    width: 100%;
+    font-size: 14px;
 }
 
-.modal-demo-button:hover {
-    background-color: #023d79;
+.warning-text{
+    margin: 10px auto;
+    font-size: 11px;
+    color: #767676;
+
+}
+
+.divide-line{
+    border-bottom: 1px solid #dedede;
+    margin: 10px auto;
+    width: 110px;
+}
+
+
+
+#io-warning{
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.modal-error-text{
+    display: flex;
+    text-align: left;
+    width: 100%;
+    align-items: center;
+    margin: 8px;
+    font-size: 12px !important;
+    font-weight: 100;
+    color: var(--textError);
 }

@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
-import { MdClose } from 'react-icons/md'
-import logo from '../assets/image/logo2.png';
+import { MdClose } from 'react-icons/md';
+import logo from '../assets/image/logo3.png';
 
 const ModalContext = React.createContext();
 
