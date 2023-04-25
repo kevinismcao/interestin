@@ -182,14 +182,120 @@ pin_24 = Pin.create({title: "Nature's Pathway Through the Forest", uploader_id: 
 image_24 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/nature-bridge-forest.jpeg")
 pin_24.image.attach(io: image_24, filename:"nature-bridge-forest.jpeg")
 
-pin_ = Pin.create({title: "", uploader_id: user_.id, description: "n"})
-image_ = URI.open("")
-pin_.image.attach(io: image_, filename:"")
+pin_25 = Pin.create({title: "Crown Jewels of Nature", uploader_id: user_5.id, description: "A stunning view of the mountains, their majestic peaks crowned with snow and surrounded by a verdant forest. "})
+image_25 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/nature-mountain+crown.jpeg")
+pin_25.image.attach(io: image_25, filename:"nature-mountain+crown.jpeg")
 
-pin_ = Pin.create({title: "", uploader_id: user_.id, description: "n"})
-image_ = URI.open("")
-pin_.image.attach(io: image_, filename:"")
+pin_26 = Pin.create({title: "A Cascading Waterfall in a Picturesque Landscape", uploader_id: user_6.id, description: "This captivating image captures the tranquil beauty of a spring-fed waterfall in a picturesque landscape."})
+image_26 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/nature-spring-waterfall.jpeg")
+pin_26.image.attach(io: image_26, filename:"nature-spring-waterfall.jpeg")
 
-pin_ = Pin.create({title: "", uploader_id: user_.id, description: "n"})
-image_ = URI.open("")
-pin_.image.attach(io: image_, filename:"")
+pin_27 = Pin.create({title: "New York City at Dawn", uploader_id: user_1.id, description: "The vibrant energy of New York City at dawn. The image showcases a breathtaking view of the city's iconic skyline, with its towering skyscrapers rising high into the sky. "})
+image_27 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/new-york-morning-shot.jpeg")
+pin_27.image.attach(io: image_27, filename:"new-york-morning-shot.jpeg")
+
+pin_28 = Pin.create({title: "Adorable Puppy: A Playful and Affectionate Companion", uploader_id: user_2.id, description: "A close-up of the puppy's face, with its big, innocent eyes, fluffy fur, and a curious expression that invites the viewer to engage with its playful and loving personality."})
+image_28 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/puppy.jpeg")
+pin_28.image.attach(io: image_28, filename:"puppy.jpeg")
+
+pin_29 = Pin.create({title: "The Red Galaxy: A Fiery and Mysterious Cosmic Wonder", uploader_id: user_5.id, description: "This awe-inspiring image captures the beauty and mystery of a red galaxy, an immense celestial object located billions of light-years away from our planet."})
+image_29 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/red-galaxy.jpeg")
+pin_29.image.attach(io: image_29, filename:"red-galaxy.jpeg")
+
+pin_30 = Pin.create({title: "Sandstone Cliff Waterfall", uploader_id: user_4.id, description: "The awe-inspiring beauty and power of a sandstone cliff waterfall, a natural wonder located in a remote and pristine wilderness area. "})
+image_30 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/sandstone-cliff-waterfall.jpeg")
+pin_30.image.attach(io: image_30, filename:"sandstone-cliff-waterfall.jpeg")
+
+pin_31 = Pin.create({title: "Blue Wave", uploader_id: user_3.id, description: "The majesty and power of the ocean, showcasing a towering blue wave rising up against the horizon. "})
+image_31 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/sea-blue-wave.jpeg")
+pin_31.image.attach(io: image_31, filename:"sea-blue-wave.jpeg")
+
+pin_32 = Pin.create({title: "A Winter's Tale: Serenity on a Snowy Road", uploader_id: user_1.id, description: "The serene beauty of a winter landscape, with a winding snowy road leading through a forest of towering trees."})
+image_32 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/snow+road.jpeg")
+pin_32.image.attach(io: image_32, filename:"snow+road.jpeg")
+
+pin_33 = Pin.create({title: "A Winter Wonderland", uploader_id: user_3.id, description: "The misty fog that envelops the mountains creates an ethereal atmosphere, and the snow-covered peaks add to the winter wonderland feel of the image. "})
+image_33 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/snow-foggy-mountain.jpeg")
+pin_33.image.attach(io: image_33, filename:"snow-foggy-mountain.jpeg")
+
+pin_34 = Pin.create({title: "Autumn Leaves", uploader_id: user_5.id, description: "The leaves, in shades of red, orange, and yellow, are a riot of colors that evoke a sense of joy and wonder in the viewer."})
+image_34 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/leaves.jpeg")
+pin_34.image.attach(io: image_34, filename:"leaves.jpeg")
+
+pin_35 = Pin.create({title: "Minimalist Greenery: Potted Plants on White Background", uploader_id: user_6.id, description: "This image features a collection of small potted plants placed on a white surface, set against a white background."})
+image_35 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/plants_in_white.jpeg")
+pin_35.image.attach(io: image_35, filename:"plants_in_white.jpeg")
+
+pin_36 = Pin.create({title: "Cozy Evening", uploader_id: user_1.id, description: "The warm and inviting ambiance of a cozy evening at home. A white hardcover book is positioned on a wooden table, with a lit candle placed beside it. "})
+image_36 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/white_book_candle.jpeg")
+pin_36.image.attach(io: image_36, filename:"white_book_candle.jpeg")
+
+pin_37 = Pin.create({title: "Minimalist Notebook", uploader_id: user_4.id, description: "A simple and elegant notebook on a clean white background."})
+image_37 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/clean_note_book.jpeg")
+pin_37.image.attach(io: image_37, filename:"clean_note_book.jpeg")
+
+pin_38 = Pin.create({title: "DIY Crafts with Colorful Leaves", uploader_id: user_6.id, description: "A fun and creative DIY project involving colorful leaves. "})
+image_38 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/leaves_craft.jpeg")
+pin_38.image.attach(io: image_38, filename:"leaves_craft.jpeg")
+
+pin_39 = Pin.create({title: "Scenic Road Trip Adventure", uploader_id: user_6.id, description: "The winding road leads through a picturesque landscape, with mountains and trees stretching out as far as the eye can see. "})
+image_39 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/travel_road_trip.jpeg")
+pin_39.image.attach(io: image_39, filename:"travel_road_trip.jpeg")
+
+pin_40 = Pin.create({title: "Peaceful Boat Ride in Nature", uploader_id: user_5.id, description: "A lone boat glides smoothly on the calm waters of a serene lake surrounded by lush green trees and a clear blue sky."})
+image_40 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/boat_nature.jpeg")
+pin_40.image.attach(io: image_40, filename:"boat_nature.jpeg")
+
+pin_41 = Pin.create({title: "Ice Cave", uploader_id: user_1.id, description: "The ice cave is lit by a faint blue light, creating an ethereal and otherworldly atmosphere."})
+image_41 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/ice-cave.jpeg")
+pin_41.image.attach(io: image_41, filename:"ice-cave.jpeg")
+
+pin_42 = Pin.create({title: "Old Church", uploader_id: user_1.id, description: "This is a photo of an old church, with a beautiful steeple and intricate architecture. The church is made of stone and has stained glass windows. "})
+image_42 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/church.jpeg")
+pin_42.image.attach(io: image_42, filename:"")
+
+pin_43 = Pin.create({title: "Polar Bear", uploader_id: user_2.id, description: "A polar bear standing on a snowy terrain with its mouth slightly open."})
+image_43 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/polar_bear.jpeg")
+pin_43.image.attach(io: image_43, filename:"polar_bear.jpeg")
+
+pin_44 = Pin.create({title: "Flower in vase", uploader_id: user_4.id, description: "A pink flower with delicate petals, placed in a glass vase."})
+image_44 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/flower_in_vase.jpeg")
+pin_44.image.attach(io: image_44, filename:"flower_in_vase.jpeg")
+
+pin_45 = Pin.create({title: "Green", uploader_id: user_3.id, description: "Plant in white pottery."})
+image_45 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/green.jpeg")
+pin_45.image.attach(io: image_45, filename:"green.jpeg")
+
+pin_46 = Pin.create({title: "Fresh Red and Green Apples on a Wooden Table", uploader_id: user_5.id, description: "A shiny red apple, with drops of water on its surface. "})
+image_46 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/apple.jpeg")
+pin_46.image.attach(io: image_46, filename:"apple.jpeg")
+
+pin_47 = Pin.create({title: "Makeup Products and Tools", uploader_id: user_6.id, description: "A variety of makeup products and tools, including brushes, eyeshadow palettes, lipsticks, and blushes."})
+image_47 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/make_up.jpeg")
+pin_47.image.attach(io: image_47, filename:"make_up.jpeg")
+
+pin_48 = Pin.create({title: "Gourmet Dish on a White Plate", uploader_id: user_6.id, description: "A delicious gourmet dish, consisting of a piece of meat or fish, roasted vegetables, and garnished with herbs, served on a simple white plate. "})
+image_48 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/plate.jpeg")
+pin_48.image.attach(io: image_48, filename:"plate.jpeg")
+
+pin_49 = Pin.create({title: "Laptop on a desk", uploader_id: user_5.id, description: "A black laptop sitting on a wooden desk. The laptop is open and displaying a screen with various icons and folders visible."})
+image_49 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/laptop.jpeg")
+pin_49.image.attach(io: image_49, filename:"laptop.jpeg")
+
+pin_50 = Pin.create({title: "Wine and Fruit", uploader_id: user_4.id, description: "A wooden table with a bottle of red wine, a glass of wine, and various fruits such as grapes, apples, and pears."})
+image_50 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/wine_fruit.jpeg")
+pin_50.image.attach(io: image_50, filename:"wine_fruit.jpeg")
+
+board_pin_1 = BoardPin.create({board_id: board_1.id, pin_id: pin_1.id})
+board_pin_2 = BoardPin.create({board_id: board_1.id, pin_id: pin_2.id})
+board_pin_3 = BoardPin.create({board_id: board_1.id, pin_id: pin_3.id})
+board_pin_4 = BoardPin.create({board_id: board_1.id, pin_id: pin_4.id})
+board_pin_5 = BoardPin.create({board_id: board_1.id, pin_id: pin_5.id})
+board_pin_6 = BoardPin.create({board_id: board_1.id, pin_id: pin_6.id})
+board_pin_7 = BoardPin.create({board_id: board_1.id, pin_id: pin_7.id})
+board_pin_8 = BoardPin.create({board_id: board_1.id, pin_id: pin_8.id})
+board_pin_9 = BoardPin.create({board_id: board_1.id, pin_id: pin_9.id})
+board_pin_10 = BoardPin.create({board_id: board_1.id, pin_id: pin_10.id})
+board_pin_11 = BoardPin.create({board_id: board_1.id, pin_id: pin_11.id})
+board_pin_12 = BoardPin.create({board_id: board_1.id, pin_id: pin_12.id})
+board_pin_13 = BoardPin.create({board_id: board_1.id, pin_id: pin_13.id})
