@@ -41,7 +41,7 @@ Pin.destroy_all
 BoardPin.destroy_all
 Comment.destroy_all
 PinsUser.destroy_all
-Follow.destroy_all
+
 
 
 #user:
@@ -77,11 +77,11 @@ user_7 = User.create({username: 'JimmyTsai', email:'jimmytsai@gmail.com', passwo
 user_7.save!
 
 #boards:
-Board.new({name: 'nature', description: 'rendering material', owner_id: demo_user.id})
-board_1 = Board.create({name: 'nature', description: 'rendering material', owner_id: demo_user.id})
-board_2 = Board.create({name: 'cat', description: 'cute cats', owner_id: user_1.id})
+
+board_1 = Board.create({name: 'nature', description: 'rendering material', owner_id: user_1.id})
+board_2 = Board.create({name: 'photography', description: 'cute cats', owner_id: demo_user.id})
 board_3 = Board.create({name: 'animal', owner_id: user_1.id})
-board_4 = Board.create({name: 'space', owner_id: user_1.id})
+board_4 = Board.create({name: 'space', owner_id: user_2.id})
 board_5 = Board.create({name: 'food', description: 'food I want to try', owner_id: demo_user.id})
 
 
@@ -286,16 +286,74 @@ pin_50 = Pin.create({title: "Wine and Fruit", uploader_id: user_4.id, descriptio
 image_50 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/wine_fruit.jpeg")
 pin_50.image.attach(io: image_50, filename:"wine_fruit.jpeg")
 
-board_pin_1 = BoardPin.create({board_id: board_1.id, pin_id: pin_1.id})
-board_pin_2 = BoardPin.create({board_id: board_1.id, pin_id: pin_2.id})
-board_pin_3 = BoardPin.create({board_id: board_1.id, pin_id: pin_3.id})
-board_pin_4 = BoardPin.create({board_id: board_1.id, pin_id: pin_4.id})
-board_pin_5 = BoardPin.create({board_id: board_1.id, pin_id: pin_5.id})
-board_pin_6 = BoardPin.create({board_id: board_1.id, pin_id: pin_6.id})
-board_pin_7 = BoardPin.create({board_id: board_1.id, pin_id: pin_7.id})
-board_pin_8 = BoardPin.create({board_id: board_1.id, pin_id: pin_8.id})
-board_pin_9 = BoardPin.create({board_id: board_1.id, pin_id: pin_9.id})
-board_pin_10 = BoardPin.create({board_id: board_1.id, pin_id: pin_10.id})
-board_pin_11 = BoardPin.create({board_id: board_1.id, pin_id: pin_11.id})
-board_pin_12 = BoardPin.create({board_id: board_1.id, pin_id: pin_12.id})
-board_pin_13 = BoardPin.create({board_id: board_1.id, pin_id: pin_13.id})
+#nature
+board_pin_1 = BoardPin.create({board_id: board_1.id, pin_id: pin_2.id})
+board_pin_2 = BoardPin.create({board_id: board_1.id, pin_id: pin_6.id})
+board_pin_3 = BoardPin.create({board_id: board_1.id, pin_id: pin_12.id})
+board_pin_4 = BoardPin.create({board_id: board_1.id, pin_id: pin_14.id})
+board_pin_5 = BoardPin.create({board_id: board_1.id, pin_id: pin_17.id})
+board_pin_6 = BoardPin.create({board_id: board_1.id, pin_id: pin_21.id})
+board_pin_7 = BoardPin.create({board_id: board_1.id, pin_id: pin_22.id})
+board_pin_8 = BoardPin.create({board_id: board_1.id, pin_id: pin_24.id})
+board_pin_9 = BoardPin.create({board_id: board_1.id, pin_id: pin_25.id})
+board_pin_10 = BoardPin.create({board_id: board_1.id, pin_id: pin_26.id})
+board_pin_11 = BoardPin.create({board_id: board_1.id, pin_id: pin_30.id})
+board_pin_12 = BoardPin.create({board_id: board_1.id, pin_id: pin_31.id})
+board_pin_13 = BoardPin.create({board_id: board_1.id, pin_id: pin_32.id})
+board_pin_14 = BoardPin.create({board_id: board_1.id, pin_id: pin_33.id})
+board_pin_15 = BoardPin.create({board_id: board_1.id, pin_id: pin_34.id})
+board_pin_16 = BoardPin.create({board_id: board_1.id, pin_id: pin_40.id})
+board_pin_17 = BoardPin.create({board_id: board_1.id, pin_id: pin_41.id})
+
+pins_user_1 = PinsUser.create({user_id: user_1.id, pin_id: pin_19.id, saved_pin: true})
+pins_user_2 = PinsUser.create({user_id: demo_user.id, pin_id: pin_20.id, saved_pin: true})
+pins_user_3 = PinsUser.create!({user_id: demo_user.id, pin_id: pin_21.id, saved_pin: true})
+pins_user_4 = PinsUser.create({user_id: user_1.id, pin_id: pin_22.id, saved_pin: true})
+pins_user_5 = PinsUser.create({user_id: user_1.id, pin_id: pin_23.id, saved_pin: true})
+pins_user_6 = PinsUser.create({user_id: user_1.id, pin_id: pin_24.id, saved_pin: true})
+pins_user_7 = PinsUser.create({user_id: user_1.id, pin_id: pin_25.id, saved_pin: true})
+pins_user_8 = PinsUser.create({user_id: demo_user.id, pin_id: pin_24.id, saved_pin: true})
+pins_user_9 = PinsUser.create({user_id: demo_user.id, pin_id: pin_25.id, saved_pin: true})
+pins_user_10 = PinsUser.create({user_id: user_1.id, pin_id: pin_26.id, saved_pin: true})
+pins_user_11 = PinsUser.create({user_id: user_1.id, pin_id: pin_27.id, saved_pin: true})
+pins_user_12 = PinsUser.create({user_id: user_1.id, pin_id: pin_28.id, saved_pin: true})
+pins_user_13 = PinsUser.create({user_id: user_1.id, pin_id: pin_29.id, saved_pin: true})
+pins_user_14 = PinsUser.create({user_id: user_1.id, pin_id: pin_30.id, saved_pin: true})
+pins_user_15 = PinsUser.create({user_id: user_1.id, pin_id: pin_31.id, saved_pin: true})
+pins_user_16 = PinsUser.create({user_id: user_1.id, pin_id: pin_32.id, saved_pin: true})
+pins_user_17= PinsUser.create({user_id: user_1.id, pin_id: pin_33.id, saved_pin: true})
+
+#photography
+board_pin_18 = BoardPin.create({board_id: board_2.id, pin_id: pin_1.id})
+board_pin_19 = BoardPin.create({board_id: board_2.id, pin_id: pin_4.id})
+board_pin_20 = BoardPin.create({board_id: board_2.id, pin_id: pin_5.id})
+board_pin_21 = BoardPin.create({board_id: board_2.id, pin_id: pin_6.id})
+board_pin_22 = BoardPin.create({board_id: board_2.id, pin_id: pin_14.id})
+board_pin_23 = BoardPin.create({board_id: board_2.id, pin_id: pin_15.id})
+board_pin_24 = BoardPin.create({board_id: board_2.id, pin_id: pin_37.id})
+board_pin_25 = BoardPin.create({board_id: board_2.id, pin_id: pin_42.id})
+
+#animal
+board_pin_26 = BoardPin.create({board_id: board_3.id, pin_id: pin_3.id})
+board_pin_27 = BoardPin.create({board_id: board_3.id, pin_id: pin_6.id})
+board_pin_28 = BoardPin.create({board_id: board_3.id, pin_id: pin_8.id})
+board_pin_29 = BoardPin.create({board_id: board_3.id, pin_id: pin_9.id})
+board_pin_30 = BoardPin.create({board_id: board_3.id, pin_id: pin_28.id})
+
+#space
+board_pin_31 = BoardPin.create({board_id: board_4.id, pin_id: pin_2.id})
+board_pin_32 = BoardPin.create({board_id: board_4.id, pin_id: pin_16.id})
+board_pin_33 = BoardPin.create({board_id: board_4.id, pin_id: pin_23.id})
+
+
+#food
+
+board_pin_34 = BoardPin.create({board_id: board_5.id, pin_id: pin_7.id})
+board_pin_35 = BoardPin.create({board_id: board_5.id, pin_id: pin_10.id})
+board_pin_36 = BoardPin.create({board_id: board_5.id, pin_id: pin_11.id})
+board_pin_37 = BoardPin.create({board_id: board_5.id, pin_id: pin_15.id})
+board_pin_38 = BoardPin.create({board_id: board_5.id, pin_id: pin_18.id})
+board_pin_39 = BoardPin.create({board_id: board_5.id, pin_id: pin_46.id})
+board_pin_40 = BoardPin.create({board_id: board_5.id, pin_id: pin_48.id})
+board_pin_41 = BoardPin.create({board_id: board_5.id, pin_id: pin_50.id})
+

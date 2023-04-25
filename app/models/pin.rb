@@ -10,8 +10,8 @@
 #  updated_at  :datetime         not null
 #
 class Pin < ApplicationRecord
-    # validate :ensure_image
-    # has_one_attached :image
+    validate :ensure_image
+    has_one_attached :image
 
     validates :title, presence: true
 
@@ -27,6 +27,11 @@ class Pin < ApplicationRecord
         through: :board_pin_relations,
         source: :board
 
+    def ensure_image
+      unless self.image.attached?
+        errors[:image] << "must be attached"
+      end
+    end
     
 
 
