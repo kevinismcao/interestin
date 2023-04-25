@@ -23,7 +23,17 @@ class User < ApplicationRecord
     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
-  
+
+  has_many :boards,
+    foreign_key: :owner_id,
+    class_name: :Board,
+    dependent: :destroy
+
+  has_many :pins,
+    foreign_key: :uploader_id,
+    class_name: :Pin
+
+    
   before_validation :ensure_session_token
 
   def self.find_by_credentials(credential, password)
