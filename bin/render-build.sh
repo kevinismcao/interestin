@@ -1,4 +1,4 @@
-#!/user/bin/env bash
+#!/user/bin/env zsh
 
 # exit on error
 set -o errexit
