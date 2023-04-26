@@ -1,0 +1,63 @@
+img {
+    
+    max-height: var(--pinDefaultHeight);
+}
+
+.pin-photo{
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    padding-bottom: 16px;
+    /* padding-left: 8px;
+    padding-right: 8px; */
+}
+
+.pin-photo > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+    width: var(--pinDefaultWidth);
+}
+
+
+.pins-index-container {
+    column-count: 2;
+    column-gap: 16px;
+}
+
+
+@media (min-width: 756px){
+    .pins-index-container {
+        column-count: 3;
+        column-gap: 16px;
+    }
+}
+
+@media (min-width: 1008px) {
+    .pins-index-container {
+        column-count: 4;
+        column-gap: 16px;
+    }
+}
+
+@media (min-width: 1260px) {
+    .pins-index-container {
+        column-count: 5;
+        column-gap: 16px;
+    }
+}
+
+@media (min-width: 1512px) {
+    .pins-index-container {
+        column-count: 6;
+        column-gap: 16px;
+    }
+}
+
+@media (min-width: 1764px) {
+    .pins-index-container {
+        column-count: 7;
+        column-gap: 16px;
+    }
+}

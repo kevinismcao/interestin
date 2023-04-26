@@ -35,5 +35,15 @@ class Pin < ApplicationRecord
     
 
 
+    def self.generate_random_pins(num)
+        pins = []
+        num.to_i.times do |i| 
+            offsetnum = rand(Pin.count)
+            pins.push(Pin.offset(offsetnum).first)
+        end
+        return pins
+    end
+
+    
 
 end

@@ -8,8 +8,16 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: :create
     resource :session, only: [:show, :create, :destroy]
+ 
+ 
+    get 'pins/homepage', to: 'pins#homepage_pins', as: 'homepage_pins'
+    resources :pins, only: [:create, :index, :update, :destroy, :show]
+
+ 
+ 
+ 
   end
 
-
+  
   get '*path', to: "static_pages#frontend"
 end

@@ -1,0 +1,1 @@
+export const HOMEPAGE_NUM_PINS = 50;
