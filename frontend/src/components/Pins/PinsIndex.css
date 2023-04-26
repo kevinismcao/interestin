@@ -3,7 +3,7 @@ img {
     max-height: var(--pinDefaultHeight);
 }
 
-.pin-photo{
+.pin-photo-container{
     margin: 0;
     display: grid;
     grid-template-rows: 1fr auto;
@@ -24,6 +24,7 @@ img {
 .pins-index-container {
     column-count: 2;
     column-gap: 16px;
+    
 }
 
 
