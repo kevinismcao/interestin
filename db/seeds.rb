@@ -49,31 +49,38 @@ PinsUser.destroy_all
 demo_user = User.create({username: 'DemoUser', email: 'demouser@gmail.com', password: 'password'})
 
 user_1 = User.new({username: 'NingxiaoCao', email:'ningxiaocao@gmail.com', password: 'password'})
-# pic_1 = URI.open("")
-# user_1.image.attach(io: pic_1, filename: "???.jpg")
+pic_1 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/ningxiao.jpg")
+user_1.image.attach(io: pic_1, filename: "ningxiao.jpg")
 user_1.save!
 
 user_2 = User.create({username: 'JingjingZhang', email:'jingjingzhang@gmail.com', password: 'password'})
+pic_2 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/jingjing.jpg")
+user_2.image.attach(io: pic_2, filename: "jingjing.jpg")
 user_2.save!
 
 user_3 = User.create({username: 'JayChou', email:'jaychou@gmail.com', password: 'password'})
-
+pic_3 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/jaychou.jpg")
+user_3.image.attach(io: pic_3, filename: "jaychou.jpg")
 user_3.save!
 
 user_4 = User.create({username: 'KobeB', email:'kobeb@gmail.com',password: 'password'})
-
+pic_4 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/kobe.jpg")
+user_4.image.attach(io: pic_4, filename: "kobe.jpg")
 user_4.save!
 
 user_5 = User.create({username: 'JackieC', email:'jackiec@gmail.com', password: 'password'})
-
+pic_5 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/jackie.jpg")
+user_5.image.attach(io: pic_5, filename: "jackie.jpg")
 user_5.save!
 
 user_6 = User.create({username: 'LilyRose', email:'lilyrose@gmail.com', password: 'password'})
-
+pic_6 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/lily.jpg")
+user_6.image.attach(io: pic_6, filename: "lily.jpg")
 user_6.save!
 
 user_7 = User.create({username: 'JimmyTsai', email:'jimmytsai@gmail.com', password: 'password'})
-
+pic_7 = URI.open("https://interestin-seeds.s3.us-west-1.amazonaws.com/profile/jimmy.jpg")
+user_7.image.attach(io: pic_7, filename: "jimmy.jpg")
 user_7.save!
 
 #boards:

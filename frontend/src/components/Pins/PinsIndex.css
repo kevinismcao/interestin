@@ -5,6 +5,7 @@ img {
 
 .pin-photo-container{
     margin: 0;
+    width: 236px;
     display: grid;
     grid-template-rows: 1fr auto;
     margin-bottom: 10px;

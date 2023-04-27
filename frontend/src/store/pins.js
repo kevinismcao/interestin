@@ -21,6 +21,7 @@ const removePin = pinId => ({
 
 export const getPin = pinId => state => {
     return state?.entities.pins ? state.entities.pins[pinId] : null;
+    
 }
 
 export const getPins = state => {
@@ -39,9 +40,10 @@ export const fetchPins = () => async (dispatch) => {
 };
 
 export const fetchPin = pinId => async (dispatch) => {
-    const response = await fetch(`/api/posts/${pinId}`);
+    const response = await fetch(`/api/pins/${pinId}`);
 
     if (response.ok) {
+        
         const pin = await response.json();
         dispatch(receivePin(pin));
     }
@@ -51,7 +53,6 @@ export const fetchHomepagePins = numPins => async (dispatch) => {
     const response = await fetch(`/api/pins/homepage?numPins=${numPins}`);
     if (response.ok) {
         const pins = await response.json();
-        console.log(pins, "fetched pins")
         dispatch(receivePins(pins));
     }
 }

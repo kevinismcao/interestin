@@ -11,7 +11,11 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  
+  has_one_attached :image
   has_secure_password
+
+
 
   validates :username, 
     uniqueness: true, 

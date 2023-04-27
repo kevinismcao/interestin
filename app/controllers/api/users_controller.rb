@@ -1,6 +1,17 @@
 class Api::UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + ['password']
 
+
+  def index
+      @users = User.find_by(id: params[:id])
+      if @users
+        render "api/users/index"
+      else
+      render json: ["Oops, something went wrong"], status: 422
+      end
+  end
+
+
   def create
     @user = User.new(user_params)
 
@@ -12,6 +23,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    render "api/users/show"
+  end
   private
 
   def user_params
