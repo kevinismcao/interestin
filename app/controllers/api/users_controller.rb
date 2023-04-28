@@ -3,9 +3,9 @@ class Api::UsersController < ApplicationController
 
 
   def index
-      @users = User.find_by(id: params[:id])
+      @users = User.all
       if @users
-        render "api/users/index"
+        render :index
       else
       render json: ["Oops, something went wrong"], status: 422
       end
@@ -30,6 +30,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password)
+    params.require(:user).permit(:email, :username, :password, :image, )
   end
 end

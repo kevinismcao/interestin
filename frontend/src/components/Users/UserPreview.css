@@ -1,0 +1,26 @@
+.user-preview-container{
+    margin-top: 8px;
+    display: flex;
+
+}
+
+.user-profile-picture-small{
+    border-radius: 50%;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    color: #767575;
+}
+
+.username{
+    margin-left: 4px;
+    margin-top: 9px;
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-width: 100%;
+    overflow: hidden;
+    word-break: break-word;
+    color: black;
+}

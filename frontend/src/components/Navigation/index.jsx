@@ -26,12 +26,12 @@ function Navigation() {
                             <img className="logo" src={logo} />
                         </NavLink>
                     </div>
-                    <div className={homeClassName} onClick={(e) => { setHomeClassName('nav-button-on'); setCreateClassName('nav-button-off')}}>
-                        <a to="/" className='nav-container'><span className="nav-title">Home</span></a>
-                    </div>
-                    <div className={createClassName} onClick={(e) => { setHomeClassName('nav-button-off'); setCreateClassName('nav-button-on') }}>
-                        <a to="/" className='nav-container'><span className="nav-title">Create</span></a>
-                    </div>
+                    <NavLink to="/" className={homeClassName} onClick={(e) => { setHomeClassName('nav-button-on'); setCreateClassName('nav-button-off')}}>
+                        <div  className='nav-container'><span className="nav-title">Home</span></div>
+                    </NavLink>
+                    <NavLink to="/pin-builder" className={createClassName} onClick={(e) => { setHomeClassName('nav-button-off'); setCreateClassName('nav-button-on') }}>
+                        <div  className='nav-container'><span className="nav-title">Create</span></div>
+                    </NavLink>
                 </div>
                 <div className='nav-search-bar-container'>
                     <div className='search-bar'>

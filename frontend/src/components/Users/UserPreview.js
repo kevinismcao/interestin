@@ -1,6 +1,8 @@
 import React from 'react'
 import ProfilePicture from './ProfilePicture'
 import { Link } from 'react-router-dom'
+import './UserPreview.css'
+import { FaUserCircle } from 'react-icons/fa';
 
 const UserPreviewContainer = (props) => {
 
@@ -9,8 +11,11 @@ const UserPreviewContainer = (props) => {
     return (
         <Link to={`/users/${user?.username}/`}>
             <div className='user-preview-container'>
-                {/* <ProfilePicture user={user} /> */}
-                <h1 className={`username`}>{user?.username}</h1>
+                { user.imageUrl ? 
+                <img className='user-profile-picture-small'src={`${user.imageUrl}`}></img> :
+                    <FaUserCircle className='user-profile-picture-small' />
+                }
+                <div className={`username`}>{user?.username}</div>
             </div>
         </Link>
     )

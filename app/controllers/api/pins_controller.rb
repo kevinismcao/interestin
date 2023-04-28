@@ -26,7 +26,7 @@ class Api::PinsController < ApplicationController
             render json: "You must be logged in to create Pin"
         end
         
-        @pin = Pin.new(pin_params, current_user.id)
+        @pin = Pin.new(pin_params)
         if @pin.save!
             render :show
         else
@@ -42,7 +42,7 @@ class Api::PinsController < ApplicationController
     end
 
     def pin_params 
-        params.require(:pin).permit(:title, :description, :image)
+        params.require(:pin).permit(:title, :description, :image, :uploader_id)
     end
 
 end

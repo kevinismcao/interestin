@@ -27,12 +27,13 @@ const PinPhotoContainer = ({pin}) => {
                 </div>
             </div>
             <div className={`pin-item-info`}>
+                <div className='pin-item-container'>
                 <div className='pin-item-title'>
                     {pin.title}
                 </div>
                 <div className='pin-item-user'>
-                    {pin.uploader}
                     <UserPreviewContainer user={pin.uploader} />
+                </div>
                 </div>
             </div>
         </div>

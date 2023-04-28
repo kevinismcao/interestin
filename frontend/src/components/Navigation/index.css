@@ -80,10 +80,12 @@ div.logo-name{
 .login-button:hover {
     background-color: var(--hoveRed);
     
+    
 }
 
 .signup-button:hover {
     background-color: var(--hovelightGray);
+    
 
 }
 
@@ -117,6 +119,7 @@ div.logo-name{
     padding-left: 16px;
     padding-right: 16px;
     cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
 }
 .nav-button-on {
     white-space: nowrap;
@@ -129,6 +132,7 @@ div.logo-name{
     padding-left: 16px;
     padding-right: 16px;
     cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
 }
 
 .nav-container{
@@ -234,6 +238,7 @@ div.logo-name{
     align-items: center;
     box-sizing: border-box;
     color: #5f5f5f;
+    transition: background-color 0.8s;
 }
 
 .link-icon:hover{
@@ -253,4 +258,8 @@ div.logo-name{
 #user-icon {
     height: 24px;
     width: 24px;
+}
+
+.nav-title {
+
 }

@@ -10,7 +10,6 @@ img {
     grid-template-rows: 1fr auto;
     margin-bottom: 10px;
     break-inside: avoid;
-    padding-bottom: 16px;
     /* padding-left: 8px;
     padding-right: 8px; */
 }
@@ -22,12 +21,12 @@ img {
 }
 
 
-.pins-index-container {
-    column-count: 2;
-    column-gap: 16px;
-    
-}
 
+.pin-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+}
 
 @media (min-width: 756px){
     .pins-index-container {

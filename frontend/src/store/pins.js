@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 export const RECEIVE_PINS = 'RECEIVE_PINS';
 export const RECEIVE_PIN = 'RECEIVE_PIN';
 export const REMOVE_PIN = 'REMOVE_PIN';
@@ -58,12 +60,12 @@ export const fetchHomepagePins = numPins => async (dispatch) => {
 }
 
 export const createPin = pin => async (dispatch) => {
-    const response = await fetch(`/api/pins/`, {
+    const response = await csrfFetch(`/api/pins/`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(pin)
+        // headers: {
+        //     "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+        // },
+        body: (pin)
     });
 
     if (response.ok) {
@@ -74,7 +76,10 @@ export const createPin = pin => async (dispatch) => {
 
 export const deletePin = pinId => async (dispatch) => {
     const response = await fetch(`/api/posts/${pinId}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+        },
     });
 
     if (response.ok) {
