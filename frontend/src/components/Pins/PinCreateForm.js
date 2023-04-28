@@ -6,6 +6,8 @@ import { RiMoreFill } from 'react-icons/ri';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaUserCircle } from 'react-icons/fa';
 import { Redirect } from "react-router-dom";
+import { TbCircleArrowUpFilled } from 'react-icons/tb';
+import { RiErrorWarningFill } from 'react-icons/ri';
 
 const PinCreateForm = () =>{
     const dispatch = useDispatch();
@@ -115,7 +117,7 @@ const PinCreateForm = () =>{
                     </div>
                     <div className="pin-create-bottom-container">
                         <div className="pin-create-left-container">
-                            <div className={preview? "hide" : "pin-create-left-box"}>
+                            <div className={preview ? "hide" : "pin-create-left-box"} id={errors ? "pin-create-left-box-error" : "pin-create-left-box"}>
                                 <div className="upload-container">
                                     <div className={preview ? "hide" : "upload-image-box"}>
                                     {preview}
@@ -123,10 +125,13 @@ const PinCreateForm = () =>{
                                         {!pin.imageUrl &&
                                             <div>
                                                 <div className='pin-create-image-upload'>
-                                                    <i className="fa-solid fa-circle-up fa-2xl"></i>
-                                                    { !errors ? 
+                                                    {!errors ?
+                                                            <TbCircleArrowUpFilled className="pin-create-icon-upload"/>
+                                                        : <RiErrorWarningFill className="pin-create-icon-error"/>
+                                                    }
+                                                    { !errors ?                                            
                                                     <div id="drag-and-drop">Drag and drop or click to upload</div>
-                                                        : <div id="pin-errors">Must attach image</div>
+                                                        : <div id="pin-errors">An image is required to create a pin.</div>
                                                     }
                                                     
                                                 </div>
