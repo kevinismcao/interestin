@@ -26,7 +26,9 @@ class Board < ApplicationRecord
         through: :board_pin_relations,
         source: :pin
     
-    
+    def remove_pin(pin)
+        board_pin_relations.find_by(pin_id: pin.id).destroy
+    end
 
 
 

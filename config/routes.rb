@@ -6,9 +6,17 @@ Rails.application.routes.draw do
   # post 'api/test', to: 'application#test'
   
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:create,:index, :show]
+
+    get '/users/username/:username', to: 'users#find_by_username', as: 'find_by_username'
+    resources :users, only: [:create,:index, :show, :find_by_name] do
+      resources :boards, only: [:index, :show, :find_by_boardname]
+    end
     resource :session, only: [:show, :create, :destroy]
+
+    get '/boards/cover/:board_id', to: 'boards#board_cover', as: 'board_cover'
+    resource :boards, only:  [:create, :update, :destroy]
  
+
  
     get 'pins/homepage', to: 'pins#homepage_pins', as: 'homepage_pins'
     resources :pins, only: [:create, :index, :update, :destroy, :show]

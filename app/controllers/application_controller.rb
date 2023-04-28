@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::API
   include ActionController::RequestForgeryProtection
   
+  helper_method :current_user, :logged_in?
+
   rescue_from StandardError, with: :unhandled_error
   rescue_from ActionController::InvalidAuthenticityToken,
     with: :invalid_authenticity_token
@@ -34,6 +36,10 @@ class ApplicationController < ActionController::API
     current_user.reset_session_token! if current_user
     session[:session_token] = nil
     @current_user = nil
+  end
+
+  def logged_in?
+    !!current_user
   end
 
   def require_logged_in

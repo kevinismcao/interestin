@@ -1,3 +1,4 @@
+import { shuffle } from "../util/function_util";
 import { csrfFetch } from "./csrf";
 
 export const RECEIVE_PINS = 'RECEIVE_PINS';
@@ -21,6 +22,7 @@ const removePin = pinId => ({
 
 
 
+
 export const getPin = pinId => state => {
     return state?.entities.pins ? state.entities.pins[pinId] : null;
     
@@ -30,6 +32,9 @@ export const getPins = state => {
     return state?.entities.pins ? Object.values(state.entities.pins) : [];
 }
 
+export const getRandomPins = state => {
+    return state?.entities.pins ? shuffle(Object.values(state.entities.pins)) : [];
+}
 
 
 export const fetchPins = () => async (dispatch) => {
@@ -75,11 +80,11 @@ export const createPin = pin => async (dispatch) => {
 };
 
 export const deletePin = pinId => async (dispatch) => {
-    const response = await fetch(`/api/posts/${pinId}`, {
+    const response = await csrfFetch(`/api/pins/${pinId}`, {
         method: 'DELETE',
-        headers: {
-            "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
-        },
+        // headers: {
+        //     "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+        // },
     });
 
     if (response.ok) {

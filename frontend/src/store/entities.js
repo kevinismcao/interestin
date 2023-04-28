@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 
-// import usersReducer from './users_reducer';
-// import boardsReducer from './boards_reducer'
+
 import pinsReducer from './pins';
 import usersReducer from './user';
+import boardsReducer from './boards';
 
 const entitiesReducer = combineReducers({
     pins: pinsReducer,
-    users: usersReducer
+    users: usersReducer,
+    boards: boardsReducer
 });
 
 export default entitiesReducer

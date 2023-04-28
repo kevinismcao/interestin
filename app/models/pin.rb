@@ -37,9 +37,16 @@ class Pin < ApplicationRecord
 
     def self.generate_random_pins(num)
         pins = []
-        num.to_i.times do |i| 
+        # num.to_i.times do |i| 
+        #     offsetnum = rand(Pin.count)
+        #     pins.push(Pin.offset(offsetnum).first)
+        # end
+        while pins.length < num.to_i
             offsetnum = rand(Pin.count)
-            pins.push(Pin.offset(offsetnum).first)
+            pin = Pin.offset(offsetnum).first
+            if !pins.include?(pin)
+                pins.push(pin)
+            end
         end
         return pins
     end

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
 import "./index.css";
 import logo from '../../assets/image/logo3.png';
@@ -16,6 +16,11 @@ function Navigation() {
     let sessionLinks;
     const [homeClassName, setHomeClassName] = useState('nav-button-on')
     const [createClassName, setCreateClassName] = useState('nav-button-off')
+
+    const onHome = useLocation().pathname === "/"
+    const onCreate = useLocation().pathname === "/pin-builder"
+    
+
     if (sessionUser) { 
         
         return (
@@ -26,10 +31,10 @@ function Navigation() {
                             <img className="logo" src={logo} />
                         </NavLink>
                     </div>
-                    <NavLink to="/" className={homeClassName} onClick={(e) => { setHomeClassName('nav-button-on'); setCreateClassName('nav-button-off')}}>
+                    <NavLink to="/" className={onHome ? 'nav-button-on' : 'nav-button-off'} >
                         <div  className='nav-container'><span className="nav-title">Home</span></div>
                     </NavLink>
-                    <NavLink to="/pin-builder" className={createClassName} onClick={(e) => { setHomeClassName('nav-button-off'); setCreateClassName('nav-button-on') }}>
+                    <NavLink to="/pin-builder" className={ onCreate? 'nav-button-on': 'nav-button-off' }>
                         <div  className='nav-container'><span className="nav-title">Create</span></div>
                     </NavLink>
                 </div>
