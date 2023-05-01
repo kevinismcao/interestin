@@ -33,7 +33,7 @@ function LoginForm() {
     return (
         <form onSubmit={handleSubmit}>
             
-            <label className = "input-label" for="user-credential">Username or Email </label>
+            <label className = "input-label" htmlFor="user-credential">Username or Email </label>
             <div className = "inputbox-container">
                 <input className ="inputbox" id= "user-credential"
                 type="text"
@@ -46,7 +46,7 @@ function LoginForm() {
             <ul >
                 {errors.map(error => <li className="modal-error-text" key={error}><IoIosWarning id="io-warning"/>{error}</li>)}
             </ul>
-            <label className="input-label" for="password">Password</label>
+            <label className="input-label" htmlFor="password">Password</label>
             <div className="inputbox-container">
                 <input className="inputbox" id= "password"
                 type="password"

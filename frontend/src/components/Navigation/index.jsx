@@ -24,55 +24,59 @@ function Navigation() {
     if (sessionUser) { 
         
         return (
-            <ul className='nav-bar'>
-                <div className='left-nav'>
-                    <div className='nav-logo'>
-                        <NavLink className='nav-logo-container' to="/">
-                            <img className="logo" src={logo} />
+            <div className='header-nav-container'>
+                <ul className='nav-bar'>
+                    <div className='left-nav'>
+                        <div className='nav-logo'>
+                            <NavLink className='nav-logo-container' to="/">
+                                <img className="logo" src={logo} />
+                            </NavLink>
+                        </div>
+                        <NavLink to="/" className={onHome ? 'nav-button-on' : 'nav-button-off'} >
+                            <div  className='nav-container'><span className="nav-title">Home</span></div>
+                        </NavLink>
+                        <NavLink to="/pin-builder" className={ onCreate? 'nav-button-on': 'nav-button-off' }>
+                            <div  className='nav-container'><span className="nav-title">Create</span></div>
                         </NavLink>
                     </div>
-                    <NavLink to="/" className={onHome ? 'nav-button-on' : 'nav-button-off'} >
-                        <div  className='nav-container'><span className="nav-title">Home</span></div>
-                    </NavLink>
-                    <NavLink to="/pin-builder" className={ onCreate? 'nav-button-on': 'nav-button-off' }>
-                        <div  className='nav-container'><span className="nav-title">Create</span></div>
-                    </NavLink>
-                </div>
-                <div className='nav-search-bar-container'>
-                    <div className='search-bar'>
-                        <div className='search-bar-background'>
-                            <div className='magnifying-glass'><RxMagnifyingGlass id="mag-glass"/></div>
-                            <div className='search-input-box'><input id='search-input' type="text" placeholder='Search'/></div>
+                    <div className='nav-search-bar-container'>
+                        <div className='search-bar'>
+                            <div className='search-bar-background'>
+                                <div className='magnifying-glass'><RxMagnifyingGlass id="mag-glass"/></div>
+                                <div className='search-input-box'><input id='search-input' type="text" placeholder='Search'/></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='right-nav'>
-                    <div className='icon-container'><a className='link-icon' href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>
-                    <div className='icon-container'><a className='link-icon' href='https://www.linkedin.com/in/ningxiao-cao/'><FaLinkedinIn id='linkedin-icon'/></a></div>
-                    <div className='icon-container'><a className='link-icon' ><FaUserCircle id='user-icon' /></a></div>
-                    <ProfileButton user={sessionUser} />
-                </div>
-            </ul>
+                    <div className='right-nav'>
+                        <div className='icon-container'><a className='link-icon' href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>
+                        <div className='icon-container'><a className='link-icon' href='https://www.linkedin.com/in/ningxiao-cao/'><FaLinkedinIn id='linkedin-icon'/></a></div>
+                        <div className='icon-container'><a className='link-icon' ><FaUserCircle id='user-icon' /></a></div>
+                        <ProfileButton user={sessionUser} />
+                    </div>
+                </ul>
+            </div>
         );
     } else {
         return (
-            <ul className='nav-bar'>
-                <div className='left-nav'>
-                    <div className='nav-logo'>
-                        <NavLink className='nav-logo-container'to="/">
-                            <img className="logo" src={logo} />
-                            <div className="logo-name">
-                                <h2 id="logo-name">interestIn</h2>
-                            </div>
-                        </NavLink>
+            <div className='header-nav-container'>
+                <ul className='nav-bar'>
+                    <div className='left-nav'>
+                        <div className='nav-logo'>
+                            <NavLink className='nav-logo-container'to="/">
+                                <img className="logo" src={logo} />
+                                <div className="logo-name">
+                                    <h2 id="logo-name">interestIn</h2>
+                                </div>
+                            </NavLink>
+                        </div>
                     </div>
-                </div>
-                <div className='right-nav'>
-                    <a className='text-link' href='https://github.com/kevinismcao'>Github</a>
-                    <a className='text-link' href='https://www.linkedin.com/in/ningxiao-cao/'>LinkedIn</a>
-                    <LoginSignupModal/>
-                </div>
-            </ul>
+                    <div className='right-nav'>
+                        <a className='text-link' href='https://github.com/kevinismcao'>Github</a>
+                        <a className='text-link' href='https://www.linkedin.com/in/ningxiao-cao/'>LinkedIn</a>
+                        <LoginSignupModal/>
+                    </div>
+                </ul>
+            </div>
         );
     }
     

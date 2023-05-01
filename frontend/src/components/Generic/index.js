@@ -7,6 +7,8 @@ import "./index.css"
 function SplashOrHome(){
 
     const sessionUser = useSelector(state => state.session.user);
+
+    
     return (
         <div className="splash-home">
             {sessionUser ? <HomePage/> : <Splash/>}

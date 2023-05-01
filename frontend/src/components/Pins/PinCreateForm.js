@@ -78,7 +78,6 @@ const PinCreateForm = () =>{
         if (!pin.imageFile) {
             setErrors(true);
         }
-        console.log(pin,"newPin")
       
         const formData = new FormData();
         formData.append('pin[title]', pin.title);

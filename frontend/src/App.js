@@ -4,14 +4,15 @@ import SplashOrHome from "./components/Generic";
 import Navigation from "./components/Navigation";
 import PinShow from "./components/Pins/PinShow";
 import PinCreateForm from "./components/Pins/PinCreateForm";
+import UserShow from "./components/Users/UserShow";
 
 function App() {
   return (
     <div>
       <Navigation />
       <Switch>
-        
-       
+        <Route exact path="/users/:userId" component={UserShow} />
+        {/* <Route exact path="/users/:username" component={UserShow} /> */}
         <Route exact path="/pins/:pinId" component={PinShow}/>
         <Route path="/pin-builder" component={PinCreateForm}/>
         <Route path="/" component={SplashOrHome}/>

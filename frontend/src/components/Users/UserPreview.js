@@ -6,10 +6,10 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const UserPreviewContainer = (props) => {
 
-    const { user} = props
-
+    const { user } = props
+   
     return (
-        <Link to={`/users/${user?.username}/`}>
+        <Link to={`/users/${user?.id}/`} >
             <div className='user-preview-container'>
                 { user.imageUrl ? 
                 <img className='user-profile-picture-small'src={`${user.imageUrl}`}></img> :

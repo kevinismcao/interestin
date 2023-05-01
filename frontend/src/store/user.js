@@ -17,9 +17,15 @@ export const getUser = userId => state => {
     return state?.entities.users ? state.entities.users[userId] : null;
 }
 
+export const getUserByUsername = username => state => {
+    return state?.entities.users ? state.entities.users[username] : null;
+}
+
 export const getUsers = state => {
     return state?.entities.users ? Object.values(state.entites.users) : [];
 }
+
+
 
 export const fetchUsers = () => async(dispatch) => {
     const response = await fetch('/api/users');
@@ -31,6 +37,14 @@ export const fetchUsers = () => async(dispatch) => {
 
 export const fetchUser = userId => async(dispatch) => {
     const response = await fetch(`/api/users/${userId}`);
+    if (response.ok) {
+        const user = await response.json();
+        dispatch(receiveUser(user));
+    }
+}
+
+export const fetchUserByUsername = username => async(dispatch) => {
+   const response = await fetch(`/api/users/username/${username}`);
     if (response.ok) {
         const user = await response.json();
         dispatch(receiveUser(user));

@@ -92,6 +92,22 @@ export const deletePin = pinId => async (dispatch) => {
     }
 };
 
+export const updatePin = pin => async(dispatch) =>{
+    const response = await csrfFetch(`/api/pins/${pin.id}`,{
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(pin)
+    })
+    if (response.ok){
+        const pin = await response.json();
+        dispatch(receivePin(pin))
+    }
+}
+
+
+
 const pinsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_PINS:

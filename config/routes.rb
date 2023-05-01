@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
 
-    get '/users/username/:username', to: 'users#find_by_username', as: 'find_by_username'
+    
     resources :users, only: [:create,:index, :show, :find_by_name] do
       resources :boards, only: [:index, :show, :find_by_boardname]
     end

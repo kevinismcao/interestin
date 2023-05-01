@@ -3,7 +3,9 @@ import './PinPhoto.css'
 import { Link } from 'react-router-dom'
 
 
-const PinPhotoContainer = ({pin}) => {
+const PinPhotoContainer = ({pin, uploader}) => {
+   
+
     return(
         <div className="pin-photo-container">
             <div className="pin-photo">
@@ -15,7 +17,7 @@ const PinPhotoContainer = ({pin}) => {
                     <div className={`pin-item-hover-board-name`}>
                         <div className={`pin-dropdown-trigger`} >
                             <h1>board</h1>
-                            <i className='fa-solid fa-chevron-down fa-xs'></i>
+                            <i className='fa-solid fa-chevron-down fa-xs' id="dropdown-button"></i>
                         </div>
                         <button className="save-button">Save</button>
                     </div>

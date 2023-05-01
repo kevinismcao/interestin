@@ -83,13 +83,21 @@
     width: 444px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
+.pin-item-hover-out-box {
+    width: 250px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 .pin-item-hover-interaction {
     font-weight: 600;
-    width: 250px;
+    /* width: 250px;
+    height: 80px; */
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -99,17 +107,25 @@
 }
 
 .pin-dropdown-trigger {
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .pin-dropdown-trigger >h1{
     font-size: 16px;
 }
-.pin-item-hover-interaction >button{
+
+#dropdown-button{
+    margin-left:8px;
+    margin-right: 4px;
+}
+
+.save-button {
     border: none;
     display: flex;
     flex-direction: row;
@@ -117,8 +133,8 @@
     align-items: center;
     color: white;
     font-weight: 600;
-    width: 70px;
-    height: 50px;
+    width: 60px;
+    height: 48px;
     border-radius: 24px;
     background-color: #e60023;
     cursor: pointer;
@@ -147,4 +163,89 @@
 
 .pin-comments{
     height: 50%;
+}
+
+.edit-dropdown{
+    z-index: 3;
+    visibility: visible;
+    top: 90px;
+    left: -40px;
+    min-height: 40px;
+    min-width: 180px;
+    max-height: 90vh;
+    max-width: 90vw;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute
+}
+
+.dropdown-more-options {
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    color: var(--textDefault);
+
+}
+
+.edit-pin-container {
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px;
+    text-align: left;
+}
+
+.edit-pin-container:hover {
+    background-color: #e9e9e9;
+}
+
+#dropdown-edit {
+    border: none;
+    background: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--textDefault);
+}
+
+.pin-create-more-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.pin-create-more-option:hover {
+    background-color: #e9e9e9;
+}
+
+.pin-create-more-option>svg {
+    width: 32px;
+    height: 32px;
+}
+
+.pin-create-more-option-selected {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: var(--defaultSelect);
+}
+
+.pin-create-more-option-selected>svg {
+    width: 32px;
+    height: 32px;
+    color: white;
 }

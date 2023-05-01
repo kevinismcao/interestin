@@ -13,8 +13,11 @@
     --pinDefaultHeight: 350px;
     --pinDefaultWidth: 236px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
+    
 }
+/* :root >div{
+    height: 100%;
+} */
 
 i {
     color: #767575;
@@ -22,6 +25,7 @@ i {
 
 div {
     display: block;
+    
 }
 
 h1 {

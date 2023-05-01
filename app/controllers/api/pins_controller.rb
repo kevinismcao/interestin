@@ -36,8 +36,8 @@ class Api::PinsController < ApplicationController
     end
 
     def update
-        @pin = Pin.with_attached_image.find_by(id: params[:id])
-        if ensure_owner_user && @pin.update(pin_params)
+        @pin = Pin.find_by(id: params[:id])
+        if (current_user.id === @pin.uploader.id) && @pin.update(pin_params)
             @pin.save
             render "api/pins/show"
         else
@@ -57,9 +57,9 @@ class Api::PinsController < ApplicationController
 
     # private 
 
-    def ensure_owner_user 
-        current_user.id == @pin.creator.id
-    end
+    # def ensure_owner_user 
+    #     current_user.id === @pin.uploader_id
+    # end
 
     def pin_params 
         params.require(:pin).permit(:title, :description, :image, :uploader_id)
