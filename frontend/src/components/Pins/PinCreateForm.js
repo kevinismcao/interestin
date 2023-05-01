@@ -5,12 +5,15 @@ import './PinCreateForm.css'
 import { RiMoreFill } from 'react-icons/ri';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaUserCircle } from 'react-icons/fa';
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { TbCircleArrowUpFilled } from 'react-icons/tb';
 import { RiErrorWarningFill } from 'react-icons/ri';
+import { MdOutlineFlipCameraAndroid } from "react-icons/md";
+import ProfilePicture from "../Users/ProfilePicture";
 
 const PinCreateForm = () =>{
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);   
     const uploader_id = sessionUser.id
     const [pin, setPin] = useState({
@@ -55,7 +58,7 @@ const PinCreateForm = () =>{
     const handlePinFile = (e) => {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
-
+        
         fileReader.onloadend = () =>{
             setPin(prevPin => {
                 return { ...prevPin, imageFile: file }
@@ -85,12 +88,16 @@ const PinCreateForm = () =>{
         formData.append('pin[image]', pin.imageFile);
         formData.append('pin[uploader_id]', pin.uploader_id)
         
-        dispatch(createPin(formData))
+        dispatch(createPin(formData));
+        history.push(`/users/${sessionUser.id}`)
     }
 
     
-
+    
     const preview = pin.imageUrl ? <img className="preview-img" src={pin.imageUrl}/> : null;
+
+    console.log(preview? true:false)
+
     return(
         <div className="main-pin-create-form-container">
             <div className="pin-create-background"></div>
@@ -169,7 +176,12 @@ const PinCreateForm = () =>{
                                 </div>
                                
                                 <div className='pin-create-creator'>
-                                    <div className="pin-create-user-pic"><FaUserCircle id="profile-pic" /></div>
+                                    <div className="pin-create-user-pic">
+                                        { sessionUser.imageUrl ?
+                                         <ProfilePicture user={sessionUser} medium={true}/>
+                                        : <FaUserCircle id="profile-pic" />}
+                                    
+                                    </div>
                                     <div className="pin-user-info">
                                         <div id="pin-username">{sessionUser.username}</div>
                                         

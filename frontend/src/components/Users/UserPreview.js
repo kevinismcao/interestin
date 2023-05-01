@@ -11,10 +11,9 @@ const UserPreviewContainer = (props) => {
     return (
         <Link to={`/users/${user?.id}/`} >
             <div className='user-preview-container'>
-                { user.imageUrl ? 
-                <img className='user-profile-picture-small'src={`${user.imageUrl}`}></img> :
-                    <FaUserCircle className='user-profile-picture-small' />
-                }
+                {user.imageUrl ?
+                    <ProfilePicture user={user} s={true} />
+                    : <FaUserCircle className='user-profile-picture-small' />}
                 <div className={`username`}>{user?.username}</div>
             </div>
         </Link>

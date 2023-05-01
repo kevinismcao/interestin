@@ -1,7 +1,7 @@
 .user-show-container {
-    padding-top: 24px;
-    height: 100%;
-    width: 100%;
+    padding-top: 80px;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,4 +14,22 @@
     justify-content: space-evenly;
     align-items: center;
     min-height: 350px;
+}
+
+.user-show-profile-pic{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+
+.user-show-container .user-show-header>h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.user-show-container .user-show-header>p {
+    color: #767575;
 }

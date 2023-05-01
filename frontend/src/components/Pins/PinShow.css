@@ -249,3 +249,29 @@
     height: 32px;
     color: white;
 }
+
+.pin-show-creator{
+    margin-top: 24px;
+    margin-bottom: 32px;
+    align-items: center;
+    display: flex;
+    width: 444px;
+    justify-content: left;
+}
+
+.pin-comments{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    min-height: 50%;
+}
+
+.pin-comments-box{
+    margin-top: 60px;
+    width: 444px;
+    font-size: 20px;
+    font-weight: 600;
+}

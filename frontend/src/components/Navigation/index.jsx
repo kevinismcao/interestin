@@ -9,6 +9,7 @@ import { RxMagnifyingGlass } from 'react-icons/rx';
 import { SiGithub } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaUserCircle } from 'react-icons/fa';
+import ProfilePicture from '../Users/ProfilePicture';
 
 function Navigation() {
    
@@ -20,7 +21,6 @@ function Navigation() {
     const onHome = useLocation().pathname === "/"
     const onCreate = useLocation().pathname === "/pin-builder"
     
-
     if (sessionUser) { 
         
         return (
@@ -50,7 +50,13 @@ function Navigation() {
                     <div className='right-nav'>
                         <div className='icon-container'><a className='link-icon' href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>
                         <div className='icon-container'><a className='link-icon' href='https://www.linkedin.com/in/ningxiao-cao/'><FaLinkedinIn id='linkedin-icon'/></a></div>
-                        <div className='icon-container'><a className='link-icon' ><FaUserCircle id='user-icon' /></a></div>
+                        <div className='icon-container'>
+                            <NavLink to={`/users/${sessionUser.id}`} className='link-icon' >                               
+                                {sessionUser.imageUrl ?
+                                    <ProfilePicture user={sessionUser} xs={true} />
+                                    : <FaUserCircle id="profile-pic" />}                             
+                            </NavLink>
+                        </div> 
                         <ProfileButton user={sessionUser} />
                     </div>
                 </ul>

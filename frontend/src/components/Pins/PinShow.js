@@ -5,6 +5,7 @@ import { fetchPin, getPin } from "../../store/pins"
 import "./PinShow.css"
 import {RiMoreFill} from 'react-icons/ri'
 import PinEditForm from "./PinEditForm"
+import UserPreviewContainer from "../Users/UserPreview"
 
 
 
@@ -29,7 +30,7 @@ const PinShow =() =>{
 
    
 
-    
+ 
 
     let dropdownClassName;
     if (showMenu === true) {
@@ -91,10 +92,11 @@ const PinShow =() =>{
                                 <div className='pin-description'>{pin.description}</div>
                             </div>
                             <div className='pin-show-creator'>
-                                {/* <UserPreviewContainer bold={true} user={creator} /> */}
+                                <UserPreviewContainer bold={true} user={pin.uploader} />
                             </div>
-                            </div>
+                            </div> 
                             <div className='pin-comments'>
+                                <div className="pin-comments-box">Comments</div>
                                 {/* {pin.comments ? <PinCommentContainer pin={pin} /> : <CreateCommentContainer pin={pin} />} */}
                             </div>
                         </div>

@@ -29,7 +29,7 @@
 
 .pin-item-hover-board-name{
     font-weight: 600;
-    width: 250px;
+    width: 100%;
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -89,4 +89,18 @@
     min-height: 0;
     min-width: 0;
 
+}
+
+.pin-dropdown-trigger-show {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#dropdown-button{
+    color: white;
 }

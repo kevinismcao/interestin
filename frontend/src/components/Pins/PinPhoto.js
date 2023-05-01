@@ -15,7 +15,7 @@ const PinPhotoContainer = ({pin, uploader}) => {
                         <EditBoardButton />
                     </div> */}
                     <div className={`pin-item-hover-board-name`}>
-                        <div className={`pin-dropdown-trigger`} >
+                        <div className={`pin-dropdown-trigger-show`} >
                             <h1>board</h1>
                             <i className='fa-solid fa-chevron-down fa-xs' id="dropdown-button"></i>
                         </div>

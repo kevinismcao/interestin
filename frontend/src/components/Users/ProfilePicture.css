@@ -4,3 +4,81 @@
     height: 600px
     
 }
+
+.user-preview-pic{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-photo.big {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.preview-photo.medium {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.preview-photo.s {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.preview-photo.xs {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
+
+.preview-photo{
+    background-color: #e8e5e5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    text-indent: -0.1px;
+}
+
+.div-image{
+    width: 236px;
+    height: 419px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #efefef;
+}
+
+.div-image.big{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.div-image.medium {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.div-image.s {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.div-image.xs {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
