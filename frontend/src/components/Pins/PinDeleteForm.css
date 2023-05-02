@@ -1,9 +1,15 @@
 .delete-board-modal-container {
-    height: 100vh;
-    width: 100vw;
     position: absolute;
     top: 0px;
     left: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    flex-direction: column;
 }
 
 .delete-board-modal-background{
@@ -14,7 +20,7 @@
     left: 0px;
     background: rgba(0, 0, 0, .8);
     cursor: zoom-out;
-    z-index: 5;
+    z-index: 110;
 }
 
 .delete-board-modal-foreground{
@@ -28,20 +34,10 @@
    overflow: auto;
    background-color: #fff;
    max-height: calc(100vh -32px);
-    z-index: 6;
+    z-index: 111;
 }
 
-.delete-board-modal-container{
-    
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    z-index: 6;
-    flex-direction: column;
-}
+
 
 .delete-board-modal-title{
     box-sizing: border-box;

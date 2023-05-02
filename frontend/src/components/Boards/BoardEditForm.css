@@ -1,0 +1,205 @@
+.edit-board{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 60;
+}
+
+.edit-board-header{
+    font-weight: 600;
+    font-size: 28px;
+    text-align: center;
+    word-wrap: break-word;
+    color: #111;
+}
+
+.edit-board-background{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .8);
+    cursor: zoom-out;
+    
+}
+
+.edit-board-foreground{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+.edit-board-container {
+    height: 520px;
+    width: 540px;
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.edit-board-container  >div {
+    
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.edit-board-container >form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+}
+
+.create-board-input-container,
+.create-board-description-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-board-input-container label {
+    padding-right: 420px;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.create-board-description-container label {
+    padding-right: 390px;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.modal-action{
+    margin-left: 10px;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.edit-board-input {
+    appearance: none;
+    border-style: solid;
+    border-width: 2px;
+    padding: 8px 16px;
+    border-color: #cdcdcd;
+    box-sizing: border-box;
+    border-radius: 16px;
+    height: 40px;
+    width: 460px;
+    font-size: 15px;
+    margin-bottom: 32px;
+    
+}
+
+#modal-board-description{
+    height:92px;
+}
+.edit-board-input:hover {
+    border-color: #9f9f9f;
+}
+
+.edit-board-input:focus {
+    /* box-shadow: $modal-input-focus 0 0 0 4px;
+    outline: 0; */
+}
+        
+
+.board-errors {
+padding-left: 33px;
+}
+
+.delete-board-container {
+    height: 80px;
+    margin-left: 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.delete-board {
+    cursor: pointer;
+}
+
+.delete-board-container >h3 {
+    margin: 30px 0 10px 0;
+    font-size: 12px;
+}
+
+.delete-title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+}
+
+.delete-warning {
+    width: 290px;
+    font-size: 16px;
+    font-weight: 400;
+    color:#5f5f5f;
+    line-height: 20px;
+}
+
+
+
+
+
+.board-update-button {
+    background-color: #e60023;
+    border: 0;
+    width: 80px;
+    height: 50px;
+    border-radius: 24px;
+    margin: 30px 0 30px 430px;
+    color: #e60023;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-update-button-text {
+        
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+}
+
+
+.board-update-button.clickable {
+    background-color: #e60023;
+    color: white;
+    cursor: pointer;
+
+    
+}
+.board-update-button:hover {
+        background-color: #ad081b;
+    }    

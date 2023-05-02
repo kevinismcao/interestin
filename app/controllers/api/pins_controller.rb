@@ -21,6 +21,25 @@ class Api::PinsController < ApplicationController
         end
     end
 
+    def find_created_pins
+        @pins = User.created_pins(params[:uploader_id])
+
+        if @pins
+            render :index
+        else
+            render json: ["Oops, something went wrong"], status: 422
+        end
+    end
+
+    def find_board_saved_pins
+        @pins = Board.saved_pins(params[:board_id])
+        if @pins
+            render :index
+        else
+            render json: ["Oops, something went wrong"], status: 422
+        end
+    end
+
     def create 
         if !current_user 
             render json: "You must be logged in to create Pin"
@@ -54,6 +73,8 @@ class Api::PinsController < ApplicationController
             render json: @pin.errors.full_messages, status: 422
         end
     end
+
+    
 
     # private 
 

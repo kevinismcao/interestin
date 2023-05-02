@@ -5,12 +5,14 @@ import Navigation from "./components/Navigation";
 import PinShow from "./components/Pins/PinShow";
 import PinCreateForm from "./components/Pins/PinCreateForm";
 import UserShow from "./components/Users/UserShow";
+import BoardShow from "./components/Boards/BoardShow";
 
 function App() {
   return (
     <div>
       <Navigation />
       <Switch>
+        <Route exact path="/users/:userId/boards/:boardId" component={BoardShow}/>
         <Route exact path="/users/:userId" component={UserShow} />
         {/* <Route exact path="/users/:username" component={UserShow} /> */}
         <Route exact path="/pins/:pinId" component={PinShow}/>

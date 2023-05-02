@@ -17,7 +17,7 @@
     left: 0px;
     background: rgba(0, 0, 0, .8);;
     cursor: zoom-out;
-    z-index: 3;
+    z-index: 99;
 }
 
 .pin-edit-form-modal-foreground{
@@ -27,7 +27,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    z-index: 4;
+    z-index: 100;
 }
 
 .pin-edit-form-container{
@@ -40,7 +40,7 @@
     overflow: auto;
     background-color: #fff;
     max-height: calc(100vh-32px);  
-    z-index: 5;
+    z-index: 101;
     flex-direction: column;
 }
 

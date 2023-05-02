@@ -56,6 +56,24 @@ export const fetchPin = pinId => async (dispatch) => {
     }
 };
 
+export const fetchBoardSavedPin = boardId => async(dispatch) => {
+    const response = await fetch(`/api/boards/saved/${boardId}`);
+
+    if (response.ok) {
+        const pins = await response.json();
+        dispatch(receivePins(pins));
+    }
+}
+
+export const fetchCreatedPins = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/pins/created/${userId}`);
+
+    if (response.ok) {
+        const pins = await response.json();
+        dispatch(receivePins(pins));
+    }
+};
+
 export const fetchHomepagePins = numPins => async (dispatch) => {
     const response = await fetch(`/api/pins/homepage?numPins=${numPins}`);
     if (response.ok) {

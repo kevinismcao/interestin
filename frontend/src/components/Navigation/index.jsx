@@ -54,7 +54,7 @@ function Navigation() {
                             <NavLink to={`/users/${sessionUser.id}`} className='link-icon' >                               
                                 {sessionUser.imageUrl ?
                                     <ProfilePicture user={sessionUser} xs={true} />
-                                    : <FaUserCircle id="profile-pic" />}                             
+                                    : <FaUserCircle id="profile-pic-xs" />}                             
                             </NavLink>
                         </div> 
                         <ProfileButton user={sessionUser} />

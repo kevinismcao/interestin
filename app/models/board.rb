@@ -30,6 +30,12 @@ class Board < ApplicationRecord
         board_pin_relations.find_by(pin_id: pin.id).destroy
     end
 
+    def self.saved_pins(board_id)
+        Pin.select("pins.id, pins.title, pins.description, pins.created_at, pins.uploader_id")
+            .joins(:board_pin_relations)
+            .order("pins.created_at DESC") 
+            .where("board_pins.board_id = (?)", board_id)
+    end   
 
 
 end

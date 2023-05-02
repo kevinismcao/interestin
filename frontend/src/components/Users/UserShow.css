@@ -2,6 +2,10 @@
     padding-top: 80px;
     height: 100vh;
     width: 100vw;
+    
+}
+
+.user-show-header-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,4 +36,48 @@
 
 .user-show-container .user-show-header>p {
     color: #767575;
+}
+
+.user-show-content-container{
+    top:80px;
+    z-index: 10;
+    position: sticky;
+}
+.user-show-content-labels{
+    padding-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #fff;
+}
+
+.user-show-content-flexbox{
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.create-save-button{
+    border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #fff;
+    padding: 8px;
+    user-select:none;
+    cursor: pointer;
+}
+
+.create-save-button:hover {
+   
+    background-color: #e2e2e2;
+   
+}
+
+
+.create-save-button >p{
+    font-weight: 600;
+    font-size: 16px;
 }

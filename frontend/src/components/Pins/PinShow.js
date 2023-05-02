@@ -10,6 +10,7 @@ import UserPreviewContainer from "../Users/UserPreview"
 
 
 
+
 const PinShow =() =>{
     const { pinId } = useParams();
     const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const PinShow =() =>{
                 {showEditModal &&
                     <PinEditForm closeModal={()=> setShowEditModal(false)} pin={pin}/>
                 }
-                
+               
                 <div onClick={handleGoBack} className="pin-close-up"></div>
                 <div className="pin-show-container">
                     <div className="pin-show-box">

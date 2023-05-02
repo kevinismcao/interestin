@@ -60,13 +60,17 @@ export const createBoard = board => async (dispatch) => {
     }
 }
 
-export const updateBoard = board => async (dispatch) => {
-    const response = await fetch(`/api/boards/${board.id}`,{
+export const updateBoard = (userId, board) => async (dispatch) => {
+    const response = await csrfFetch(`/api/users/${userId}/boards/${board.id}`,{
         method: 'PATCH',
-        body: (board)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(board)
     });
     if (response.ok){
         const board = await response.json();
+        dispatch(receiveBoard(board))
     }
 }
 

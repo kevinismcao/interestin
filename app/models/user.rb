@@ -51,6 +51,16 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def self.created_pins(uploader_id)
+    Pin.select("pins.id, pins.title, pins.description, pins.created_at, pins.uploader_id")
+        .where("pins.uploader_id = (?)", uploader_id)
+  end
+
+  def self.created_boards(owner_id)
+    Board.select("boards.id, boards.name, boards.description, boards.created_at, boards.owner_id")
+        .where("boards.owner_id = (?)", owner_id)
+  end
+
   private
 
   def generate_unique_session_token
