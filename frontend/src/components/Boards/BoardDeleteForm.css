@@ -1,0 +1,124 @@
+
+.delete-board-modal-container{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 60;
+}
+
+.delete-board-modal-flex-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-board-modal-background{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .8);
+    cursor: zoom-out;
+    z-index: 110;
+}
+.delete-board-modal-foreground {
+        width: 540px;
+        height: 320px;
+        margin-right: 16px;
+        margin-left: 16px;
+        border-radius: 16px;
+        display: flex;
+        overflow: auto;
+        position: absolute;
+        background-color: #fff;
+        max-height: calc(100vh -32px);
+        z-index: 200;
+        justify-content: center;
+        align-items: center;
+}
+.delete-board-modal-box{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    flex-direction: column;
+}
+/* .delete-board-modal-container {
+    height: 320px;
+    width: 540px;
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+/* .delete-board-modal-container  >div {
+        height: 30%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+} */
+.delete-board-text-box >h1 {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 28px;
+}
+.delete-board-text-box p {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.delete-board-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    height: 50%;
+}
+.delete-board-options  div {
+    width: 500px;
+    height: 48px;
+    border-radius: 24px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cancel-delete-board {
+    background-color: #efefef;
+}
+
+.delete-board-button {
+    background-color: red;
+    color: white;
+}
+    

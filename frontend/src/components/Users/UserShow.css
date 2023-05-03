@@ -40,7 +40,7 @@
 
 .user-show-content-container{
     top:80px;
-    z-index: 10;
+    z-index: 9;
     position: sticky;
 }
 .user-show-content-labels{
@@ -80,4 +80,126 @@
 .create-save-button >p{
     font-weight: 600;
     font-size: 16px;
+}
+
+
+.plus-menu {
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    border-radius: 15px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    height: 100px;
+    width: 150px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-indent: 15px;
+    right: 0px;
+    top: 50px;
+    z-index: 6;
+}
+
+.plus-menu-title {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.plus-menu div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 30px;
+}
+
+/* .plus-menu:hover {
+    background: gray
+} */
+
+.plus-menu.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.plus-circle-clicked {
+    background-color: black;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+}
+
+.plus-clicked {
+    color: white;
+}
+
+.user-show-plus-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 40px;
+    font-weight: 650;
+    width: 100%;
+    height: 5%;
+    z-index: 7;
+}
+
+.user-show-plus-container >div {
+    margin-right: 15px;
+    color: #111;
+}
+
+.user-show-plus-container i {
+    position: absolute;
+    cursor: pointer;
+    top: 22px;
+    right: 28px;
+}
+
+.plus-circle-unclicked:hover {
+    background-color: #767575;
+}
+
+.button-container{
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+
+.button-container:hover{
+    background-color: #e9e9e9;
+}
+
+.plus-create-click{
+    font-weight: 600;
+    font-size: 16px;
+    color: #111;
+}
+
+.top-ref {
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: -100px;
+}
+
+.user-show-saved-created-box{
+    
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+}
+.created-pins-container{
+
 }

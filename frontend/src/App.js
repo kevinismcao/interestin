@@ -12,7 +12,7 @@ function App() {
     <div>
       <Navigation />
       <Switch>
-        <Route exact path="/users/:userId/boards/:boardId" component={BoardShow}/>
+        <Route exact path="/boards/:boardId" component={BoardShow}/>
         <Route exact path="/users/:userId" component={UserShow} />
         {/* <Route exact path="/users/:username" component={UserShow} /> */}
         <Route exact path="/pins/:pinId" component={PinShow}/>

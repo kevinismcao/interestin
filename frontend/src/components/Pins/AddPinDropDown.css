@@ -1,0 +1,185 @@
+.pin-dropdown-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.pin-dropdown-container h1 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.pin-dropdown-container p {
+    text-indent: 15px;
+    font-size: 12px;
+}
+
+
+.pin-dropdown-title {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.pin-dropdown-title-text{
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pin-dropdown-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+}
+.pin-dropdown-search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pin-dropdown-search input {
+    background-color: #111;
+    width: 90%;
+    height: 45px;
+    border: 0px;
+    border-radius: 24px;
+    text-indent: 25px;
+}
+
+.pin-dropdown-search:focus {
+    box-shadow: #111 0 0 0 4px;
+    outline: 0;
+    text-indent: 10px;
+    ;
+}
+ 
+.pin-search {
+    position: absolute;
+    right: 310px;
+    top: 100px;
+    color: #111;
+}
+
+input:focus~.pin-search {
+    opacity: 0;
+}
+
+.pin-dropdown-boards {
+    height: 50%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.pin-dropdown-create {
+    height: 20%;
+    width: 100%;
+}
+.pin-dropdown-create p {
+    padding-bottom: 10px;
+}   
+
+.mini-board-cover-container {
+    height: 48px;
+    width: 48px;
+    background-color: #e9e9e9;
+    border-radius: 8px;
+}
+
+.pin-add-board {
+    height: 48px;
+    width: 48px;
+    border-radius: 8px;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pin-add-board i {
+    -webkit-text-stroke: 1px var(--textDefault);
+}
+
+
+.pin-dropdown-create-board {
+    cursor: pointer;
+    height: 78px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.pin-dropdown-create-board:hover {
+    background-color: #e2e2e2;
+}
+
+.pin-dropdown-create-board div {
+    margin: 5px 5px 5px 15px
+}
+
+
+.mini-board-cover {
+    height: 48px;
+    width: 48px;
+    border-radius: 8px;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mini-board-preview-container {
+    cursor: pointer;
+    ;
+    margin-top: 10px;
+    margin-left: 7px;
+    height: 60px;
+    border-radius: 12px;
+    ;
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+    align-items: center;
+}
+
+.mini-board-preview-container:hover {
+    background-color: #e2e2e2;
+}
+
+
+.mini-board-info {
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pin-dropdown-board-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.div-image.mini-board {
+    width: 48px;
+    height: 48px;
+}

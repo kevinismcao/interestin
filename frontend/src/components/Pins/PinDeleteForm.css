@@ -1,4 +1,4 @@
-.delete-board-modal-container {
+.delete-pin-modal-container {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.delete-board-modal-background{
+.delete-pin-modal-background{
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -23,7 +23,7 @@
     z-index: 110;
 }
 
-.delete-board-modal-foreground{
+.delete-pin-modal-foreground{
    width: 540px;
    height: 220px;
    margin-right: 16px;
@@ -39,7 +39,7 @@
 
 
 
-.delete-board-modal-title{
+.delete-pin-modal-title{
     box-sizing: border-box;
     position: relative;
     z-index: 8;
@@ -48,19 +48,19 @@
     width: 540px;
    
 }
-.delete-board-modal-title-box{
+.delete-pin-modal-title-box{
     height: 81px;
     width: 540px;
     
 }
 
-.delete-board-modal-confirm-box {
+.delete-pin-modal-confirm-box {
     height: 51px;
     width: 540px;
 
 }
 
-.delete-board-modal-title >p{
+.delete-pin-modal-title >p{
     text-align: center;
     word-wrap: break-word;
     font-weight: 600;
@@ -74,7 +74,7 @@
     margin-inline-end: 0px;
 }
 
-.delete-board-modal-title-confirm{
+.delete-pin-modal-title-confirm{
     box-sizing: border-box;
     position: relative;
     z-index: 8;
@@ -83,7 +83,7 @@
     width: 540px;
 }
 
-.delete-board-modal-confirm{
+.delete-pin-modal-confirm{
     display: flex;
     justify-content: center;
     box-sizing: border-box;
@@ -91,13 +91,13 @@
     flex-direction: row;
 }
 
-.delete-board-modal-confirm >p{
+.delete-pin-modal-confirm >p{
     font-size: 16px;
     font-weight: 400;
 
 }
 
-.delete-board-options{
+.delete-pin-options{
     z-index: 6;
     box-sizing: border-box;
     position: relative;
@@ -106,13 +106,13 @@
 
 }
 
-.delete-board-options-box{
+.delete-pin-options-box{
     box-sizing: border-box;
     padding: 24px;
 
 }
 
-.delete-board-options-flexbox{
+.delete-pin-options-flexbox{
     justify-content: center;
     box-sizing: border-box;
     display: flex;
@@ -144,7 +144,7 @@
     background-color: #ddd;
 }
 
-.delete-board-button-cancel {
+.delete-pin-button-cancel {
     border: 0;
     min-width: 60px;
     justify-content: center;
@@ -165,11 +165,11 @@
     margin-left: 8px;
 }
 
-.delete-board-button-cancel:hover {
+.delete-pin-button-cancel:hover {
     background-color: #ddd;
 }
 
-.delete-board-button-delete {
+.delete-pin-button-delete {
     border: 0;
     min-width: 60px;
     justify-content: center;
@@ -191,6 +191,6 @@
     color: #fff;
 }
 
-.delete-board-button-delete:hover {
+.delete-pin-button-delete:hover {
     background-color: #ad081b;
 }

@@ -8,8 +8,6 @@ const PinDeleteForm = (props) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
-    console.log(pin)
-    console.log(closePinDeleteModal,"close")
 
     const handleDeleteClick=(e)=> {
         e.preventDefault();
@@ -17,29 +15,29 @@ const PinDeleteForm = (props) => {
         history.push(`/users/${sessionUser.id}`)
     }
     return(
-        <div className='delete-board-modal-container'>
-            <div className="delete-board-modal-background" onClick={closePinDeleteModal}></div>
-            <div className="delete-board-modal-foreground">
-                <div className="delete-board-modal-container">
-                    <div className="delete-board-modal-title-box">
-                        <div className="delete-board-modal-title">
+        <div className='delete-pin-modal-container'>
+            <div className="delete-pin-modal-background" onClick={closePinDeleteModal}></div>
+            <div className="delete-pin-modal-foreground">
+                <div className="delete-pin-modal-container">
+                    <div className="delete-pin-modal-title-box">
+                        <div className="delete-pin-modal-title">
                             <p>Are you sure?</p>
                         </div>
                     </div>
-                    <div className="delete-board-modal-title-confirm">
-                        <div className="delete-board-modal-confirm-box">
-                            <div className="delete-board-modal-confirm">
-                                <p>Once you delete a board, you can't undo it!</p>
+                    <div className="delete-pin-modal-title-confirm">
+                        <div className="delete-pin-modal-confirm-box">
+                            <div className="delete-pin-modal-confirm">
+                                <p>Once you delete a Pin, you can't undo it!</p>
                             </div>
                         </div>
                     </div>
-                    <div className="delete-board-options">
-                        <div className="delete-board-options-box">
-                            <div className="delete-board-options-flexbox">
-                                <div onClick={closePinDeleteModal} className='delete-board-button-cancel'>
+                    <div className="delete-pin-options">
+                        <div className="delete-pin-options-box">
+                            <div className="delete-pin-options-flexbox">
+                                <div onClick={closePinDeleteModal} className='delete-pin-button-cancel'>
                                     <h1 className="button-text">Cancel</h1>
                                 </div>
-                                <div onClick={handleDeleteClick} className='delete-board-button-delete'>
+                                <div onClick={handleDeleteClick} className='delete-pin-button-delete'>
                                     <h1 className="button-text">Delete</h1>
                                 </div>
                             </div>

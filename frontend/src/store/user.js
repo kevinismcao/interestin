@@ -37,6 +37,7 @@ export const fetchUsers = () => async(dispatch) => {
 
 export const fetchUser = userId => async(dispatch) => {
     const response = await fetch(`/api/users/${userId}`);
+    console.log(2)
     if (response.ok) {
         const user = await response.json();
         dispatch(receiveUser(user));

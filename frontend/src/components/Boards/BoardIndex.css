@@ -78,6 +78,7 @@
     position: absolute;
     left: 190px;
     top: 110px;
+    z-index: 10;
 }
 
 
@@ -98,7 +99,7 @@
     text-align: left;
     width: 220px;
     height: 43px;
-    color: ;
+    color: #111;
 }
 
 .board-preview-subtext {
@@ -160,4 +161,8 @@ div[class^='cover-panel'] {
 }
 .edit-board-button:hover {
     background: rgba(255, 255, 255, 1);
+}
+
+.preview-board-edit-hide{
+    visibility: hidden;
 }

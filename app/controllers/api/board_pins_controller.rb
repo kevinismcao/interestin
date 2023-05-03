@@ -1,33 +1,37 @@
 class Api::BoardPinsController < ApplicationController
     def index 
-        if params[:board_id]
-            board = Board.find_by(id: params[:board_id])
-            @pins = board.pins
-            render "api/pins/index"
+       @board_pins = BoardPin.all
+        if @board_pins
+            render :index
         else
             render json: ["Something went wrong"], status: 422
         end
     end
 
     def create
-        new_pin_on_board = BoardPin.new(board_pin_params)
-        @board = Board.find(params[:board_pin][:board_id])
+        @pin=Pin.find(params[:pin_id])
+        @board = Board.find(params[:board_id])
+        @board_pin = BoardPin.new(board_pin_params)
 
-        if @board && new_pin_on_board.save
-            render "api/boards/show"
+        if @board && @pin && @board_pin.save
+            render :show
         else
-            render json: new_pin_on_board.errors, status: 422
+            render json: @pins_to_board.errors, status: 422
         end
     end
 
+    def show
+        @board_pin = BoardPin.find(params[:id])
+        render :show
+    end
+
     def destroy
-        @board ||= Board.find_by(id: params[:board_id])
-        @pin ||= Pin.find_by(id: params[:pin_id])
+        @board_pin = BoardPin.find(params[:id])
         if !@board || !@pin
             render json: ["Something went wrong"], status: 422
         end
-        if @board.remove_pin(@pin)
-            render "api/boards/show"
+        if @board_pin.delete
+            render :index
         else
             render json: ["Something went wrong"], status: 422
         end

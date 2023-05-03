@@ -16,26 +16,25 @@ const BoardPreviewContainer = (props) => {
     
     
     return (
-        // <Link to={`/users/${user.id}/boards/${board.id}`}>
-            <div className="board-preview-container">
-                <div className="board-preview-cover">
-                    <BoardPreviewCover
-                        // openModal={openModal}
-                        board={board}
-                        isUser={isUser}
-                        user={user}
-                        // pins={pins.slice(0, 3)}
-                    />
-                </div>
-                <div className='board-preview-text'>
-                    <h1>{board.name}</h1>
-                    <div className='board-preview-subtext'>
-                        <p>{`${board.pins.length} Pins`}</p>
-                        <p className="updated-at">{timeSince(board.createdAt)}</p>
-                    </div>
+        <div className="board-preview-container">
+            <div className="board-preview-cover">
+                <BoardPreviewCover
+                    // openModal={openModal}
+                    board={board}
+                    isUser={isUser}
+                    user={user}
+                    // pins={pins.slice(0, 3)}
+                />
+            </div>
+            <div className='board-preview-text'>
+                <h1>{board.name}</h1>
+                <div className='board-preview-subtext'>
+                    <p>{`${board.pins.length} Pins`}</p>
+                    <p className="updated-at">{timeSince(board.createdAt)}</p>
                 </div>
             </div>
-        // </Link>
+        </div>
+        
     )
     
 }

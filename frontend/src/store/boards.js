@@ -27,6 +27,8 @@ export const getBoards = state => {
     return state?.entities.boards ? Object.values(state.entities.boards) : [];
 }
 
+
+
 export const fetchBoards = (userId) => async(dispatch) => {
     const response = await fetch(`/api/users/${userId}/boards`);
     
@@ -36,9 +38,17 @@ export const fetchBoards = (userId) => async(dispatch) => {
     }
 }
 
-export const fetchBoard = (userId, boardId) => async(dispatch) => {
-    const response = await fetch(`/api/users/${userId}/boards/boardId`);
+export const fetchAllBoards = () => async (dispatch) => {
+    const response = await fetch(`/api/boards`);
 
+    if (response.ok) {
+        const boards = await response.json();
+        dispatch(receiveBoards(boards));
+    }
+}
+
+export const fetchBoard = ( boardId) => async(dispatch) => {
+    const response = await fetch(`/api/boards/${boardId}`);
     if (response.ok){
         const board = await response.json();
         dispatch(receiveBoard(board));
@@ -50,9 +60,12 @@ export const fetchBoardCover = (boardId) => async(dispatch) => {
 }
 
 export const createBoard = board => async (dispatch) => {
-    const response = await csrfFetch(`/api/boards/`, {
+    const response = await csrfFetch(`/api/boards`, {
         method: 'POST',
-        body: (board)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(board)
     });
     if (response.ok){
         const board = await response.json();
@@ -73,6 +86,16 @@ export const updateBoard = (userId, board) => async (dispatch) => {
         dispatch(receiveBoard(board))
     }
 }
+
+export const deleteBoard = (userId, boardId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/users/${userId}/boards/${boardId}`, {
+        method: 'DELETE',
+    });
+    if (response.ok){
+        dispatch(removeBoard(boardId))
+    }
+}
+
 
 const boardsReducer = (state={}, action) => {
     switch (action.type){

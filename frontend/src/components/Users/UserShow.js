@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./UserShow.css"
-import { NavLink, useParams } from "react-router-dom"
+import { Link, NavLink, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchUser, fetchUserByUsername, getUser, getUserByUsername } from "../../store/user"
 import ProfilePicture from "./ProfilePicture"
 import UserShowCreated from "./UserShowCreated"
 import UserShowSaved from "./UserShowSaved"
+import BoardCreateForm from "../Boards/BoardCreateForm"
+import CloseDropdown from "../dropdown/CloseDropdown"
 
 const Tab = {
     SAVED: "saved",
@@ -18,18 +20,28 @@ const UserShow = (params) => {
     const user = useSelector(getUser(userId))
     const sessionUser = useSelector(state => state.session.user)
     const [tab, setTab] = useState("saved")
-    
+    const [showCreateBoardModal, setShowCreateBoardModal] = useState(false)
+    const plusRef = useRef(null)
+    const [plus, setPlus] = useState(false)
+
     useEffect(()=> {
         dispatch(fetchUser(userId))
     },[dispatch, userId])
-
     
+    
+    // const handlePlusClick = () => {
+    //     setPlus(!plus)
+    // }
+   
    
     if (user) { 
         const isUser = (sessionUser.id === user.id )
 
         return (
             <div className= "user-show-container" >
+                {showCreateBoardModal && 
+                <BoardCreateForm closeCreateBoardModal = {()=>setShowCreateBoardModal(false)}/>
+                }
             <div className="user-show-header-contianer">
                 <div className="user-show-header">
                     <div className="user-show-profile-pic">
@@ -47,22 +59,24 @@ const UserShow = (params) => {
                     </div> 
                 </div>
             </div>    
-            {/* <div className={`user-show-plus-container ${!isUser ? "hide" : ""}`}>
+            <div className={`user-show-plus-container ${!isUser ? "hide" : ""}`}>
                 <div className={`plus-circle-${ plus ? "clicked" : "unclicked"}`}></div>
-                    <i ref={plusRef} onClick={handlePlusClick} className={`fa-solid fa-plus fa-2xs plus-${ plus ? "clicked" : "unclicked"}`}></i>
+                    <i ref={plusRef} onClick={()=> setPlus(!plus)} className={`fa-solid fa-plus fa-2xs plus-${ plus ? "clicked" : "unclicked"}`}></i>
                 <div className={`plus-menu ${ plus ? "open" : "closed"}`}>
-                    <p>Create</p>
+                    <p className="plus-menu-title">Create</p>
                     <Link to="/pin-builder">
-                        <div>Create pin</div>   
+                        <div className="button-container"><p className="plus-create-click">Create pin</p></div>   
                     </Link>
-                    <div onClick={handleOpenModal('create board', {boardShow: false} )}>Create board</div>
+                        <div className="button-container" onClick={() => {setShowCreateBoardModal(!showCreateBoardModal); setPlus(!plus)}} ><p className="plus-create-click">Create board</p></div>
                 </div>
-            </div> */}
-            <div className="user-show-content-container">
+            </div>
+            <div className="user-show-saved-created-container">
+                <div className="user-show-saved-created-box">
                 { tab === "saved" ? 
                         <UserShowSaved isUser={isUser} user={user} /> :
                         <UserShowCreated isUser = {isUser} user = {user} />
                 }
+                </div>
             </div>
         </div>
         )

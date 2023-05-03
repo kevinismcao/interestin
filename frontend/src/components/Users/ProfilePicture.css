@@ -16,8 +16,13 @@
     height: 120px;
     width: 120px;
     border-radius: 50%;
+    font-size: 40px;
+    color: var(--textDefault);
 }
 
+#user-initial{
+    color: #111;
+}
 .preview-photo.medium {
     height: 60px;
     width: 60px;

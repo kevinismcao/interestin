@@ -12,9 +12,18 @@ class Api::BoardsController < ApplicationController
     end
 
     def index
-        @boards = Board.where(owner_id: params[:user_id])
+        if params[:user_id]
+            @boards = Board.where(owner_id: params[:user_id])
+        else
+            @boards = Board.all
+        end
         render :index
     end
+
+    # def index
+    #     @boards = Board.where(owner_id: params[:user_id])
+    #     render :index
+    # end
 
     def show
         @board = Board.find(params[:id])
@@ -30,6 +39,7 @@ class Api::BoardsController < ApplicationController
         @board =Board.new(board_params)
         if current_user
             @board.owner_id = current_user.id
+            p current_user
         else
             render json:["You must be logged in to create board"], status:401
         end

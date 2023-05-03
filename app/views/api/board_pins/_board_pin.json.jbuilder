@@ -1,0 +1,1 @@
+json.extract! board_pin, :id, :board_id, :pin_id, :created_at, :updated_at
