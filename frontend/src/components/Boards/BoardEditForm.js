@@ -10,7 +10,7 @@ const BoardEditForm = (props) => {
     const { user, board, closeModal} = props;
     const dispatch = useDispatch();
     const history = useHistory();
-    
+    const [errors, setErrors] = useState([]);
     const [name, setName] = useState(board.name)
     const [description, setDescription] = useState(board.description)
     const [showBoardDeleteModal, setShowBoardDeleteModal] = useState(false)
@@ -21,9 +21,22 @@ const BoardEditForm = (props) => {
         let newBoard = {...board};
         newBoard["name"] = name;
         newBoard["description"] = description;
-        console.log(newBoard)
-        dispatch(updateBoard(user.id, newBoard));
-        closeModal()
+        dispatch(updateBoard(user.id, newBoard))
+            .catch(async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors(data);
+                else setErrors([res.statusText]);
+
+            })
+            .then((status) => status && closeModal())
+        
     }
 
 
@@ -36,7 +49,7 @@ const BoardEditForm = (props) => {
     return(
         <div>
             { showBoardDeleteModal && 
-                    <BoardDeleteForm closeBoardDeleteModal = {()=>setShowBoardDeleteModal(false)} board={board} user={user}/>
+                    <BoardDeleteForm closeBoardDeleteModal = {()=>setShowBoardDeleteModal(false)} closeModal={closeModal} board={board} user={user}/>
 
                 }
             <div className={ showBoardDeleteModal ? "edit-board-hide" : "edit-board"}>
@@ -57,7 +70,9 @@ const BoardEditForm = (props) => {
                                     onChange={(e)=>setName(e.currentTarget.value)}
                                 />
                             </div>
-                            {/* {renderErrors()} */}
+                            <ul >
+                                {errors.map(error => <p className="board-update-modal-error-text" key={error}>{error}</p>)}
+                            </ul>
                             <div className='create-board-description-container'>
                                 <label htmlFor="modal-board-description">Description</label>
                                 <input className="edit-board-input"

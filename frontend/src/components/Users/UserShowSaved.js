@@ -5,18 +5,17 @@ import { Link } from "react-router-dom";
 import BoardPreviewContainer from "../Boards/BoardPreview";
 
 const UserShowSaved = (props) => {
-    const {isUser, user} = props;
+    const {isUser, user, userBoards, boards} = props;
     const dispatch = useDispatch();
-    const boards = useSelector(getBoards);
     const noBoardsCreated = (Object.keys(user.boards).length === 0)
 
     const noSavedBoardMessage = () => {
         return `${isUser ? "You haven't" : `${user.username} hasn't`} saved any Pins yet`
     }
-
-    useEffect(()=>{
-        dispatch(fetchBoards(user.id))
-    },[dispatch, user.id])
+    
+    // useEffect(()=>{
+    //     dispatch(fetchBoards(user.id))
+    // },[dispatch, user.id])
     
     const noBoards = () => {
         return (
@@ -40,6 +39,7 @@ const UserShowSaved = (props) => {
                         board={board}
                         user={user}
                         isUser={isUser}
+                        userBoards = {userBoards}
                         // pins={board.pins.map(id => pins[id])}
                     />)
                 }

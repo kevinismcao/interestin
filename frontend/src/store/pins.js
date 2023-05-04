@@ -82,6 +82,19 @@ export const fetchHomepagePins = numPins => async (dispatch) => {
     }
 }
 
+export const getSearchPins = (query) => async(dispatch) => {
+    const response = await fetch(`/api/pins/search?query=${query}`,{
+        data: {
+            query: (query)
+        }
+    });
+    if (response.ok){
+        const pins = await response.json();
+        console.log(pins,"search")
+        dispatch(receivePins(pins))
+    }
+}
+
 export const createPin = pin => async (dispatch) => {
     const response = await csrfFetch(`/api/pins/`, {
         method: 'POST',
@@ -94,7 +107,8 @@ export const createPin = pin => async (dispatch) => {
     if (response.ok) {
         const pin = await response.json();
         dispatch(receivePin(pin));
-    }
+        return true;
+    } else return false;
 };
 
 export const deletePin = pinId => async (dispatch) => {
@@ -107,7 +121,8 @@ export const deletePin = pinId => async (dispatch) => {
 
     if (response.ok) {
         dispatch(removePin(pinId));
-    }
+        return true;
+    } else return false;
 };
 
 export const updatePin = pin => async(dispatch) =>{
@@ -121,7 +136,8 @@ export const updatePin = pin => async(dispatch) =>{
     if (response.ok){
         const pin = await response.json();
         dispatch(receivePin(pin))
-    }
+        return true;
+    } else return false;
 }
 
 

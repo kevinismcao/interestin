@@ -3,8 +3,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-radius: 16px;
     height: 100%;
     width: 100%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
 }
 .pin-dropdown-container h1 {
     font-weight: 400;

@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { updatePin } from "../../store/pins";
 import { useState } from "react";
 import PinDeleteForm from "./PinDeleteForm";
+import { createBoardPin } from "../../store/boardPins";
 
 const PinEditForm = (props) => {
     const dispatch = useDispatch()
-    const {closeModal, pin} = props;
+    const {closeModal, pin, userBoards} = props;
     const history = useHistory();
+    const [errors, setErrors] = useState([]);
     const sessionUser = useSelector(state => state.session.user)
     // const userBoards = sessionUser.boards.map((boardId) => boards[boardId])
     const [showPinDeleteModal, setShowPinDeleteModal]=useState(false)
-
+    const [boardSelectedId, setBoardSelectedId] = useState(0)
 
     const [newPin, setNewPin] = useState({
         title: pin.title,
@@ -27,10 +29,33 @@ const PinEditForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updatePin(newPin));
-        closeModal()
+        dispatch(updatePin(newPin))
+            .catch(async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors(data);
+                else setErrors([res.statusText])
+            })
+            .then((status) => status && closeModal())
+            .then(()=>history.push(`/pins/${pin.id}`))
+            .then(()=>{
+                dispatch(createBoardPin({
+                    pin_id: pin.id,
+                    board_id: boardSelectedId
+                }))
+            })
     }
    
+    const handleSelection = (e) => {
+        let value = e.target.value;
+        setBoardSelectedId(value)
+    }
 
     const handleCancel = (e) => {
         e.preventDefault()
@@ -61,10 +86,10 @@ const PinEditForm = (props) => {
                                             <div className="pin-edit-board-select-box">
                                                 <select
                                                     id="pin-edit-board"
-                                                    // onChange={handleSelection}
-                                                > Board placeholder
-                                                    <option key={4} value={4}>placeholder</option>
-                                                    {/* {userBoards.map((userBoard, i) => <option key={i} value={`${userBoard.id}`}>{userBoard.name}</option>)} */}
+                                                    onChange={handleSelection}
+                                                > 
+                                                    
+                                                    {userBoards.map((userBoard, i) => <option key={i} value={`${userBoard.id}`}>{userBoard.name}</option>)}
                                                 </select>
                                             </div>
                                         </div>
@@ -99,6 +124,9 @@ const PinEditForm = (props) => {
                                             />
                                         </div>
                                     </div>
+                                    <ul >
+                                        {errors.map(error => <p className="board-modal-error-text" key={error}>{error}</p>)}
+                                    </ul>
                                 </div>
                             
                                 <div className="pin-edit-photo">

@@ -5,15 +5,17 @@ import { deleteBoard } from '../../store/boards';
 import "./BoardDeleteForm.css"
 
 const BoardDeleteForm = (props) => {
-    const { closeBoardDeleteModal, board, user} = props;
+    const { closeBoardDeleteModal,closeModal, board, user} = props;
     const history = useHistory();
     const dispatch = useDispatch();
-    console.log(board.id)
+    
 
     const handleDeleteClick = (e) => {
         e.preventDefault();
         dispatch(deleteBoard(user.id, board.id))
-        history.push(`/users/${user.id}`)
+        closeBoardDeleteModal()
+        closeModal()
+        history.push(`/users/${user.id}/saved`)
     }
    
     const handleCancelClick = (e) => {

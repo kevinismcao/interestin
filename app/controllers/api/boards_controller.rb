@@ -44,10 +44,10 @@ class Api::BoardsController < ApplicationController
             render json:["You must be logged in to create board"], status:401
         end
 
-        if @board.save!
+        if @board.save
             render :show
         else
-            render json:@board.errors.full_messages, status:422
+            render json:["Try a different name. You already have a board with this name!"], status:422
         end
     end
 

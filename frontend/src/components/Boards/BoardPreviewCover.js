@@ -14,7 +14,6 @@ const BoardPreviewCover = ({ board, isUser, user }) => {
         dispatch(fetchPins());
     }, [dispatch])
     
-    
     const handleGoBack = (e) => {
         e.preventDefault();
         window.history.back();

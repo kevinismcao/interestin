@@ -137,3 +137,8 @@
 .board-create-button.clickable:hover {
     background-color: var(--hoveRed);
 }
+
+.board-modal-error-text{
+    padding-left: 30px;
+    color: var(--textError);
+}

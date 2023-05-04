@@ -6,9 +6,9 @@ import "./AddPinDropDown.css"
 
 const AddPinDropdown = (props) => {
    
-    const {pin, userBoards, updateCurrentSelection, currentUser, setOpen} = props
+    const {pin, userBoards, updateCurrentSelection, currentUser, pins, setOpen} = props
     const [showCreateBoardModal, setShowCreateBoardModal] = useState(false)
-
+    
     // const [query, setQuery] = useState('')
     // const updateQuery = (query) => {
     //     setQuery(query)
@@ -30,7 +30,7 @@ const AddPinDropdown = (props) => {
                 <p>All boards</p>
                 <div className='pin-dropdown-board-container'>
                     {/* <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={null} currentUser={currentUser} pin={pin} /> */}
-                    {userBoards.map((userBoard, i) => <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={userBoard} key={i} currentUser={currentUser} pin={pin} />)}
+                    {userBoards.map((userBoard, i) => <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={userBoard} key={i} currentUser={currentUser} pins={pins} pin={pin} />)}
                 </div>
             </div>
             <div className='pin-dropdown-create'>

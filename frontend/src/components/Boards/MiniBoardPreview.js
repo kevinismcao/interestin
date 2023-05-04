@@ -5,7 +5,7 @@ import { abbreviate } from '../../util/function_util'
 import SavePinButton from '../Button/SavePinButton'
 
 
-const MiniBoardPreview = ({board, pin, updateCurrentSelection, query}) => {
+const MiniBoardPreview = ({board, pin, updateCurrentSelection,pins, query}) => {
 
     // const show = board?.name.toLowerCase().includes(query.toLowerCase()) || board === null
     // const handleClick = (e) => {

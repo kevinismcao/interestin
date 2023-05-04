@@ -70,7 +70,8 @@ export const createBoard = board => async (dispatch) => {
     if (response.ok){
         const board = await response.json();
         dispatch(receiveBoard(board));
-    }
+        return true;
+    }else return false;
 }
 
 export const updateBoard = (userId, board) => async (dispatch) => {
@@ -84,7 +85,8 @@ export const updateBoard = (userId, board) => async (dispatch) => {
     if (response.ok){
         const board = await response.json();
         dispatch(receiveBoard(board))
-    }
+        return true;
+    }else return false;
 }
 
 export const deleteBoard = (userId, boardId) => async (dispatch) => {

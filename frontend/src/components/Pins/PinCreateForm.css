@@ -84,7 +84,7 @@
     border-radius: 8x;
     box-sizing: border-box;
     position:relative;
-    width: 236px;
+    width: 65px;
     height: 40px;
 }
 
@@ -134,7 +134,7 @@
     height: 40px;
     outline: 0px;
     padding: 0px 14px;
-    border-radius: 0px 8px 8px 0px;
+    border-radius: 8px;
     pointer-events: auto;
     text-align: left;
     word-wrap: break-word;

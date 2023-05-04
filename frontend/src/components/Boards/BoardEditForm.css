@@ -207,3 +207,10 @@ padding-left: 33px;
 .board-update-button:hover {
         background-color: #ad081b;
     }    
+
+.board-update-modal-error-text{
+    font-size: 12px;
+    padding-left: 40px;
+    padding-bottom: 8px;
+    color: var(--textError);
+}

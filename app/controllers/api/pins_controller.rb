@@ -40,16 +40,27 @@ class Api::PinsController < ApplicationController
         end
     end
 
+    def search
+        query=params[:query]
+        @pins = Pin.where('title ILIKE ? OR description ILIKE ?', "%#{query}%", "%#{query}%")
+        if @pins.length > 0
+            render :index
+        else
+            render json: ["Sorry, we did not find any results for #{query}, try another search"], status: 404
+        end
+        
+    end
+
     def create 
         if !current_user 
             render json: "You must be logged in to create Pin"
         end
         
         @pin = Pin.new(pin_params)
-        if @pin.save!
+        if @pin.save
             render :show
         else
-            render json: error_message, status: 422
+            render json: @pin.errors.full_messages, status: 422
         end
 
     end

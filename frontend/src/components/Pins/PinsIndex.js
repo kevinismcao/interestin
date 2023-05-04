@@ -5,18 +5,18 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchBoardPins, getBoardPins } from "../../store/boardPins"
 import { fetchAllBoards, fetchBoards, getBoards } from "../../store/boards"
 
-const PinsIndex = ({pins}) => {
+const PinsIndex = ({pins,userBoards}) => {
     const dispatch = useDispatch();
     const boardPins = useSelector(getBoardPins)
-    const boards = useSelector(getBoards)
+    // const boards = useSelector(getBoards)
     
     const sessionUser = useSelector(state => state.session.user)
     const userBoardPins =useMemo(()=> boardPins.filter((boardPin)=> sessionUser.boards.includes(boardPin.boardId)),[boardPins, sessionUser])
-    const userBoards = useMemo(()=> boards.filter((board)=> sessionUser.boards.includes(board.id)),[boards,sessionUser])
+    // const userBoards = useMemo(()=> boards.filter((board)=> sessionUser.boards.includes(board.id)),[boards,sessionUser])
 
     useEffect(()=>{
         dispatch(fetchBoardPins()); 
-        dispatch(fetchAllBoards())
+        // dispatch(fetchAllBoards())
     }, [dispatch])
     
     return (
@@ -28,7 +28,7 @@ const PinsIndex = ({pins}) => {
                                         board = {null}
                                         pin = {pin}
                                         currentUser={sessionUser}
-                                        boards = {boards}
+                                        // boards = {boards}
                                         userBoards = {userBoards}
                                         boardPins = {userBoardPins}
                                         uploader = {pin.uploader}

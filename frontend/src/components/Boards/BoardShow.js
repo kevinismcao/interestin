@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useParams } from "react-router-dom"
 import { fetchBoardSavedPin } from "../../store/pins"
 
 import { getPins } from "../../store/pins"
-import { fetchBoard, getBoard } from "../../store/boards"
+import { fetchAllBoards, fetchBoard, getBoard, getBoards } from "../../store/boards"
 import { getUser } from "../../store/user"
 import BoardEditForm from "./BoardEditForm"
 import ProfilePicture from "../Users/ProfilePicture"
@@ -17,16 +17,20 @@ const BoardShow = (props) => {
     
     const {boardId} = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const dispatch = useDispatch();    
-    
+    const dispatch =useDispatch();
+           
     const [showEditModal, setShowEditModal] = useState(false);
     const pins = useSelector(getPins)
     const board = useSelector(getBoard(boardId))
-
+    const boards = useSelector(getBoards)
+    const userBoards = useMemo(() => boards.filter((board) => sessionUser.boards.includes(board.id)), [boards, sessionUser])
+    const currentBoard = useMemo(() => userBoards?.filter((board) => board.id === boardId), [userBoards, boardId])
+    const boardSavedPins = useMemo(() => pins.filter((savedPin) => board.pins.includes(savedPin.id)), [pins, board])
+    
     useEffect(()=>{
         dispatch(fetchBoardSavedPin(boardId));
         
-        dispatch(fetchBoard(boardId))
+        dispatch(fetchAllBoards())
     },[dispatch,boardId])
 
 
@@ -73,7 +77,9 @@ const BoardShow = (props) => {
                     user={user}
                     boardName={board.name}
                     board={board}
-                    pins={pins}
+                    currentBoard = {currentBoard}
+                    userBoards = {userBoards}
+                    pins={boardSavedPins}
                     hasPins={board.pins.length != 0}
                 />
             </div>

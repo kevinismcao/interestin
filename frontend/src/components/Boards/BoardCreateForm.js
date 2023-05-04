@@ -11,7 +11,8 @@ const BoardCreateForm = (params) => {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const owner_id = sessionUser.id
-    
+    const [errors, setErrors] = useState([]);
+
     const [board, setBoard] = useState({
         name: '',
         owner_id: owner_id
@@ -27,15 +28,27 @@ const BoardCreateForm = (params) => {
         })
     }
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(board,"board")
-        dispatch(createBoard(board));
-        closeCreateBoardModal();
-        history.push(`/users/${sessionUser.id}`)    
-        
+        dispatch(createBoard(board))
+            .catch (async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors(data);
+                else setErrors([res.statusText]);
+                
+            })
+            .then((status) => status && closeCreateBoardModal())
+            .then(()=>{history.push(`/users/${sessionUser.id}/saved`)})
+            
     }
-
+    
 
     return (
         <div className='create-board-container'>
@@ -55,9 +68,13 @@ const BoardCreateForm = (params) => {
                                 placeholder='Like "Places to Go" or "Recipes to Make"'
                             />
                         </div>
+                        <ul >
+                            {errors.map(error => <p className="board-modal-error-text" key={error}>{error}</p>)}
+                        </ul>
                         <button type="submit" className={`${board.name != "" ? "clickable" : ""} board-create-button`}>
                             <h1>Create</h1>
                         </button>
+                        
                     </form>
                 </div>
             </div>

@@ -1,28 +1,60 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchPin, getPin } from "../../store/pins"
+import { fetchPin, fetchPins, getPin, getPins } from "../../store/pins"
 import "./PinShow.css"
 import {RiMoreFill} from 'react-icons/ri'
 import PinEditForm from "./PinEditForm"
 import UserPreviewContainer from "../Users/UserPreview"
+import { fetchBoardPins, getBoardPins } from "../../store/boardPins"
+import { getBoards } from "../../store/boards"
+import { fetchBoard } from "../../store/boards"
+import { fetchBoards } from "../../store/boards"
+import AddPinDropdown from "./AddPinDropDown"
+import { abbreviate } from "../../util/function_util"
+import { MAX_BOARD_CHAR } from "../../util/constants_util"
+import SavePinButton from "../Button/SavePinButton"
 
-
-
+import { FiChevronDown } from 'react-icons/fi'
 
 
 const PinShow =() =>{
     const { pinId } = useParams();
     const dispatch = useDispatch();
     const pin = useSelector(getPin(pinId))
+    const pins = useSelector(getPins)
+    const boardPins = useSelector(getBoardPins)
     const [showMenu, setShowMenu] = useState(false);
     const [showEditModal,setShowEditModal] = useState(false);
-    
+    const userBoards = useSelector(getBoards)
     const sessionUser = useSelector(state => state.session.user)
+    const selection = userBoards[0]
+    const [currentSelection, setCurrentSelection] = useState(selection)
+    const userBoardPins = useMemo(() => boardPins.filter((boardPin) => sessionUser.boards.includes(boardPin.boardId)), [boardPins, sessionUser])
+    const [open, setOpen] = useState(false)
+    const handleClick = () => setOpen(!open)
+    const lastPin=false
+    const updateCurrentSelection = (selection) => {
+        setCurrentSelection(selection);
+        setOpen(false);
+    }
+    const currentBoardPins = useMemo(() => {
+        const selectedBoardPins = boardPins.filter((boardPin) => boardPin.boardId === currentSelection?.id)
+        //    console.log(boardPins, currentSelection.id, "sbp")
+        return Object.fromEntries(selectedBoardPins.map((boardPin) => [boardPin.pinId, boardPin.id]))
+    }, [boardPins, currentSelection])
 
+
+    useEffect(() => {
+        dispatch(fetchBoards(sessionUser.id))
+    }, [dispatch])  
     useEffect(()=>{
-        dispatch(fetchPin(pinId));
-    }, [dispatch, pinId])
+        dispatch(fetchPins());
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(fetchBoardPins());
+    }, [dispatch])
 
     const handleGoBack = (e) => {
         e.preventDefault();
@@ -48,7 +80,7 @@ const PinShow =() =>{
         return(
             <div className="pin-content">
                 {showEditModal &&
-                    <PinEditForm closeModal={()=> setShowEditModal(false)} pin={pin}/>
+                    <PinEditForm closeModal={()=> setShowEditModal(false)} userBoards={userBoards} pin={pin}/>
                 }
                
                 <div onClick={handleGoBack} className="pin-close-up"></div>
@@ -62,6 +94,12 @@ const PinShow =() =>{
                             <div className="pin-show-heading">
                             <div className={`pin-options`}></div>
                             <div className="pin-interaction-bar">
+                                    <div
+                                        className={`pin-add-menu ${open ? "open" : "closed"} ${lastPin ? "last-pin" : ""}`}
+                                    >
+                                        <AddPinDropdown setOpen={setOpen} pins={pins} pin={pin} userBoards={userBoards} currentUser={sessionUser} updateCurrentSelection={updateCurrentSelection} />
+                                    </div>
+
                                 {/* <div
                                      onClick={handleDropdownClick}
                                     className={`show-pin pin-add-menu `}>
@@ -77,13 +115,11 @@ const PinShow =() =>{
                                             </div>}
                                 <div className="pin-item-hover-out-box">
                                 <div className={`pin-item-hover-interaction`}>
-                                    <div className={`pin-dropdown-trigger`} >
-                                        <h1>Board name</h1>
-                                        {/* <h1 >{abbreviate(currentSelection?.name ?? "Profile", MAX_BOARD_CHAR)}</h1> */}
-                                        <i className='fa-solid fa-chevron-down fa-xs' id="dropdown-button"></i>
+                                    <div className={`pin-dropdown-trigger-show`} onClick={handleClick} >
+                                        <h1 >{abbreviate(currentSelection?.name ?? "Profile", 20)}</h1>
+                                            <FiChevronDown id="dropdown-button-photo-show" />
                                     </div>
-                                    <button className='save-button'>Save</button>
-                                    {/* <SavePinButton boardId={currentSelection?.id} pinId={pin.id} isOutside={true} /> */}
+                                            <SavePinButton boardId={currentSelection?.id} pinId={pinId} boardPins={boardPins} currentBoardPins={currentBoardPins} board={currentSelection} className="save-button" />
                                 </div>
                                 </div>
                                 
@@ -103,7 +139,7 @@ const PinShow =() =>{
                         </div>
                     </div>
                 </div>
-                
+               
             </div>
         )
     }else{

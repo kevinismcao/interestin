@@ -7,7 +7,7 @@ import { timeSince } from "../../util/time_util";
 import './BoardIndex.css'
 
 const BoardPreviewContainer = (props) => {
-    const { board, user, isUser } = props
+    const { board, user, isUser, userBoards } = props
     const dispatch = useDispatch();
     // const pins = useSelector(getPins);
     // useEffect(() => {

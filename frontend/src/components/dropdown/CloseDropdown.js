@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const CloseDropdown = (el, initialState) => {
+export const CloseDropdown = (el, initialState) => {
     const [open, setOpen] = useState(initialState);
    
     useEffect(() => {
@@ -23,4 +23,3 @@ const CloseDropdown = (el, initialState) => {
     return [open, setOpen]
 }
 
-export default CloseDropdown

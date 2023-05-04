@@ -3,7 +3,7 @@ import PinsIndex from "../Pins/PinsIndex"
 import { useRef, useState } from "react"
 import "./BoardShowPins.css"
 const BoardShowPins = (props) => {
-    const {pins, user, ownsBoard, board} = props
+    const {pins, user, ownsBoard, board, currentBoard, userBoards} = props
     const pinCount = board.pins.length
     
     const plusRef = useRef(null)
@@ -36,6 +36,8 @@ const BoardShowPins = (props) => {
             <PinsIndex
                 pins={pins}
                 board={board}
+                userBoards={userBoards}
+                currentBoard = {currentBoard}
             /> 
             {boardShowButtons()}
         </div>

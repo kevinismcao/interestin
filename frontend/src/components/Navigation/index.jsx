@@ -5,11 +5,12 @@ import ProfileButton from './ProfileButton';
 import "./index.css";
 import logo from '../../assets/image/logo3.png';
 import LoginSignupModal from '../LoginSignupModal';
-import { RxMagnifyingGlass } from 'react-icons/rx';
+
 import { SiGithub } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaUserCircle } from 'react-icons/fa';
 import ProfilePicture from '../Users/ProfilePicture';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Navigation() {
    
@@ -40,12 +41,13 @@ function Navigation() {
                         </NavLink>
                     </div>
                     <div className='nav-search-bar-container'>
-                        <div className='search-bar'>
+                        {/* <div className='search-bar'>
                             <div className='search-bar-background'>
                                 <div className='magnifying-glass'><RxMagnifyingGlass id="mag-glass"/></div>
                                 <div className='search-input-box'><input id='search-input' type="text" placeholder='Search'/></div>
                             </div>
-                        </div>
+                        </div> */}
+                        <SearchBar/>
                     </div>
                     <div className='right-nav'>
                         <div className='icon-container'><a className='link-icon' href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>

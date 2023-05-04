@@ -16,6 +16,8 @@ const PinCreateForm = () =>{
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);   
     const uploader_id = sessionUser.id
+    const [errors, setErrors] = useState([]);
+    const [imageErrors, setImageErrors] = useState(false);
     const [pin, setPin] = useState({
         title: '',
         description: '',
@@ -28,7 +30,7 @@ const PinCreateForm = () =>{
     // const [description, setDescription] = useState(pin.description);
     // const [imageFile, setImageFile] = useState(pin.imageFile);
     // const [imageUrl, setImageUrl] = useState(pin.imageUrl);
-    const [errors, setErrors] = useState(false)
+    
     
     if (!sessionUser){
        return <Redirect to='/'/>
@@ -70,6 +72,7 @@ const PinCreateForm = () =>{
         }
         if (file) {
             fileReader.readAsDataURL(file);
+            setImageErrors(false);
         } else {
             setPin({ ...pin }, { imageFile: null });
             setPin({ ...pin }, { imageUrl: null });
@@ -79,7 +82,7 @@ const PinCreateForm = () =>{
     const handlePinSubmit = (e) => {
         e.preventDefault();
         if (!pin.imageFile) {
-            setErrors(true);
+            setImageErrors(true);
         }
       
         const formData = new FormData();
@@ -88,15 +91,27 @@ const PinCreateForm = () =>{
         formData.append('pin[image]', pin.imageFile);
         formData.append('pin[uploader_id]', pin.uploader_id)
         
-        dispatch(createPin(formData));
-        history.push(`/users/${sessionUser.id}`)
+        dispatch(createPin(formData))
+            .catch (async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors(data);
+                else setErrors([res.statusText])
+            })
+            .then((status) => status && history.push(`/users/${sessionUser.id}`))
+   
     }
-
-    
+    console.log(errors)
     
     const preview = pin.imageUrl ? <img className="preview-img" src={pin.imageUrl}/> : null;
 
-    console.log(preview? true:false)
+   
 
     return(
         <div className="main-pin-create-form-container">
@@ -109,10 +124,10 @@ const PinCreateForm = () =>{
                             <div className="pin-create-more-option"><RiMoreFill/></div>
                             <div className="pin-header-right-container">
                                 <div className="pin-header-box">
-                                <button className="board-select-drop-down">
+                                {/* <button className="board-select-drop-down">
                                     <div className="pin-create-board-name">placeholder</div>
                                     <div className="pin-create-icon"><IoIosArrowDown/></div>
-                                </button>
+                                </button> */}
                                 <button type="submit" className={`clickable-board-create-button-create-form`}>
                                     <div>Save</div>
                                 </button>
@@ -123,7 +138,7 @@ const PinCreateForm = () =>{
                     </div>
                     <div className="pin-create-bottom-container">
                         <div className="pin-create-left-container">
-                            <div className={preview ? "hide" : "pin-create-left-box"} id={errors ? "pin-create-left-box-error" : "pin-create-left-box"}>
+                            <div className={preview ? "hide" : "pin-create-left-box"} id={imageErrors ? "pin-create-left-box-error" : "pin-create-left-box"}>
                                 <div className="upload-container">
                                     <div className={preview ? "hide" : "upload-image-box"}>
                                     {preview}
@@ -131,11 +146,11 @@ const PinCreateForm = () =>{
                                         {!pin.imageUrl &&
                                             <div>
                                                 <div className='pin-create-image-upload'>
-                                                    {!errors ?
+                                                    {!imageErrors ?
                                                             <TbCircleArrowUpFilled className="pin-create-icon-upload"/>
                                                         : <RiErrorWarningFill className="pin-create-icon-error"/>
                                                     }
-                                                    { !errors ?                                            
+                                                    { !imageErrors ?                                            
                                                     <div id="drag-and-drop">Drag and drop or click to upload</div>
                                                         : <div id="pin-errors">An image is required to create a pin.</div>
                                                     }
@@ -146,7 +161,7 @@ const PinCreateForm = () =>{
                                     </div>
                                         <div className="pin-create-recommendation">
                                             { preview ? null :
-                                            <p className={errors ? "error-text" : "default-tex" }>Recommendations: Use high-quality .jpg files less than 20MB</p>
+                                            <p className={imageErrors ? "error-text" : "default-tex" }>Recommendations: Use high-quality .jpg files less than 20MB</p>
                                             }
                                         </div>
                                    
@@ -197,6 +212,9 @@ const PinCreateForm = () =>{
                                     />
                                     <div className="seperate-line"></div>
                                 </div>
+                                <ul >
+                                    {errors.map(error => <p className="board-modal-error-text" key={error}>{error}</p>)}
+                                </ul>
                                 
                             </div>
                         </div>
