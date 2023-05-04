@@ -12,27 +12,23 @@ const SearchBar = (props) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch(getSearchPins(query))
-            .catch(async (res) => {
-                let data;
-                try {
-                    // .clone() essentially allows you to read the response body twice
-                    data = await res.clone().json();
-                } catch {
-                    data = await res.text(); // Will hit this case if the server is down
-                }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
-            });
+        // dispatch(getSearchPins(query))
+        //     .catch(async (res) => {
+        //         let data;
+        //         try {
+        //             // .clone() essentially allows you to read the response body twice
+        //             data = await res.clone().json();
+        //         } catch {
+        //             data = await res.text(); // Will hit this case if the server is down
+        //         }
+        //         if (data?.errors) setErrors(data.errors);
+        //         else if (data) setErrors([data]);
+        //         else setErrors([res.statusText]);
+        //     });
         return history.push(`/search/${query}`)
     }
 
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-            handleSubmit();
-        }
-    };
+    
 
     const update = (e) =>{
         e.preventDefault();

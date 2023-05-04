@@ -11,6 +11,7 @@ const HomePage = () => {
     const pins = useSelector(getRandomPins) 
     const boards = useSelector(getBoards)
     const sessionUser = useSelector(state => state.session.user)
+    const homePins = pins.slice(0,30)
     useEffect(()=>{
         dispatch(fetchPins())
     },[dispatch])
@@ -25,7 +26,7 @@ const HomePage = () => {
     return(
         <div className="homepage-container">
             
-            <PinsIndex pins={pins} userBoards = {userBoards}/>
+            <PinsIndex pins={homePins} userBoards = {userBoards}/>
             
         </div>
     )

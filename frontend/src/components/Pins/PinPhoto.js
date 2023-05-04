@@ -18,8 +18,6 @@ const PinPhotoContainer = ({ pin, uploader, lastPin =false, boardPins, userBoard
     const selection = currentBoard ||= userBoards[0]
     const openRef = useRef(null)
     const isUser = (pin.uploader.id === currentUser.id)
-    console.log(pin)
-    console.log(isUser,"isUser")
     const [currentSelection, setCurrentSelection] = useState(selection)
     const [open, setOpen] = CloseDropdown(openRef, false) 
     const [showMenu, setShowMenu] = useState(false);

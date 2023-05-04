@@ -1,33 +1,41 @@
 import { useDispatch, useSelector } from "react-redux"
-import { getPins, getRandomPins } from "../../store/pins"
+import { getPins, getRandomPins, getSearchPins } from "../../store/pins"
 import { fetchAllBoards, getBoards } from "../../store/boards"
-import { useEffect, useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import PinsIndex from "./PinsIndex"
 import "./PinsSearch.css"
+import { useParams } from "react-router-dom"
 
 
 const PinsSearch = ()=>{
    
-    const dispatch = useDispatch()
-    const pins = useSelector(getPins)
-    const boards = useSelector(getBoards)
-    const sessionUser = useSelector(state => state.session.user)
-    const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, sessionUser])
-
-
-
+    const dispatch = useDispatch();
+    const pins = useSelector(getPins);
+    const boards = useSelector(getBoards);
+    const sessionUser = useSelector(state => state.session.user);
+    const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, sessionUser]);
+    const {query} = useParams();
+    const [errors, setErrors] = useState([]);
+    console.log(query, "query")
+    
     useEffect(() => {
         
         dispatch(fetchAllBoards())
-    }, [dispatch])
+        dispatch(getSearchPins(query))
+            .then((status) => status !== true && setErrors(status))
+    }, [dispatch, query])
 
-
+   
+    console.log(errors,"errors")
     return (
         <div className="search-index-container">
             <div className="homepage-container">
-
-                <PinsIndex pins={pins} userBoards={userBoards} />
-
+                { (errors.length !== 0) ? 
+                <ul >
+                    {errors.map(error => <p className="board-modal-error-text" key={error}>{error}</p>)}
+                </ul>   : 
+                    <PinsIndex pins={pins} userBoards={userBoards} />
+                }
             </div>
         </div>
     )

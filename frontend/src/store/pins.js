@@ -90,9 +90,13 @@ export const getSearchPins = (query) => async(dispatch) => {
     });
     if (response.ok){
         const pins = await response.json();
-        console.log(pins,"search")
         dispatch(receivePins(pins))
+        return true
+    }else {
+        const errors = await response.json()
+        return errors
     }
+
 }
 
 export const createPin = pin => async (dispatch) => {
