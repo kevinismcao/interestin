@@ -11,8 +11,9 @@ const PinDeleteForm = (props) => {
 
     const handleDeleteClick=(e)=> {
         e.preventDefault();
-        dispatch(deletePin(pin.id));
-        history.push(`/users/${sessionUser.id}`)
+        dispatch(deletePin(pin.id))
+            .then(()=>closePinDeleteModal())
+            .then(history.push(`/users/${sessionUser.id}`))
     }
     return(
         <div className='delete-pin-modal-container'>
