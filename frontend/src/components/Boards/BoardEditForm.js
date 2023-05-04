@@ -36,6 +36,7 @@ const BoardEditForm = (props) => {
 
             })
             .then((status) => status && closeModal())
+            .then(history.push(`/users/${user.id}/saved`))
         
     }
 

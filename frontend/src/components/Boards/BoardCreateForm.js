@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { Redirect, useHistory } from "react-router-dom";
@@ -12,7 +12,7 @@ const BoardCreateForm = (params) => {
     const sessionUser = useSelector(state => state.session.user);
     const owner_id = sessionUser.id
     const [errors, setErrors] = useState([]);
-
+    const [buttonDisabled, setButtonDisable] = useState(true);
     const [board, setBoard] = useState({
         name: '',
         owner_id: owner_id
@@ -23,13 +23,16 @@ const BoardCreateForm = (params) => {
     }
 
     const update = (field) => {
-        return e => setBoard({
+        return e => {setBoard({
             ...board, [field]: e.currentTarget.value
         })
+        setButtonDisable(false)}
     }
-
+    
+  
     const handleSubmit = (e) => {
         e.preventDefault();
+       
         dispatch(createBoard(board))
             .catch (async (res) => {
                 let data;
@@ -46,8 +49,9 @@ const BoardCreateForm = (params) => {
             })
             .then((status) => status && closeCreateBoardModal())
             .then(()=>{history.push(`/users/${sessionUser.id}/saved`)})
+        }
             
-    }
+    
     
 
     return (
@@ -71,7 +75,7 @@ const BoardCreateForm = (params) => {
                         <ul >
                             {errors.map(error => <p className="board-modal-error-text" key={error}>{error}</p>)}
                         </ul>
-                        <button type="submit" className={`${board.name != "" ? "clickable" : ""} board-create-button`}>
+                        <button type="submit" className={`${board.name != "" ? "clickable" : ""} board-create-button` } disabled={buttonDisabled}>
                             <h1>Create</h1>
                         </button>
                         

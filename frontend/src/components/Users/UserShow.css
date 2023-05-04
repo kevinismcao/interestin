@@ -204,3 +204,44 @@
 .created-pins-container{
 
 }
+
+.no-saved-container,
+.no-created-container {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.no-saved-container h1,
+.no-created-container h1 {
+    text-align: center;
+}
+
+.find-ideas-button,
+.idea-pin-button {
+     background-color: #f0f0f0;
+     width: 100px;
+     height: 50px;
+     border-radius: 24px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 20px;
+     cursor: pointer;
+}
+.find-ideas-button:hover,
+.idea-pin-button:hover {
+    background-color: #dadada;
+}
+
+.find-ideas-button h1, 
+.idea-pin-button h1{
+    font-weight: 600;
+    font-size: 16px;
+    color: #111
+} 
+ 

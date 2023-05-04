@@ -28,9 +28,8 @@ const UserShow = (params) => {
     const isUser = (sessionUser.id === user?.id)
     
     const boards = useSelector(getBoards)
-    const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards.length, sessionUser])
-    const profileUserBoards = useMemo(() => boards.filter((board) => board.owner.id === user?.id), [boards.length, user])
-
+    const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, boards.length, sessionUser])
+    const profileUserBoards = useMemo(() => boards.filter((board) => board.owner.id === user?.id), [boards, boards.length, user])
     useEffect(() => {
         dispatch(fetchAllBoards())
     }, [dispatch])

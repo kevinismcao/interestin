@@ -16,17 +16,15 @@ const PinsSearch = ()=>{
     const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, sessionUser]);
     const {query} = useParams();
     const [errors, setErrors] = useState([]);
-    console.log(query, "query")
+    
     
     useEffect(() => {
         
         dispatch(fetchAllBoards())
         dispatch(getSearchPins(query))
-            .then((status) => status !== true && setErrors(status))
+            .then((status) => status !== true ? setErrors(status) : setErrors([]))
     }, [dispatch, query])
 
-   
-    console.log(errors,"errors")
     return (
         <div className="search-index-container">
             <div className="homepage-container">

@@ -13,8 +13,6 @@ const BoardPreviewContainer = (props) => {
     // useEffect(() => {
     //     dispatch(fetchBoardSavedPin(board.id))
     // }, [dispatch, board.id])
-    
-    
     return (
         <div className="board-preview-container">
             <div className="board-preview-cover">

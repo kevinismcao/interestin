@@ -83,14 +83,14 @@ const PinCreateForm = () =>{
         e.preventDefault();
         if (!pin.imageFile) {
             setImageErrors(true);
-        }
-      
-        const formData = new FormData();
-        formData.append('pin[title]', pin.title);
-        formData.append('pin[description]', pin.description);
-        formData.append('pin[image]', pin.imageFile);
-        formData.append('pin[uploader_id]', pin.uploader_id)
-        
+            setErrors(["An image is required to create a pin."])
+        }else{
+            const formData = new FormData();
+            formData.append('pin[title]', pin.title);
+            formData.append('pin[description]', pin.description);
+            formData.append('pin[image]', pin.imageFile);
+            formData.append('pin[uploader_id]', pin.uploader_id)
+            
         dispatch(createPin(formData))
             .catch (async (res) => {
                 let data;
@@ -105,9 +105,12 @@ const PinCreateForm = () =>{
                 else setErrors([res.statusText])
             })
             .then((status) => status && history.push(`/users/${sessionUser.id}`))
-   
+    
+        }
+      
+       
     }
-    console.log(errors)
+    console.log(errors,"error")
     
     const preview = pin.imageUrl ? <img className="preview-img" src={pin.imageUrl}/> : null;
 
