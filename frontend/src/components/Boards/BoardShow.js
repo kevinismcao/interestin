@@ -31,7 +31,7 @@ const BoardShow = (props) => {
         dispatch(fetchBoardSavedPin(boardId));
         
         dispatch(fetchAllBoards())
-    },[dispatch,boardId])
+    },[dispatch,boardId, board])
 
 
 

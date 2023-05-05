@@ -15,11 +15,16 @@ const HomePage = () => {
     const homePins = pins.slice(0,50)
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
-        dispatch(fetchBoards(sessionUser.id));
+        
         dispatch(fetchPins())
             .finally(()=>(setLoading(false)))
 
     },[dispatch])
+
+    useEffect(()=>{
+        dispatch(fetchBoards(sessionUser.id));
+
+    }, [dispatch, sessionUser])
     const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, sessionUser])
     
     
