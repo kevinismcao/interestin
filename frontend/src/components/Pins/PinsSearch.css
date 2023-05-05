@@ -8,4 +8,9 @@
     justify-content: center;
 }
    
-   
+#search-errors{
+    padding-top: 200px;
+    font-size: 30px;
+    font-weight: 500;
+}
+      

@@ -34,7 +34,7 @@ const PinsSearch = ()=>{
                 <div className="homepage-container">
                     { (errors.length !== 0) ? 
                     <ul >
-                        {errors.map(error => <p className="board-modal-error-text" key={error}>{error}</p>)}
+                        {errors.map(error => <p className="board-modal-error-text" id="search-errors" key={error}>{error}</p>)}
                     </ul>   : 
                         <PinsIndex pins={pins} userBoards={userBoards} />
                     }

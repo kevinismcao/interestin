@@ -13,7 +13,7 @@ const PinDeleteForm = (props) => {
         e.preventDefault();
         dispatch(deletePin(pin.id))
             .then(()=>closePinDeleteModal())
-            .then(history.push(`/users/${sessionUser.id}`))
+            .then((status) => status && window.history.back())
     }
     return(
         <div className='delete-pin-modal-container'>
@@ -38,7 +38,7 @@ const PinDeleteForm = (props) => {
                                 <div onClick={closePinDeleteModal} className='delete-pin-button-cancel'>
                                     <h1 className="button-text">Cancel</h1>
                                 </div>
-                                <div onClick={handleDeleteClick} className='delete-pin-button-delete'>
+                                <div onClick={()=>handleDeleteClick} className='delete-pin-button-delete'>
                                     <h1 className="button-text">Delete</h1>
                                 </div>
                             </div>

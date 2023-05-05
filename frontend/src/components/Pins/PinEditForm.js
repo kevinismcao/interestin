@@ -67,10 +67,10 @@ const PinEditForm = (props) => {
             {showPinDeleteModal && 
                     <PinDeleteForm closePinDeleteModal={()=>setShowPinDeleteModal(false)} pin={pin}/>
                 }
-            <div className={showPinDeleteModal ? "pin-edit-form-modal-container-hide" : "pin-edit-form-modal-container"}>
+            <div className={ "pin-edit-form-modal-container"}>
                 
-                <div className="pin-edit-form-modal-background" onClick={closeModal}></div>
-                <div className="pin-edit-form-modal-foreground">
+                <div className={showPinDeleteModal ? "pin-edit-form-modal-container-hide" :"pin-edit-form-modal-background"} onClick={closeModal}></div>
+                <div className={showPinDeleteModal ? "pin-edit-form-modal-container-hide" :"pin-edit-form-modal-foreground"}>
                     <form className="pin-edit-form-container" onSubmit={handleSubmit} action="">
                         <div className="pin-edit-heading">
                             <p className="pin-edit-heading-text">Edit this Pin</p>

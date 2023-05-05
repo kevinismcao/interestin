@@ -12,7 +12,7 @@ const HomePage = () => {
     const pins = useSelector(getPins) 
     const boards = useSelector(getBoards)
     const sessionUser = useSelector(state => state.session.user)
-    const homePins = pins.slice(0,30)
+    const homePins = pins.slice(0,50)
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
         dispatch(fetchBoards(sessionUser.id));

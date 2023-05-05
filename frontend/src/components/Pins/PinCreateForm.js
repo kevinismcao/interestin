@@ -79,6 +79,11 @@ const PinCreateForm = () =>{
         }
     }
 
+    const handleGoBack = (e) => {
+        e.preventDefault();
+        window.history.back();
+    }
+    
     const handlePinSubmit = (e) => {
         e.preventDefault();
         if (!pin.imageFile) {
@@ -104,7 +109,8 @@ const PinCreateForm = () =>{
                 else if (data) setErrors(data);
                 else setErrors([res.statusText])
             })
-            .then((status) => status && history.push(`/users/${sessionUser.id}`))
+            .then((status) => status && window.history.back())
+            // .then((status) => status && history.push(`/users/${sessionUser.id}`))
     
         }
       
@@ -210,7 +216,7 @@ const PinCreateForm = () =>{
                                         id="pin-create-description"
                                         type="text"
                                         value={pin.description}
-                                        placeholder="Tell everyone what you Pin is about"
+                                        placeholder="Tell everyone what your Pin is about"
                                         onChange={update('description')}
                                     />
                                     <div className="seperate-line"></div>
