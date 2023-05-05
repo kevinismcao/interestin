@@ -58,7 +58,7 @@ export const fetchPin = pinId => async (dispatch) => {
 
 export const fetchBoardSavedPin = boardId => async(dispatch) => {
     const response = await fetch(`/api/boards/saved/${boardId}`);
-    console.log(1)
+ 
     if (response.ok) {
         const pins = await response.json();
         dispatch(receivePins(pins));

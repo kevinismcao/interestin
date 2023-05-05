@@ -245,3 +245,7 @@
     color: #111
 } 
  
+
+.tab-clicked {
+    border-bottom: 2px solid black;
+}
