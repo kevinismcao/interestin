@@ -15,13 +15,13 @@ class BoardPin < ApplicationRecord
 
     belongs_to :pin,
         foreign_key: :pin_id,
-        class_name: :Pin,
-        inverse_of: :BoardPin
+        class_name: :Pin
+        
 
     belongs_to :board,
         foreign_key: :board_id,
-        class_name: :Board,
-        inverse_of: :BoardPin
+        class_name: :Board
+        
     
 
 end

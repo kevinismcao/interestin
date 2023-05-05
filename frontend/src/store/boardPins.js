@@ -73,6 +73,17 @@ export const deleteBoardPin = (boardPinId) => async (dispatch) => {
     }
 }
 
+export const removePinFromBoard = (boardId, pinId) => async(dispatch) => {
+    const response = await csrfFetch(`/api/board_pins/${boardId}/${pinId}`, {
+         method: 'DELETE',
+     });
+     if (response.ok){
+        dispatch(removePinFromBoard(boardId, pinId))
+     }
+    
+    }
+
+
 const boardPinsReducer = (state={},action) =>{
     switch(action.type){
         case RECEIVE_BOARD_PINS:
