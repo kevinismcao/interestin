@@ -110,7 +110,7 @@ const PinCreateForm = () =>{
       
        
     }
-    console.log(errors,"error")
+   
     
     const preview = pin.imageUrl ? <img className="preview-img" src={pin.imageUrl}/> : null;
 

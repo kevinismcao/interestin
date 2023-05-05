@@ -67,7 +67,7 @@ function SignupFormPage() {
                 <input className="inputbox" id="password"
                     type="password"
                     value={password}
-                    placeholder="Create a assword"
+                    placeholder="Create a password"
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />

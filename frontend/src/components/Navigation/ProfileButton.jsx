@@ -59,8 +59,8 @@ function ProfileButton({ user }) {
                     </a>
                     <div className="dropdown-more-options">
                         <div className="menu-label"><p>More options</p></div>
-                        <div className="logout-button">
-                            <button id="dropdown-logout" onClick={logout}>Log Out</button>
+                        <div className="logout-button" onClick={logout}>
+                            <button id="dropdown-logout" >Log Out</button>
                         </div>
                     </div>
                     

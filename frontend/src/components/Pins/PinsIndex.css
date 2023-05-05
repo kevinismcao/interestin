@@ -6,7 +6,7 @@ img {
 .pin-photo-container{
     margin: 0;
     width: 236px;
-    display: grid;
+    display: inline-block;
     grid-template-rows: 1fr auto;
     margin-bottom: 10px;
     break-inside: avoid;
@@ -25,40 +25,54 @@ img {
 .pin-item-title {
     font-size: 14px;
     font-weight: 600;
+    
     -webkit-font-smoothing: antialiased;
 }
 
-@media (min-width: 756px){
+@media (min-width: 0px) {
+    .pins-index-container {
+        column-count: 2;
+        column-gap: 16px;
+        width:488px;
+    }
+}
+
+@media (min-width: 740px){
     .pins-index-container {
         column-count: 3;
         column-gap: 16px;
+        width: 740px
     }
 }
 
-@media (min-width: 1008px) {
+@media (min-width: 992px) {
     .pins-index-container {
         column-count: 4;
         column-gap: 16px;
+        width: 992px;
     }
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1244px) {
     .pins-index-container {
         column-count: 5;
         column-gap: 16px;
+        width: 1244px
     }
 }
 
-@media (min-width: 1512px) {
+@media (min-width: 1496px) {
     .pins-index-container {
         column-count: 6;
         column-gap: 16px;
+        width:1496px
     }
 }
 
-@media (min-width: 1764px) {
+@media (min-width: 1748px) {
     .pins-index-container {
         column-count: 7;
         column-gap: 16px;
+        width:1748px
     }
 }

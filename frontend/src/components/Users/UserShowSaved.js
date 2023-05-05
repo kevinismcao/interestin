@@ -7,7 +7,8 @@ import BoardPreviewContainer from "../Boards/BoardPreview";
 const UserShowSaved = (props) => {
     const {isUser, user, userBoards, boards} = props;
     const dispatch = useDispatch();
-    const noBoardsCreated = (Object.keys(user.boards).length === 0)
+    const noBoardsCreated = (Object.keys(boards).length === 0)
+    // console.log(boards, "hello")
 
     const noSavedBoardMessage = () => {
         return `${isUser ? "You haven't" : `${user.username} hasn't`} saved any Pins yet`

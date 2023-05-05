@@ -8,8 +8,7 @@ import UserShowCreated from "./UserShowCreated"
 import UserShowSaved from "./UserShowSaved"
 import BoardCreateForm from "../Boards/BoardCreateForm"
 import CloseDropdown from "../dropdown/CloseDropdown"
-import { fetchAllBoards, getBoards } from "../../store/boards"
-
+import { fetchAllBoards, fetchBoards, getBoards } from "../../store/boards"
 
 const Tab = {
     SAVED: "saved",
@@ -31,8 +30,8 @@ const UserShow = (params) => {
     const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, boards.length, sessionUser])
     const profileUserBoards = useMemo(() => boards.filter((board) => board.owner.id === user?.id), [boards, boards.length, user])
     useEffect(() => {
-        dispatch(fetchAllBoards())
-    }, [dispatch])
+        dispatch(fetchBoards(userId))
+    }, [dispatch, userId])
 
     useEffect(() => {
         dispatch(fetchUser(userId))

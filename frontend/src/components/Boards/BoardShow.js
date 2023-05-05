@@ -25,7 +25,7 @@ const BoardShow = (props) => {
     const boards = useSelector(getBoards)
     const userBoards = useMemo(() => boards.filter((board) => sessionUser.boards.includes(board.id)), [boards, sessionUser])
     const currentBoard = useMemo(() => userBoards?.filter((board) => board.id === boardId), [userBoards, boardId])
-    const boardSavedPins = useMemo(() => pins.filter((savedPin) => board.pins.includes(savedPin.id)), [pins, board])
+    const boardSavedPins = useMemo(() => pins.filter((savedPin) => board?.pins.includes(savedPin.id)), [pins, board])
     
     useEffect(()=>{
         dispatch(fetchBoardSavedPin(boardId));

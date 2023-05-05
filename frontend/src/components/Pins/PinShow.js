@@ -29,7 +29,11 @@ const PinShow =() =>{
     const userBoards = useSelector(getBoards)
     const sessionUser = useSelector(state => state.session.user)
     const selection = userBoards[0]
-    const [currentSelection, setCurrentSelection] = useState(selection)
+   
+    
+    const [currentSelection, setCurrentSelection] = useState({})
+
+
     const userBoardPins = useMemo(() => boardPins.filter((boardPin) => sessionUser.boards.includes(boardPin.boardId)), [boardPins, sessionUser])
     const [open, setOpen] = useState(false)
     const handleClick = () => setOpen(!open)
@@ -47,6 +51,7 @@ const PinShow =() =>{
 
     useEffect(() => {
         dispatch(fetchBoards(sessionUser.id))
+        // setCurrentSelection(selection)
     }, [dispatch])  
     useEffect(()=>{
         dispatch(fetchPins());
@@ -133,7 +138,7 @@ const PinShow =() =>{
                             </div>
                             </div> 
                             <div className='pin-comments'>
-                                <div className="pin-comments-box">Comments</div>
+                                {/* <div className="pin-comments-box">Comments</div> */}
                                 {/* {pin.comments ? <PinCommentContainer pin={pin} /> : <CreateCommentContainer pin={pin} />} */}
                             </div>
                         </div>

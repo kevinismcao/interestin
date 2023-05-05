@@ -4,6 +4,7 @@
 }
 
 .dropdown-button {
+    cursor: pointer;
     background: none;
     border: none;
     height: 24px;
@@ -151,6 +152,7 @@
 }
 
 #dropdown-logout{
+    cursor: pointer;
     border: none;
     background: none;
     padding: 0;

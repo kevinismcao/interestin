@@ -29,7 +29,7 @@ const UserShowCreated = (props) => {
         return (
             <div className="no-created-container">
                 <h1>{noSavedPinsMessage()}</h1>
-                <Link to="/">
+                <Link to="/pin-builder">
                     <div className={`idea-pin-button ${isUser ? "" : "hide"}`}>
                         <h1>Create</h1>
                     </div>

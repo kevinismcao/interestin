@@ -4,18 +4,18 @@ import { fetchHomepagePins, fetchPins, getPins, getRandomPins } from "../../stor
 import PinsIndex from "../Pins/PinsIndex"
 import { HOMEPAGE_NUM_PINS } from "../../util/constants_util"
 import "./index.css"
-import { fetchAllBoards, getBoards } from "../../store/boards"
+import { fetchAllBoards, getBoards,fetchBoards } from "../../store/boards"
 import Loading from "../Loading/Loading"
 
 const HomePage = () => {
     const dispatch = useDispatch()
-    const pins = useSelector(getRandomPins) 
+    const pins = useSelector(getPins) 
     const boards = useSelector(getBoards)
     const sessionUser = useSelector(state => state.session.user)
     const homePins = pins.slice(0,30)
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
-        dispatch(fetchAllBoards());
+        dispatch(fetchBoards(sessionUser.id));
         dispatch(fetchPins())
             .finally(()=>(setLoading(false)))
 
