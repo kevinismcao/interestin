@@ -39,7 +39,7 @@ function SignupFormPage() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label className="input-label" for="email-input">Email</label>
+            <label className="input-label" htmlFor="email-input">Email</label>
             <div className = "inputbox-container">
                 <input className="inputbox"
                     type="text"
@@ -49,7 +49,7 @@ function SignupFormPage() {
                     required
                 />
             </div>
-            <label className="input-label" for="username-input">Username</label>
+            <label className="input-label" htmlFor="username-input">Username</label>
             <div className="inputbox-container">
                 <input className="inputbox"
                     type="text"
@@ -62,7 +62,7 @@ function SignupFormPage() {
             <ul >
                 {errors.map(error => <li className="modal-error-text" key={error}><IoIosWarning id="io-warning" />{error}</li>)}
             </ul>
-            <label className="input-label" for="password">Password</label>
+            <label className="input-label" htmlFor="password">Password</label>
             <div className="inputbox-container">
                 <input className="inputbox" id="password"
                     type="password"
@@ -72,7 +72,7 @@ function SignupFormPage() {
                     required
                 />
             </div>
-            <label className="input-label" for="confirm-password">Confirm Password</label>
+            <label className="input-label" htmlFor="confirm-password">Confirm Password</label>
             <div className="inputbox-container">
                 <input className="inputbox" id="confirm-password"
                     type="password"
