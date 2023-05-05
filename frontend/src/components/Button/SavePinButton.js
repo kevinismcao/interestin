@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react"
 import { createBoardPin, deleteBoardPin } from "../../store/boardPins"
 import { useDispatch } from "react-redux"
 import "./SavePinButton.css"
+import { fetchAllBoards, fetchBoards } from "../../store/boards"
 const SavePinButton = (props) => {
     const { boardId, pinId, currentBoardPins, board, currentUser, addPinToBoard, removePinFromBoard, unsavePin, savePin, isOutside } = props
     const dispatch = useDispatch();
@@ -70,7 +71,8 @@ const SavePinButton = (props) => {
             dispatch(createBoardPin({
                 pin_id: pinId,
                 board_id: boardId
-            }));
+            }))
+            
             setSaved(true)
         }
     }

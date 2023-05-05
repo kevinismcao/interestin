@@ -58,6 +58,9 @@ export const createBoardPin = (boardPin) => async(dispatch)=> {
     if (response.ok){
         const boardPin = await response.json();
         dispatch(receiveBoardPin(boardPin))
+        return true
+    }else{
+        return false
     }
 };
 

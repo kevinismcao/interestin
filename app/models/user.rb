@@ -35,7 +35,8 @@ class User < ApplicationRecord
 
   has_many :pins,
     foreign_key: :uploader_id,
-    class_name: :Pin
+    class_name: :Pin,
+    dependent: :destroy
 
     
   before_validation :ensure_session_token
