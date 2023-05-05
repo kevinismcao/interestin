@@ -36,32 +36,34 @@ const Splash = () => {
     }, [updateInterval])
 
     return (
-        <div>
-            <div className="splash-text">
-                <div className="splash-header">Get your next</div>
-                <div className="splash-idea-text">
-                    <p className="ideas-text">idea</p>
+        <div className="splash-container">
+            <div className="splash-page-container">
+                <div className="splash-text">
+                    <div className="splash-header">Get your next</div>
+                    
                 </div>
-            </div>
-            <div className="page-nav-buttons">
-                {pageButtons.map(pageButton =>
-                    <div
-                        key={pageButton}
-                        onClick={() => handlePageNav(pageButton)}
-                        className={currentPage % 4 === parseInt(pageButton) ? `${splashInfo[parseInt(pageButton)].title.split(" ")[0]}-page-button` : ""}
-                    >
-                    </div>
-                )}
-            </div>
-            <div className="splash-image-container">
-                {
-                    splashInfo.map( (page, i) => <SplashPageShow
-                    title = {page.title}
-                    photoUrls = {page.photoUrls}
-                    key={i}
-                    />)
-                }
-                
+                <div className="page-nav-buttons">
+                    {pageButtons.map(pageButton =>
+                        <div
+                            key={pageButton}
+                            onClick={() => handlePageNav(pageButton)}
+                            className={currentPage % 4 === parseInt(pageButton) ? `${splashInfo[parseInt(pageButton)].title.split(" ")[0]}-page-button` : ""}
+                        >
+                        </div>
+                    )}
+                </div>
+                <div className="splash-image-container">
+                    {
+                        splashInfo.map( (page, i) => <SplashPageShow
+                        title = {page.title}
+                        photoUrls = {page.photoUrls}
+                        key={i}
+                        shouldShow={currentPage % 4 === i}
+                        shouldLeave={(currentPage - 1) % 4 === i}
+                        />)
+                    }
+                    
+                </div>
             </div>
         </div>
     )

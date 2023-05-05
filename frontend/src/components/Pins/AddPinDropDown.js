@@ -3,6 +3,8 @@ import BoardCreateForm from "../Boards/BoardCreateForm"
 import { useState } from "react"
 import MiniBoardPreview from "../Boards/MiniBoardPreview"
 import "./AddPinDropDown.css"
+import { IoMdClose } from 'react-icons/io';
+
 
 const AddPinDropdown = (props) => {
    
@@ -22,6 +24,7 @@ const AddPinDropdown = (props) => {
             }
             <div className='pin-dropdown-title'>
                 <h1 className="pin-dropdown-title-text">Save to board</h1>
+                <IoMdClose className="pin-dropdown-close" onClick={()=>setOpen(false)}/>
             </div>
             {/* <div className='pin-dropdown-search'>
                 <MiniSearchBar updateQuery={updateQuery} />

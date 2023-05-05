@@ -11,7 +11,7 @@ function SplashOrHome(){
     
     return (
         <div className="splash-home">
-            {sessionUser ? <HomePage/> : <Splash/>}
+            {sessionUser ? <div className="home-page-box"><HomePage /></div> : <Splash/>}
         </div>
     )
 }

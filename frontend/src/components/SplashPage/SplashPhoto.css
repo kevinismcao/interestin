@@ -78,3 +78,20 @@
     top: 347px;
     right: -750px;
 }
+
+
+.shot-words{
+    color: #afeeee;
+}
+
+.journey-words{
+    color: #ff7f50
+}
+
+.art-words{
+    color: var(--red);
+}
+
+.super-words{
+    color: #468499
+}

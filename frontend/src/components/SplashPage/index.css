@@ -1,14 +1,33 @@
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+
+
 .splash-text{
-    height: calc(30vh + 140px);
+    /* height: calc(30vh + 140px);
     width: 100%;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     display: flex;
-    margin: 0;
+    margin: 0; */
+    font-weight: 600;
+    font-size: 60px;
+    text-align: center;
+    margin: auto;
+    height: 28%;
+    position: absolute;
+    padding-top: 170px;
+    left: 0;
+    right: 0;
 }
 
 .splash-header{
+    color: rgb(33, 25, 34);
     margin: 2px;
     font-size: 60px;
     font-weight: 600;
@@ -23,6 +42,7 @@
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    
 }
 
 .ideas-text{
@@ -37,14 +57,27 @@
     transform: translateY(-40px);
     z-index: 0;
 }
+.splash-page-container{
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+    overflow: hidden;
+    position: relative;
+    height: 90vh;
+    z-index: 0;
+}
 
 .splash-image-container{
-    height:80vh;
-    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* left: 0;
     right: 0;
     bottom: 0;
     box-sizing: border-box;
     position: absolute;
-    overflow:hidden
+    overflow:hidden */
 }
 

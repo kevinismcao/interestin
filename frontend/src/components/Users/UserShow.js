@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import "./UserShow.css"
-import { Link, NavLink, useParams } from "react-router-dom"
+import { Link, NavLink, useLocation, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchUser, fetchUserByUsername, getUser, getUserByUsername } from "../../store/user"
 import ProfilePicture from "./ProfilePicture"
@@ -25,18 +25,33 @@ const UserShow = (params) => {
     const plusRef = useRef(null)
     const [plus, setPlus] = useState(false)
     const isUser = (sessionUser.id === user?.id)
-    
+    const location = useLocation();
+    const { pathname } = location;
+   
+    // if(pathname.split("/")[3]?.toLowerCase() === "created"){
+    //     setTab(Tab.CREATED)
+    // }else{
+    //     setTab(Tab.SAVED)
+    // }
+    // // ? 
+    // : ;
     const boards = useSelector(getBoards)
     const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, boards.length, sessionUser])
     const profileUserBoards = useMemo(() => boards.filter((board) => board.owner.id === user?.id), [boards, boards.length, user])
+    // useEffect(() => {
+    //     dispatch(fetchBoards())
+    // }, [dispatch])
     useEffect(() => {
-        dispatch(fetchBoards(userId))
+       if(pathname.split("/")[3]?.toLowerCase() === "created")
+        {setTab(Tab.CREATED)
+    }else {
+        setTab(Tab.SAVED)}
+        dispatch(fetchAllBoards())
     }, [dispatch, userId])
-
     useEffect(() => {
         dispatch(fetchUser(userId))
     }, [dispatch, userId])
-
+    
     const handleClickTab = tab => e => {
         setTab(tab)
     }
@@ -49,11 +64,12 @@ const UserShow = (params) => {
             user={user}
             isUser={isUser}
             boards={profileUserBoards}
-            userBoards={userBoards}
+            
         />,
         [Tab.CREATED]: <UserShowCreated
             user={user}
             isUser={isUser}
+            boards={profileUserBoards}
             userBoards={userBoards}
             
         />,

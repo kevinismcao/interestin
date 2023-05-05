@@ -35,7 +35,9 @@ const PinPhotoContainer = ({ pin, uploader, lastPin =false, boardPins, userBoard
         return Object.fromEntries(selectedBoardPins.map((boardPin)=>[boardPin.pinId, boardPin.id]))
     },[boardPins, currentSelection])
 
-    
+    const handleScroll = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     const handleDropdownClick = (e) => {
         e.preventDefault()
         e.stopPropagation()
@@ -61,7 +63,7 @@ const PinPhotoContainer = ({ pin, uploader, lastPin =false, boardPins, userBoard
                         <SavePinButton boardId={currentSelection?.id} pinId={pin.id} boardPins={boardPins} currentBoardPins = {currentBoardPins} board={currentSelection} className="save-button"/>
                         {/* <button className="save-button">Save</button> */}
                     </div>
-                    <div onClick={() => { setShowEditModal(!showEditModal) }} className={isUser ? `preview-pin-edit` : 'preview-board-edit-hide'}>
+                    <div onClick={() => { setShowEditModal(!showEditModal); handleScroll() }} className={isUser ? `preview-pin-edit` : 'preview-board-edit-hide'}>
                         <div className={`edit-board-button`}>
                             <i className="fa-solid fa-xs fa-pen"></i>
                         </div> 

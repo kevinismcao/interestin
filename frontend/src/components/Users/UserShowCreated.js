@@ -3,6 +3,7 @@ import { fetchCreatedPins, fetchPins, getPins } from "../../store/pins"
 import { Link, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import PinsIndex from "../Pins/PinsIndex";
+import { fetchBoards } from "../../store/boards";
 
 
 const UserShowCreated = (props) => {
@@ -14,6 +15,7 @@ const UserShowCreated = (props) => {
     const userCreatedPins = useMemo(() => pins.filter((createdPin)=> createdPin.uploader.id === parseInt(userId )),[pins, userId])
     useEffect(()=>{
         dispatch(fetchPins())
+        
         setRender(true)
     },[dispatch])
     
