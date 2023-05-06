@@ -53,7 +53,7 @@ class Api::BoardsController < ApplicationController
 
     def destroy
         @board = current_user.boards.find(params[:id])
-        if @board && @board.delete
+        if @board && @board.destroy
             @user = current_user
             render "api/users/show"
         end

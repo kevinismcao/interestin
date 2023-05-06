@@ -21,7 +21,7 @@ class Board < ApplicationRecord
         foreign_key: :board_id,
         class_name: :BoardPin,
         dependent: :destroy,
-        inverse_of: :Board
+        inverse_of: :board
     
     has_many :pins,
         through: :board_pin_relations,
