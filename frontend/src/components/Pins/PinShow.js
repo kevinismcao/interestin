@@ -52,7 +52,8 @@ const PinShow =() =>{
     useEffect(() => {
         dispatch(fetchBoards(sessionUser.id))
         // setCurrentSelection(selection)
-    }, [dispatch])  
+    }, [dispatch],sessionUser)  
+
     useEffect(()=>{
         dispatch(fetchPins());
     }, [dispatch])
@@ -102,7 +103,7 @@ const PinShow =() =>{
                                     <div
                                         className={`pin-add-menu ${open ? "open" : "closed"} ${lastPin ? "last-pin" : ""}`}
                                     >
-                                        <AddPinDropdown setOpen={setOpen} pins={pins} pin={pin} userBoards={userBoards} currentUser={sessionUser} updateCurrentSelection={updateCurrentSelection} />
+                                        <AddPinDropdown setOpen={setOpen} pins={pins} boardPins={boardPins} pin={pin} userBoards={userBoards} currentUser={sessionUser} updateCurrentSelection={updateCurrentSelection} />
                                     </div>
 
                                 {/* <div

@@ -1,3 +1,4 @@
+import { receiveBoard } from "./boards";
 import { csrfFetch } from "./csrf";
 
 export const RECEIVE_BOARD_PIN = 'RECEIVE_BOARD_PIN';
@@ -56,8 +57,9 @@ export const createBoardPin = (boardPin) => async(dispatch)=> {
         body: JSON.stringify(boardPin)
     });
     if (response.ok){
-        const boardPin = await response.json();
-        dispatch(receiveBoardPin(boardPin))
+        const {boardPin, board} = await response.json();
+        dispatch(receiveBoardPin(boardPin));
+        dispatch(receiveBoard(board))
         return true
     }else{
         return false
@@ -92,7 +94,7 @@ const boardPinsReducer = (state={},action) =>{
             return { ...state, [action.boardPin.id]: action.boardPin };
         case REMOVE_BOARD_PIN:
             const newState = {...state};
-            delete newState[action.boardPinsId];
+            delete newState[action.boardPinId];
             return newState;
         default:
             return state;

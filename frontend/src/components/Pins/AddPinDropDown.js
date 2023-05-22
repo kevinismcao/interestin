@@ -8,7 +8,7 @@ import { IoMdClose } from 'react-icons/io';
 
 const AddPinDropdown = (props) => {
    
-    const {pin, userBoards, updateCurrentSelection, currentUser, pins, setOpen} = props
+    const {pin, userBoards, updateCurrentSelection, boardPins, currentUser, pins, setOpen} = props
     const [showCreateBoardModal, setShowCreateBoardModal] = useState(false)
     
     // const [query, setQuery] = useState('')
@@ -33,7 +33,7 @@ const AddPinDropdown = (props) => {
                 <p>Save to boards</p>
                 <div className='pin-dropdown-board-container'>
                     {/* <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={null} currentUser={currentUser} pin={pin} /> */}
-                    {userBoards.map((userBoard, i) => <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={userBoard} key={i} currentUser={currentUser} pins={pins} pin={pin} />)}
+                    {userBoards.map((userBoard, i) => <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={userBoard} key={i} currentUser={currentUser} pins={pins} pin={pin} boardPins={boardPins}/>)}
                 </div>
             </div>
             <div className='pin-dropdown-create'>

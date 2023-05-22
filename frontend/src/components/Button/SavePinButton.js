@@ -21,7 +21,7 @@ const SavePinButton = (props) => {
             setSaved(currentPinIds.includes(pinId.toString()));
         }
         
-    }, [currentBoardPins, pinId])
+    }, [currentBoardPins, pinId, boardId])
 
     // console.log(currentBoardPins[pinId])
     // console.log(saved, pinId.toString(), "saved")

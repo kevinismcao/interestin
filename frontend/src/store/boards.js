@@ -9,7 +9,7 @@ const receiveBoards = boards => ({
     boards
 });
 
-const receiveBoard = board => ({
+export const receiveBoard = board => ({
     type: RECEIVE_BOARD,
     board
 })

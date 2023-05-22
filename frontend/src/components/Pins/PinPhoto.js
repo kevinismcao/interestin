@@ -77,7 +77,7 @@ const PinPhotoContainer = ({ pin, uploader, lastPin =false, boardPins, userBoard
                 <div onClick={handleDropdownClick} 
                     className={`pin-add-menu ${open ? "open" : "closed"} ${lastPin ? "last-pin" : ""}`}
                 >
-                    <AddPinDropdown setOpen={setOpen} pin={pin} userBoards={userBoards} currentUser={currentUser} updateCurrentSelection={updateCurrentSelection} />
+                    <AddPinDropdown setOpen={setOpen} pin={pin} userBoards={userBoards} boardPins={boardPins} currentUser={currentUser} updateCurrentSelection={updateCurrentSelection}  />
                 </div>
                 <div className={`pin-item-info`}>
                     <div className='pin-item-container'>

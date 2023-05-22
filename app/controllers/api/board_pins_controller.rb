@@ -27,14 +27,13 @@ class Api::BoardPinsController < ApplicationController
 
     def destroy
         @board_pin = BoardPin.find(params[:id])
-        if !@board || !@pin
-            render json: ["Something went wrong"], status: 422
-        end
-        if @board_pin.delete
+        if @board_pin.destroy
+            @board_pins = BoardPin.all
             render :index
         else
             render json: ["Something went wrong"], status: 422
         end
+    
 
     end
 
