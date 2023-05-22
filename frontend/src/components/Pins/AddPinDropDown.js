@@ -30,7 +30,7 @@ const AddPinDropdown = (props) => {
                 <MiniSearchBar updateQuery={updateQuery} />
             </div> */}
             <div className='pin-dropdown-boards'>
-                <p>All boards</p>
+                <p>Save to boards</p>
                 <div className='pin-dropdown-board-container'>
                     {/* <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={null} currentUser={currentUser} pin={pin} /> */}
                     {userBoards.map((userBoard, i) => <MiniBoardPreview updateCurrentSelection={updateCurrentSelection} board={userBoard} key={i} currentUser={currentUser} pins={pins} pin={pin} />)}

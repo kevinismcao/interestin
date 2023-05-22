@@ -10,6 +10,10 @@ const Splash = () => {
     const arrowRef = useRef(null)
     const pageButtons = ["0", "1", "2", "3"]
 
+    const handleArrow = () => {
+        arrowRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     const handlePageNav = (page) => {
         setCurrentPage(parseInt(page));
         setUpdateInterval((prev) => (prev % 3) + 1);
@@ -37,7 +41,7 @@ const Splash = () => {
 
     return (
         <div className="splash-container">
-            <div className="splash-page-container">
+            <section className="splash-page-container">
                 <div className="splash-text">
                     <div className="splash-header">Get your next</div>
                     
@@ -56,6 +60,7 @@ const Splash = () => {
                     {
                         splashInfo.map( (page, i) => <SplashPageShow
                         title = {page.title}
+                        handleArrow = {handleArrow}
                         photoUrls = {page.photoUrls}
                         key={i}
                         shouldShow={currentPage % 4 === i}
@@ -64,7 +69,18 @@ const Splash = () => {
                     }
                     
                 </div>
-            </div>
+            </section>
+            <section>
+                <div className="one-and-half-picture-container">
+                    <img src="" alt="" />
+                </div>
+                <div className="one-and-half-text-container">
+                    <h1>See it, make it, try it, do it</h1>
+                    <p>The best part of Pinteresting is discovering new things and ideas from people around the word</p>
+                </div>
+            </section>
+
+
         </div>
     )
 

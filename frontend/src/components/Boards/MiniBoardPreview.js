@@ -7,7 +7,7 @@ import SavePinButton from '../Button/SavePinButton'
 
 const MiniBoardPreview = ({board, pin, updateCurrentSelection,pins, query}) => {
 
-    // const show = board?.name.toLowerCase().includes(query.toLowerCase()) || board === null
+    const show = board?.name.toLowerCase().includes(query.toLowerCase()) || board === null
     // const handleClick = (e) => {
     //     e.preventDefault();
     //     updateCurrentSelection(board)
@@ -23,9 +23,9 @@ const MiniBoardPreview = ({board, pin, updateCurrentSelection,pins, query}) => {
                 <div className='mini-board-name'>
                     <h1>{abbreviate(board?.name ?? "Profile", MAX_NAME_CHAR)}</h1>
                 </div>
-                {/* <div>
+                <div>
                     <SavePinButton boardId={board?.id} pinId={pin?.id}/>
-                </div> */}
+                </div>
             </div>
         </div>
     )
