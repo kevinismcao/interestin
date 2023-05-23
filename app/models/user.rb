@@ -38,6 +38,11 @@ class User < ApplicationRecord
     class_name: :Pin,
     dependent: :destroy
 
+  has_many :comments,
+    foreign_key: :commentor_id,
+    class_name: :Comment,
+    dependent: :destroy
+
     
   before_validation :ensure_session_token
 

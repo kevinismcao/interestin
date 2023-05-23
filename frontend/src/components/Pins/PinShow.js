@@ -16,6 +16,9 @@ import { MAX_BOARD_CHAR } from "../../util/constants_util"
 import SavePinButton from "../Button/SavePinButton"
 
 import { FiChevronDown } from 'react-icons/fi'
+import { fetchUsers, getUserSlice, getUsers } from "../../store/user"
+import PinComments from "../Comments/PinComments"
+import CreateComment from "../Comments/CreateComment"
 
 
 const PinShow =() =>{
@@ -29,12 +32,12 @@ const PinShow =() =>{
     const userBoards = useSelector(getBoards)
     const sessionUser = useSelector(state => state.session.user)
     const selection = userBoards[0]
-   
+   const users = useSelector(getUserSlice)
     
     const [currentSelection, setCurrentSelection] = useState({})
 
 
-    const userBoardPins = useMemo(() => boardPins.filter((boardPin) => sessionUser.boards.includes(boardPin.boardId)), [boardPins, sessionUser])
+    // const userBoardPins = useMemo(() => boardPins.filter((boardPin) => sessionUser.boards.includes(boardPin.boardId)), [boardPins, sessionUser])
     const [open, setOpen] = useState(false)
     const handleClick = () => setOpen(!open)
     const lastPin=false
@@ -44,15 +47,18 @@ const PinShow =() =>{
     }
     const currentBoardPins = useMemo(() => {
         const selectedBoardPins = boardPins.filter((boardPin) => boardPin.boardId === currentSelection?.id)
-        //    console.log(boardPins, currentSelection.id, "sbp")
         return Object.fromEntries(selectedBoardPins.map((boardPin) => [boardPin.pinId, boardPin.id]))
     }, [boardPins, currentSelection])
-
+   
 
     useEffect(() => {
         dispatch(fetchBoards(sessionUser.id))
         // setCurrentSelection(selection)
     }, [dispatch],sessionUser)  
+
+    useEffect(()=>{
+        dispatch(fetchUsers())
+    },[dispatch])
 
     useEffect(()=>{
         dispatch(fetchPins());
@@ -69,7 +75,6 @@ const PinShow =() =>{
 
    
 
- 
 
     let dropdownClassName;
     if (showMenu === true) {
@@ -139,8 +144,7 @@ const PinShow =() =>{
                             </div>
                             </div> 
                             <div className='pin-comments'>
-                                {/* <div className="pin-comments-box">Comments</div> */}
-                                {/* {pin.comments ? <PinCommentContainer pin={pin} /> : <CreateCommentContainer pin={pin} />} */}
+                                {pin.comments ? <PinComments pin={pin} currentUser={sessionUser} users={users}/> : <CreateComment pin={pin} currentUser={sessionUser} />}
                             </div>
                         </div>
                     </div>

@@ -22,10 +22,11 @@ export const getUserByUsername = username => state => {
 }
 
 export const getUsers = state => {
-    return state?.entities.users ? Object.values(state.entites.users) : [];
+    return state?.entities.users ? Object.values(state.entities.users) : [];
 }
-
-
+export const getUserSlice = state => {
+    return state?.entities.users 
+}
 
 export const fetchUsers = () => async(dispatch) => {
     const response = await fetch('/api/users');

@@ -1,5 +1,4 @@
 .user-preview-container{
-    margin-top: 8px;
     display: flex;
 
 }
@@ -15,7 +14,7 @@
 .username{
     margin-left: 4px;
     margin-top: 9px;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     -webkit-box-orient: vertical;
     display: -webkit-box;

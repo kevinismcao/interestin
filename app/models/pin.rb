@@ -28,6 +28,12 @@ class Pin < ApplicationRecord
         through: :board_pin_relations,
         source: :board
 
+    has_many :comments,
+        foreign_key: :pin_id,
+        class_name: :Comment,
+        dependent: :destroy
+        
+
     def ensure_image
       unless self.image.attached?
         errors[:image] << "must be attached"

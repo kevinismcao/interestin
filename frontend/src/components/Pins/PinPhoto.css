@@ -119,7 +119,7 @@
 .pin-add-menu {
     position: absolute;
     top: 60px;
-    left: 30px;
+    left:-30px;
     visibility: hidden;
     background: white;
     height: 500px;

@@ -5,17 +5,17 @@ export const RECEIVE_PINS = 'RECEIVE_PINS';
 export const RECEIVE_PIN = 'RECEIVE_PIN';
 export const REMOVE_PIN = 'REMOVE_PIN';
 
-const receivePins = pins => ({
+export const receivePins = pins => ({
     type: RECEIVE_PINS,
     pins
 });
 
-const receivePin = pin => ({
+export const receivePin = pin => ({
     type: RECEIVE_PIN,
     pin
 });
 
-const removePin = pinId => ({
+export const removePin = pinId => ({
     type: REMOVE_PIN,
     pinId
 });

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/pins/created/:uploader_id', to: 'pins#find_created_pins', as: 'find_created_pins'
     get 'pins/homepage', to: 'pins#homepage_pins', as: 'homepage_pins'
     resources :pins, only: [:create, :index, :update, :destroy, :show] do 
+      resources :comments, only: [:create, :destroy, :index, :update]
       collection do
         get :search, to: "pins#search", as:"search"
       end
