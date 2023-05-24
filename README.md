@@ -34,4 +34,16 @@ With interestIn, users will be able to:
 ## Previews
 
 ### Splashpage
-![]()
+![Splashpage](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/splashpage.gif)
+
+### Login and Signup
+![Loginandsignup](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/loginisgnup.gif)
+
+### Create Pin
+![createpin](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/createpin.gif)
+
+### Pin to Board
+![Pintoboard](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/pintoboard.gif)
+
+### Pin Showpage and Comments
+![Pinshowandcomments](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/pinshowandcomments.gif)
