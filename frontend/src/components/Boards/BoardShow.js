@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useParams } from "react-router-dom"
-import { fetchBoardSavedPin } from "../../store/pins"
+import { fetchBoardSavedPin, fetchPins } from "../../store/pins"
 
 import { getPins } from "../../store/pins"
 import { fetchAllBoards, fetchBoard, getBoard, getBoards } from "../../store/boards"
@@ -23,23 +23,21 @@ const BoardShow = (props) => {
     const pins = useSelector(getPins)
     const board = useSelector(getBoard(boardId))
     const boards = useSelector(getBoards)
-    const userBoards = useMemo(() => boards.filter((board) => sessionUser.boards.includes(board.id)), [boards, sessionUser])
+    const userBoards = useMemo(() => boards.filter((board) => board.owner.id===sessionUser.id), [boards, sessionUser])
     const currentBoard = useMemo(() => userBoards?.filter((board) => board.id === boardId), [userBoards, boardId])
     const boardSavedPins = useMemo(() => pins.filter((savedPin) => board?.pins.includes(savedPin.id)), [pins, board])
     
     useEffect(()=>{
-        dispatch(fetchBoardSavedPin(boardId));
-        
+        dispatch(fetchPins());
         dispatch(fetchAllBoards())
-    },[dispatch,boardId, board])
+    },[dispatch])
 
 
-
+    console.log(userBoards, "userBoards")
+    console.log(boards,"boards")
    
     const [open, setOpen] = useState(false)
     const handleClick = () => setOpen(!open)
-
-    // console.log(board, user,"boarduser")
     if ( board && pins){
         const ownsBoard = (board.owner.id === sessionUser.id)
         const user = board.owner

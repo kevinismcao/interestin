@@ -28,11 +28,7 @@ const BoardPreviewCover = ({ board, isUser, user }) => {
         });
     
         return (
-        <div className="board-preview-cover-container">
-            {showEditModal &&
-                    <BoardEditForm closeModal={() => setShowEditModal(false)} board={board} user={user}/>
-            }
-                
+        <div className="board-preview-cover-container">                
             <Link to={`/boards/${board.id}`}>    
             <div className="board-cover-pictures">
                 <div className='cover-panel-1' style={{ backgroundImage: `url(\"${boardPins[0]?.imageUrl ?? ""}\")` }} />
@@ -42,6 +38,9 @@ const BoardPreviewCover = ({ board, isUser, user }) => {
                 </div>
             </div>
             </Link>
+            {showEditModal &&
+                    <BoardEditForm closeModal={() => setShowEditModal(false)} board={board} user={user}/>
+            }
             <div onClick={()=>setShowEditModal(!showEditModal)} className={isUser? `preview-board-edit` : 'preview-board-edit-hide'}>
                 <div className={`edit-board-button`}>
                     <i className="fa-solid fa-xs fa-pen"></i>
