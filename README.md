@@ -1,25 +1,25 @@
-# README
+<p align="center">
+  <img width="200" height="200" src="https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/logo3.png">
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Background 
 
-Things you may want to cover:
+[interestIn](https://interest-in.herokuapp.com/) is a [Pinterest](https://www.pinterest.com/) clone. InterestIn is a website that designed to enable saving and discovery of infomation on the internet using images in the form of pinboards. It is a place for people  to share and collect thoughts, ideas and moments of life.
 
-* Ruby version
+[Try it now!](https://interest-in.herokuapp.com/)
 
-* System dependencies
+## Technologies
 
-* Configuration
+* Javascript
+* React
+* Redux
+* Ruby
+* Ruby on Rails
+* PostgreSQL
+* Webpack
+* AWS S3
+* Heroku
 
-* Database creation
+## Previews
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# interestin
+# interestIn
