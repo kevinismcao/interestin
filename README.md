@@ -8,10 +8,21 @@
 
 [Try it now!](https://interest-in.herokuapp.com/)
 
+## Overview
+
+With interestIn, users will be able to:
+- Login with existing account and sign up with new account.
+- Use the demo user to create pins and attach photo with it to share publicly.
+- Use the demo user to create boards and pin images(pins) to the board and collect pins for later user
+- User can edit and delete the pins they created.
+- User can edit and delete the boards they created and remove the board-to-pin association.
+- User can make comments on the Pin show page also edit or delete their comments.
+- Search pins through params.
+
 ## Technologies
 
 * Javascript
-* React
+* React.js
 * Redux
 * Ruby
 * Ruby on Rails
@@ -22,4 +33,5 @@
 
 ## Previews
 
-# interestIn
+### Splashpage
+![]()
