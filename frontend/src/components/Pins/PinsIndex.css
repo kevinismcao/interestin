@@ -25,6 +25,7 @@ img {
 .pin-item-title {
     font-size: 14px;
     font-weight: 600;
+    margin-bottom: 8px;
     
     -webkit-font-smoothing: antialiased;
 }

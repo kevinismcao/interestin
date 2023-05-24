@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SplashPhoto from './SplashPhoto'
 import "./SplashPageShow.css"
+import Masonry from 'react-masonry-css'
 
 const SplashPageShow = (props) => {
     const { title, photoUrls, shouldShow, shouldLeave, handleArrow } = props
@@ -32,9 +33,14 @@ const SplashPageShow = (props) => {
                     <SplashPhoto photoUrl={photoUrl}
                         key={i}
                         photoId={i}
+                        stationaryPhoto={false}
+                        showPhoto={i < currentPhoto}
                     />
                     )
                 }
+            </div>
+            <div onClick={handleArrow} className={`${title.split(" ")[0]}-arrow first-page-arrow splash-arrow ${shouldShow ? "show-arrow" : "hidden-arrow"}`}>
+                <i className="fa-solid fa-chevron-down fa-lg"></i>
             </div>
         </div>
     )
