@@ -1,0 +1,1 @@
+release: bundle exac rails db:seed
