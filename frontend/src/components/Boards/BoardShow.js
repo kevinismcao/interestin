@@ -11,6 +11,7 @@ import ProfilePicture from "../Users/ProfilePicture"
 import BoardShowPins from "./BoardShowPins"
 import { fetchUser } from "../../store/user"
 import "./BoardShow.css" 
+import { fetchBoardPins } from "../../store/boardPins"
 
 const BoardShow = (props) => {
     
@@ -29,7 +30,8 @@ const BoardShow = (props) => {
     
     useEffect(()=>{
         dispatch(fetchPins());
-        dispatch(fetchAllBoards())
+        dispatch(fetchAllBoards());
+        dispatch(fetchBoardPins());
     },[dispatch])
 
 

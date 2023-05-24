@@ -35,12 +35,15 @@
 
 require "open-uri"
 
+PinsUser.destroy_all
+BoardPin.destroy_all
+Comment.destroy_all
 User.destroy_all
 Board.destroy_all 
 Pin.destroy_all
-BoardPin.destroy_all
-Comment.destroy_all
-PinsUser.destroy_all
+
+
+
 
 
 

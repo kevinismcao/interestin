@@ -35,7 +35,7 @@ const DiscoverPinsContainer = (props) => {
                 {
                 splashPins.map((pin, i) => 
                 
-                <div className="discover-page-photo">
+                <div className="discover-page-photo" key={i}>
                     <img src={pin?.imageUrl}></img>
                 </div>
                 )
