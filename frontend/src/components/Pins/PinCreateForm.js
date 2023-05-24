@@ -95,7 +95,7 @@ const PinCreateForm = () =>{
 
     return(
         <div className="main-pin-create-form-container">
-            <div className="pin-create-background"></div>
+            <div className="pin-create-background" onClick={handleGoBack}></div>
 
             <form onSubmit={handlePinSubmit}>
                 <div className="pin-create-container">

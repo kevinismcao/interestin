@@ -34,9 +34,6 @@ const BoardShow = (props) => {
         dispatch(fetchBoardPins());
     },[dispatch])
 
-
-    console.log(userBoards, "userBoards")
-    console.log(boards,"boards")
    
     const [open, setOpen] = useState(false)
     const handleClick = () => setOpen(!open)
