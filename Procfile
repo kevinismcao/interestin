@@ -1,1 +1,1 @@
-release: bundle exac rails db:seed
+release: bundle exec rails db:seed
