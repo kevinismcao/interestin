@@ -18,10 +18,10 @@ function App() {
         <Route exact path="/users/:userId/saved" component={UserShow} />
         <Route exact path="/boards/:boardId" component={BoardShow}/>
         <Route exact path="/users/:userId" component={UserShow} />
-        {/* <Route exact path="/users/:username" component={UserShow} /> */}
         <Route exact path="/pins/:pinId" component={PinShow}/>
         <Route path="/pin-builder" component={PinCreateForm}/>
         <Route path="/" component={SplashOrHome}/>
+        {/* <Route path="*" component={SorryPage}/> */}
       </Switch> 
     </div>
   );

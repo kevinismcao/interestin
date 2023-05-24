@@ -25,12 +25,6 @@ const PinCreateForm = () =>{
         imageUrl: null,
         uploader_id: uploader_id
     })
-
-    // const [title, setTitle] = useState(pin.title);
-    // const [description, setDescription] = useState(pin.description);
-    // const [imageFile, setImageFile] = useState(pin.imageFile);
-    // const [imageUrl, setImageUrl] = useState(pin.imageUrl);
-    
     
     if (!sessionUser){
        return <Redirect to='/'/>
@@ -40,22 +34,6 @@ const PinCreateForm = () =>{
             ...pin, [field]: e.currentTarget.value
         })
     }
-
-    // const update = (field) => {
-    //     return e=> {
-    //         switch(field){
-    //             case 'title':
-    //                 setTitle(e.currentTarget.value);
-    //                 break;
-    //             case 'description':
-    //                 setDescription(e.currentTarget.value);
-    //                 break;
-    //             default:
-    //                 console.error('Field name error');
-    //                 break;
-    //         }
-    //     }
-    // }
 
     const handlePinFile = (e) => {
         const file = e.currentTarget.files[0];
@@ -99,28 +77,21 @@ const PinCreateForm = () =>{
         dispatch(createPin(formData))
             .catch (async (res) => {
                 let data;
-                try {
-                    // .clone() essentially allows you to read the response body twice
+                try {   
                     data = await res.clone().json();
                 } catch {
-                    data = await res.text(); // Will hit this case if the server is down
+                    data = await res.text(); 
                 }
                 if (data?.errors) setErrors(data.errors);
                 else if (data) setErrors(data);
                 else setErrors([res.statusText])
             })
-            .then((status) => status && window.history.back())
-            // .then((status) => status && history.push(`/users/${sessionUser.id}`))
-    
-        }
-      
-       
+            .then((status) => status && history.push(`/users/${sessionUser.id}/created`))
+            // .then((status) => status && window.history.back())    
+        }  
     }
-   
-    
-    const preview = pin.imageUrl ? <img className="preview-img" src={pin.imageUrl}/> : null;
 
-   
+    const preview = pin.imageUrl ? true: null;
 
     return(
         <div className="main-pin-create-form-container">
@@ -133,10 +104,6 @@ const PinCreateForm = () =>{
                             <div className="pin-create-more-option"><RiMoreFill/></div>
                             <div className="pin-header-right-container">
                                 <div className="pin-header-box">
-                                {/* <button className="board-select-drop-down">
-                                    <div className="pin-create-board-name">placeholder</div>
-                                    <div className="pin-create-icon"><IoIosArrowDown/></div>
-                                </button> */}
                                 <button type="submit" className={`clickable-board-create-button-create-form`}>
                                     <div>Save</div>
                                 </button>
@@ -147,44 +114,47 @@ const PinCreateForm = () =>{
                     </div>
                     <div className="pin-create-bottom-container">
                         <div className="pin-create-left-container">
-                            <div className={preview ? "hide" : "pin-create-left-box"} id={imageErrors ? "pin-create-left-box-error" : "pin-create-left-box"}>
-                                <div className="upload-container">
-                                    <div className={preview ? "hide" : "upload-image-box"}>
-                                    {preview}
-                                    <div className="upload-file-input">
-                                        {!pin.imageUrl &&
-                                            <div>
-                                                <div className='pin-create-image-upload'>
-                                                    {!imageErrors ?
-                                                            <TbCircleArrowUpFilled className="pin-create-icon-upload"/>
-                                                        : <RiErrorWarningFill className="pin-create-icon-error"/>
-                                                    }
-                                                    { !imageErrors ?                                            
-                                                    <div id="drag-and-drop">Drag and drop or click to upload</div>
-                                                        : <div id="pin-errors">An image is required to create a pin.</div>
-                                                    }
-                                                    
+                            {   preview ?
+                                <div className="preview-img-box">
+                                    <img className="preview-img" src={pin.imageUrl} />
+                                </div> :
+                                <div className={preview ? "hide" : "pin-create-left-box"} id={imageErrors ? "pin-create-left-box-error" : "pin-create-left-box"}>
+                                    <div className="upload-container">
+                                        <div className={preview ? "hide" : "upload-image-box"}>
+                                        {preview}
+                                        <div className={preview ? "upload-file-input-none" : "upload-file-input"}>
+                                            {!pin.imageUrl &&
+                                                <div>
+                                                    <div className='pin-create-image-upload'>
+                                                        {!imageErrors ?
+                                                                <TbCircleArrowUpFilled className="pin-create-icon-upload"/>
+                                                            : <RiErrorWarningFill className="pin-create-icon-error"/>
+                                                        }
+                                                        { !imageErrors ?                                            
+                                                        <div id="drag-and-drop">Drag and drop or click to upload</div>
+                                                            : <div id="pin-errors">An image is required to create a pin.</div>
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        }
-                                    </div>
-                                        <div className="pin-create-recommendation">
-                                            { preview ? null :
-                                            <p className={imageErrors ? "error-text" : "default-tex" }>Recommendations: Use high-quality .jpg files less than 20MB</p>
                                             }
                                         </div>
-                                   
+                                            <div className="pin-create-recommendation">
+                                                { preview ? null :
+                                                <p className={imageErrors ? "error-text" : "default-tex" }>Recommendations: Use high-quality .jpg files less than 20MB</p>
+                                                }
+                                            </div>
+                                        
+                                        </div>
+                                        <input
+                                        className='pin-create-image-container'
+                                        type="file"
+                                        onChange={handlePinFile}
+                                        />
                                     </div>
-                                    <input
-                                    className='pin-create-image-container'
-                                    type="file"
-                                    onChange={handlePinFile}
-                                    />
-                                </div>
-                    
+                                </div>  
                                 
-                              
-                            </div>
+                            }
+                           
                         </div>
                         <div className="pin-create-right-container">
                             <div className="pin-create-form">
@@ -198,7 +168,6 @@ const PinCreateForm = () =>{
                                     /> 
                                     <div className="seperate-line"></div>
                                 </div>
-                               
                                 <div className='pin-create-creator'>
                                     <div className="pin-create-user-pic">
                                         { sessionUser.imageUrl ?
@@ -232,8 +201,6 @@ const PinCreateForm = () =>{
             </form>
         </div>
     )
-
-
 }
 
 export default PinCreateForm

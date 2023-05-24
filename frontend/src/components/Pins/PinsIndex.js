@@ -7,16 +7,14 @@ import { fetchAllBoards, fetchBoards, getBoards } from "../../store/boards"
 
 const PinsIndex = ({pins,userBoards}) => {
     const dispatch = useDispatch();
-    const boardPins = useSelector(getBoardPins)
-    // const boards = useSelector(getBoards)
-    
+    const boardPins = useSelector(getBoardPins)  
     const sessionUser = useSelector(state => state.session.user)
     const userBoardPins =useMemo(()=> boardPins.filter((boardPin)=> sessionUser.boards.includes(boardPin.boardId)),[boardPins, sessionUser])
-    // const userBoards = useMemo(()=> boards.filter((board)=> sessionUser.boards.includes(board.id)),[boards,sessionUser])
+   
 
     useEffect(()=>{
         dispatch(fetchBoardPins()); 
-        // dispatch(fetchAllBoards())
+        
     }, [dispatch])
     
     return (

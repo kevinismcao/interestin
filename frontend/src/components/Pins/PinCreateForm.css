@@ -230,10 +230,19 @@
         font-size: 0px;
 }
 
-.preview-img{
-    width: 316px;
+.preview-img-box{
+    width: 340px;
+    height: 454px;
+    
 }
-
+.preview-img-box >img{
+    object-fit: cover;
+    max-width: none;
+    max-height: none;
+}
+.upload-file-input-none{
+    display: none;
+}
 
 .upload-file-input{
     height: 84px;

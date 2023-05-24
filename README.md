@@ -37,7 +37,7 @@ With interestIn, users will be able to:
 ![Splashpage](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/splashpage.gif)
 
 ### Login and Signup
-![Loginandsignup](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/loginisgnup.gif)
+![Loginandsignup](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/loginsignup.gif)
 
 ### Create Pin
 ![createpin](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/createpin.gif)
@@ -47,3 +47,40 @@ With interestIn, users will be able to:
 
 ### Pin Showpage and Comments
 ![Pinshowandcomments](https://github.com/kevinismcao/interestin/blob/main/frontend/src/assets/image/previewgif/pinshowandcomments.gif)
+
+## Code snippets
+
+### Home Page Pins Index
+Below is a code snippet of the home page index component. With the use of react hooks like `useDispatch`, `useSelector`, `useState` and `useMemo`, it can grab different slices of state to display the home page pins, current user's boards and loading screen before fetch data complete.
+
+```js
+const HomePage = () => {
+    const dispatch = useDispatch()
+    const pins = useSelector(getPins) 
+    const boards = useSelector(getBoards)
+    const sessionUser = useSelector(state => state.session.user)
+    const homePins = pins.slice(0,50)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(()=>{
+        dispatch(fetchPins())
+            .finally(()=>(setLoading(false)))
+    },[dispatch])
+
+    useEffect(()=>{
+        dispatch(fetchBoards(sessionUser.id));
+    }, [dispatch, sessionUser])
+
+    const userBoards = useMemo(() => boards.filter((board) => board.owner.id === sessionUser.id), [boards, sessionUser])
+    
+    const content = () => {
+        return(
+            <div className="homepage-container">
+                <PinsIndex pins={homePins} userBoards = {userBoards}/>
+            </div>
+        )        
+    }
+
+    return loading ? <Loading/> : content()
+}
+```
