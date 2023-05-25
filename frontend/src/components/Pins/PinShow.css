@@ -151,10 +151,11 @@
 }
 
 .pin-title {
-        min-height: 60px;
-        line-height: 50px;
-        font-size: 36px;
-        font-weight: 600;
+    max-height: 100px;
+    min-height: 60px;
+    line-height: 36px;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 .pin-description {
