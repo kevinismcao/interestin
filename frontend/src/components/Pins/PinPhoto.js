@@ -31,12 +31,9 @@ const PinPhotoContainer = ({ pin, uploader, lastPin =false, boardPins, userBoard
     
     const currentBoardPins = useMemo(() => {
        const selectedBoardPins = boardPins.filter((boardPin)=>boardPin.boardId === currentSelection?.id )
-    //    console.log(boardPins, currentSelection.id, "sbp")
         return Object.fromEntries(selectedBoardPins.map((boardPin)=>[boardPin.pinId, boardPin.id]))
     },[boardPins, currentSelection])
-    console.log(boardPins, "BP")
-    console.log(currentBoardPins,"cbp")
-    console.log(userBoards, "ub")
+
     const handleScroll = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };

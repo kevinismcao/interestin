@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react"
 import { createBoardPin, deleteBoardPin } from "../../store/boardPins"
 import { useDispatch } from "react-redux"
 import "./SavePinButton.css"
-import { fetchAllBoards, fetchBoards } from "../../store/boards"
+import { fetchAllBoards, fetchBoards, receiveBoards } from "../../store/boards"
 const SavePinButton = (props) => {
     const { boardId, pinId, currentBoardPins } = props
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const SavePinButton = (props) => {
     
     useEffect(()=>{
         const currentPinIds = Object.keys(currentBoardPins);
-        console.log(currentBoardPins,"cbpinuseeffect")
+        
         if (currentPinIds.length > 0) {
             setSaved(currentPinIds.includes(pinId.toString()));
         }else{
@@ -28,6 +28,7 @@ const SavePinButton = (props) => {
         if (saved){
             const boardPinId = currentBoardPins[pinId]
             dispatch(deleteBoardPin(boardPinId));
+            dispatch(fetchAllBoards())
             setSaved(false)
         }else{
             dispatch(createBoardPin({
