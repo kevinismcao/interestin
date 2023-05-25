@@ -9,8 +9,7 @@ const PinsIndex = ({pins,userBoards}) => {
     const dispatch = useDispatch();
     const boardPins = useSelector(getBoardPins)  
     const sessionUser = useSelector(state => state.session.user)
-    const userBoardPins =useMemo(()=> boardPins.filter((boardPin)=> sessionUser.boards.includes(boardPin.boardId)),[boardPins, sessionUser])
-   
+    const userBoardPins = useMemo(() => boardPins.filter((boardPin) => userBoards.map(userBoard => userBoard.id === boardPin.boardId)),[boardPins, userBoards])
 
     useEffect(()=>{
         dispatch(fetchBoardPins()); 
