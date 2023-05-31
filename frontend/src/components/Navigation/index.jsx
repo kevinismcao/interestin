@@ -50,8 +50,8 @@ function Navigation() {
                         <SearchBar/>
                     </div>
                     <div className='right-nav'>
-                        <div className='icon-container'><a className='link-icon' href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>
-                        <div className='icon-container'><a className='link-icon' href='https://www.linkedin.com/in/ningxiao-cao/'><FaLinkedinIn id='linkedin-icon'/></a></div>
+                        <div className='icon-container'><a className='link-icon' target="_blank" href='https://github.com/kevinismcao'><SiGithub id='github-icon'/></a></div>
+                        <div className='icon-container'><a className='link-icon' target="_blank" href='https://www.linkedin.com/in/ningxiao-cao/'><FaLinkedinIn id='linkedin-icon'/></a></div>
                         <div className='icon-container'>
                             <NavLink to={`/users/${sessionUser.id}`} className='link-icon' >                               
                                 {sessionUser.imageUrl ?
@@ -79,8 +79,8 @@ function Navigation() {
                         </div>
                     </div>
                     <div className='right-nav'>
-                        <a className='text-link' href='https://github.com/kevinismcao'>Github</a>
-                        <a className='text-link' href='https://www.linkedin.com/in/ningxiao-cao/'>LinkedIn</a>
+                        <a className='text-link' target="_blank" href='https://github.com/kevinismcao'>Github</a>
+                        <a className='text-link' target="_blank" href='https://www.linkedin.com/in/ningxiao-cao/'>LinkedIn</a>
                         <LoginSignupModal/>
                     </div>
                 </ul>
