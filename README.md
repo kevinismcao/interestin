@@ -4,7 +4,7 @@
 
 ## Background 
 
-[interestIn](https://interest-in.herokuapp.com/) is a [Pinterest](https://www.pinterest.com/) clone. InterestIn is a website that designed to enable saving and discovery of infomation on the internet using images in the form of pinboards. It is a place for people  to share and collect thoughts, ideas and moments of life.
+[interestIn](https://interest-in.herokuapp.com/) is a [Pinterest](https://www.pinterest.com/) clone. InterestIn is a website that designed to enable saving and discovery of information on the internet using images in the form of pinboards. It is a place for people  to share and collect thoughts, ideas and moments of life.
 
 [Try it now!](https://interest-in.herokuapp.com/)
 
