@@ -48,7 +48,7 @@ const BoardCreateForm = (params) => {
                 
             })
             .then((status) => status && closeCreateBoardModal())
-            .then(()=>{history.push(`/users/${sessionUser.id}/saved`)})
+            
         }
             
     
