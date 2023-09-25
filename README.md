@@ -86,7 +86,7 @@ const HomePage = () => {
 ```
 Below is a code snippet of the Pins Controller to Create, Read, Update and Destroy image pins on the backend. These code communicate with the database to activate their specific tasks. Using Query Search, I was able to build searching function to filter pins with titles or descriptions that includes the input query. 
 
-```js
+```rb
 def show 
     @pin = Pin.find_by(id: params[:id])
     render :show
